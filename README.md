@@ -48,6 +48,8 @@ Folgende Funktionen wird unsere App haben:
 ## Konzept Desings befinden sich im Meilenstein#1
 [Konzept 1](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/8d35b78034d0eacee0502e79c9e4c08384225a05/Meilenstein%20%231/2023-04-27-DesignLeon.pdf)
 
+[Konzept 2](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/tree/main/Meilenstein%20)
+
 Mitwirkende: 
 
 Luis Westermeier
