@@ -45,7 +45,7 @@ Folgende Funktionen wird unsere App haben:
 - Personen, die sich für Selbststudium interessieren und ihre eigenen Karteikarten für jedes Thema erstellen möchten.
 
 
-
+## Konzept Desings befinden sich im Meilenstein#1
 
 
 Mitwirkende: 
