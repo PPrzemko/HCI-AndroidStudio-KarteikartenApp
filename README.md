@@ -54,13 +54,13 @@ Folgende Funktionen wird unsere App haben:
 ## Meilenstein 2: User Research 
 
 Kriterienliste mit möglichen Asuprägungen:
--Sehfähigkeiten: gut, weitsichtig, kurzsichtig
--Vertrautheit mit der Anwendung von Handyapps: vertraut, Experte, Anfänger
--Motivation sich mit dem zu lernenden Material auseinander zu stezen: hoch, mittel, niedrig
--zum Lernen zur verfügungstehende Zeit: viel, mittel, wenig
--Lernorte: unterwegs, zuhause, Bibliothek usw
+- Sehfähigkeiten: gut, weitsichtig, kurzsichtig
+- Vertrautheit mit der Anwendung von Handyapps: vertraut, Experte, Anfänger
+- Motivation sich mit dem zu lernenden Material auseinander zu stezen: hoch, mittel, niedrig
+- zum Lernen zur verfügungstehende Zeit: viel, mittel, wenig
+- Lernorte: unterwegs, zuhause, Bibliothek usw
 
-[Teilstandardisierte Interviewleitfaden] (https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein/Interviewleitfaden.pdf) 
+[Teilstandardisierte Interviewleitfaden](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein/Interviewleitfaden.pdf) 
 
 Stereotypen: [Caja Janson]()
 
