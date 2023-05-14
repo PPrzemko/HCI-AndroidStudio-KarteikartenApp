@@ -63,9 +63,11 @@ Kriterienliste mit möglichen Asuprägungen:
 [Teilstandardisierte Interviewleitfaden](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein/Interviewleitfaden.pdf) 
 
 Stereotypen: 
-- [Caja Janson](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein/CajaJenson.pdf)
-- [Sofia Schmidt](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein/SofiaEndVersion.pdf)
+- [Caja Janson](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/7cf8b9f065b4378601eb4b04da2a1caa359c4e3f/Meilenstein%20%232/CajaJenson.pdf)
+- [Sofia Schmidt](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/7cf8b9f065b4378601eb4b04da2a1caa359c4e3f/Meilenstein%20%232/SofiaEndVersion.pdf)
 - [Niels Müller](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein%20%232/Meilenstein2_Luis_Westermeier.pdf)
+- [Anna Nass](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/7cf8b9f065b4378601eb4b04da2a1caa359c4e3f/Meilenstein%20%232/2023-05-14-AnnaNass.pdf)
+
 
 
 Mitwirkende: 
