@@ -45,13 +45,24 @@ Folgende Funktionen wird unsere App haben:
 - Personen, die sich für Selbststudium interessieren und ihre eigenen Karteikarten für jedes Thema erstellen möchten.
 
 
-## Konzept Desings befinden sich im Meilenstein#1
+## Konzept Desings befinden sich im Meilenstein 1
 [Konzept 1](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/8d35b78034d0eacee0502e79c9e4c08384225a05/Meilenstein%20%231/2023-04-27-DesignLeon.pdf)
 [Konzept 2](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein%20/AnkiMingle.pdf)
 [Konzept 3](https://code.fbi.h-da.de/-/ide/project/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/tree/main/-/Meilenstein%20%231/DesignLuis.pdf/)
 [Konzept 4](/uploads/1eb6a192da6ce6922e3022ea87faaa5c/SkizzeApp.pdf)
 
-## User Research
+## Meilenstein 2: User Research 
+
+Kriterienliste mit möglichen Asuprägungen:
+-Sehfähigkeiten: gut, weitsichtig, kurzsichtig
+-Vertrautheit mit der Anwendung von Handyapps: vertraut, Experte, Anfänger
+-Motivation sich mit dem zu lernenden Material auseinander zu stezen: hoch, mittel, niedrig
+-zum Lernen zur verfügungstehende Zeit: viel, mittel, wenig
+-Lernorte: unterwegs, zuhause, Bibliothek usw
+
+[Teilstandardisierte Interviewleitfaden] (https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein/Interviewleitfaden.pdf) 
+
+Stereotypen: [Caja Janson]()
 
 
 
