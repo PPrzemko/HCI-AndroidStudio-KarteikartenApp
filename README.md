@@ -62,7 +62,8 @@ Kriterienliste mit möglichen Asuprägungen:
 
 [Teilstandardisierte Interviewleitfaden](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein/Interviewleitfaden.pdf) 
 
-Stereotypen: [Caja Janson]()
+Stereotypen: 
+- [Caja Janson](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein/CajaJenson.pdf)
 
 
 
