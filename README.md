@@ -70,7 +70,13 @@ Stereotypen:
 
 ## Meilenstein 3: 
 Navigationsübersicht und Screendiagramm:
--[Navigationsübersicht](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/tree/main/Meilenstein3/NavigationsübersichtFunktion.pdf)
+
+-[Navigationsübersicht]:
+(https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/tree/main/Meilenstein3/NavigationsübersichtFunktion.pdf)
+
+
+- Screendiagramme:
+
 
 Mitwirkende: 
 
