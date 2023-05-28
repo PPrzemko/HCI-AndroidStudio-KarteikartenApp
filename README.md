@@ -71,16 +71,28 @@ Stereotypen:
 ## Meilenstein 3: 
 Navigationsübersicht und Screendiagramm:
 
--[Navigationsübersicht1](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/tree/main/Meilenstein3/NavigationsübersichtFunktion.pdf)
+[Navigationsübersicht1](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/tree/main/Meilenstein3/NavigationsübersichtFunktion.pdf)
 
 
+Screendiagramme:
+- [Screendiagramm 1](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein3/Screendiagramm1.pdf)
+- [Screendiagramm 1](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein3/Screendiagramm2.pdf)
 
-- Screendiagramme:
-[Screendiagramm1](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/tree/main/Meilenstein3/Screendiagramm.pdf)
 
-Mitwirkende: 
+Begründung der Entwurfsentscheidungen:
+- Damit die Navigationsoption einfach auffindbar und leicht erreichbar ist, wurde eine Navigationsleiste am unteren Bildschirmrand gewählt. Ein leicht verständliches Symbol soll dafür sorgen, dass auch ohne Lesen jeder der Screens erkennbar wird.
+- Auf den Seiten „Freundesliste“, „Stapelübersicht“ und die Ansicht des ausgewählten Stapels befinden sich Suchleisten, um schneller das gewünschte Element finden zu können
 
-Luis Westermeier
-Leon Stöckbauer
-Franziska Roggenkamp
-Milel Zerai Micael 
+
+[Paper Prototyp](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein3/PapierPrototyp.pdf)
+
+
+[Beschreibung der Testfälle und Zusammenfassung der Erkenntnisse mit Anpassungen]()
+
+
+### Mitwirkende: 
+
+- Luis Westermeier
+- Leon Stöckbauer
+- Franziska Roggenkamp
+- Milel Zerai Micael 
