@@ -76,7 +76,7 @@ Navigationsübersicht und Screendiagramm:
 
 Screendiagramme:
 - [Screendiagramm 1](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein3/Screendiagramm1.pdf)
-- [Screendiagramm 1](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein3/Screendiagramm2.pdf)
+- [Screendiagramm 2](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein3/Screendiagramm2.pdf)
 
 
 Begründung der Entwurfsentscheidungen:
