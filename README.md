@@ -71,7 +71,7 @@ Stereotypen:
 ## Meilenstein 3: 
 Navigationsübersicht und Screendiagramm:
 
-[Navigationsübersicht1](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/tree/main/Meilenstein3/NavigationsübersichtFunktion.pdf)
+[Navigationsübersicht](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/tree/main/Meilenstein3/NavigationsübersichtFunktion.pdf)
 
 
 Screendiagramme:
@@ -87,7 +87,7 @@ Begründung der Entwurfsentscheidungen:
 [Paper Prototyp](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein3/PapierPrototyp.pdf)
 
 
-[Beschreibung der Testfälle und Zusammenfassung der Erkenntnisse mit Anpassungen]()
+[Beschreibung der Testfälle und Zusammenfassung der Erkenntnisse mit Anpassungen](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein3/Testf%C3%A4lleErkenntnisse.pdf)
 
 
 ### Mitwirkende: 
