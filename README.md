@@ -90,6 +90,12 @@ Begründung der Entwurfsentscheidungen:
 [Beschreibung der Testfälle und Zusammenfassung der Erkenntnisse mit Anpassungen](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein3/Testf%C3%A4lleErkenntnisse.pdf)
 
 
+## Meilenstein 4: 
+
+ Ergebnisse mittels Screenshots und kurzer Erklärung der Funktionalität :
+
+ 
+
 ### Mitwirkende: 
 
 - Luis Westermeier
