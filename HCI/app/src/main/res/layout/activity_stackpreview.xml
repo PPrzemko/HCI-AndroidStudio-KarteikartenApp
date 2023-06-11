@@ -78,7 +78,7 @@
         app:layout_constraintVertical_bias="0.998" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stapel lernen"
@@ -128,7 +128,7 @@
     <ScrollView
         android:layout_width="409dp"
         android:layout_height="391dp"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/Register"
         app:layout_constraintTop_toBottomOf="@+id/editTextText"
         tools:layout_editor_absoluteX="2dp">
 

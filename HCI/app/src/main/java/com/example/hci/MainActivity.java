@@ -13,10 +13,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setContentView(R.layout.activity_main);
-        Button h=findViewById(R.id.buttonHome);
-        Button f=findViewById(R.id.buttonFriendlist);
-        Button y=findViewById(R.id.buttonYourStacks);
+        Button h=findViewById(R.id.Login);
+
         h.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -25,21 +23,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        f.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), FriendlistActivity.class);
-                startActivity(i);
-            }
-        });
 
-        y.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), YourStacksActivity.class);
-                startActivity(i);
-            }
-        });
 
     }
 }
