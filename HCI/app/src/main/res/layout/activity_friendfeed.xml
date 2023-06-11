@@ -75,17 +75,19 @@
         app:layout_constraintStart_toEndOf="@+id/btnStack"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.998" />
+
     <ScrollView
-        android:layout_width="371dp"
-        android:layout_height="540dp"
+        android:layout_width="202dp"
+        android:layout_height="222dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="19dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="84dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnStack"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewHeadline">
+        app:layout_constraintTop_toBottomOf="@+id/textViewHeadline"
+        app:layout_constraintVertical_bias="0.008">
 
         <LinearLayout
             android:id="@+id/linearLayoutFriendfeed"
@@ -104,15 +106,13 @@
         android:id="@+id/textViewHeadline"
         android:layout_width="109dp"
         android:layout_height="37dp"
-        android:layout_marginStart="151dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="151dp"
-        android:layout_marginBottom="643dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056"
         tools:text="Aktivitäten" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/btnProfile"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
         app:layout_constraintVertical_bias="0.998" />
 
     <ImageButton
@@ -31,7 +31,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btnFriendslist"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnStack"
         app:layout_constraintVertical_bias="0.998" />
 
     <ImageButton
@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toStartOf="@+id/btnStack"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/btnActivity"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
         app:layout_constraintVertical_bias="0.998" />
 
     <ImageButton
@@ -59,8 +59,8 @@
         app:layout_constraintEnd_toStartOf="@+id/btnProfile"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/btnFriendslist"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998" />
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageButton
         android:id="@+id/btnProfile"
@@ -73,48 +73,45 @@
         app:layout_constraintEnd_toStartOf="@+id/btnLogout"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/btnStack"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
         app:layout_constraintVertical_bias="0.998" />
+
     <TextView
         android:id="@+id/textViewFriendlistHeadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="139dp"
-        android:layout_marginBottom="661dp"
         android:text="Freundesliste"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.039" />
 
     <SearchView
         android:id="@+id/SearchViewFriendlist"
         android:layout_width="299dp"
         android:layout_height="39dp"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="592dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFriendlistHeadline" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewFriendlistHeadline"
+        app:layout_constraintVertical_bias="0.018" />
 
     <ScrollView
         android:id="@+id/ScrollViewFriendlist"
-        android:layout_width="386dp"
-        android:layout_height="458dp"
+        android:layout_width="265dp"
+        android:layout_height="301dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="25dp"
         android:layout_marginEnd="13dp"
-        android:layout_marginBottom="108dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SearchViewFriendlist">
+        app:layout_constraintTop_toBottomOf="@+id/SearchViewFriendlist"
+        app:layout_constraintVertical_bias="0.077">
 
         <LinearLayout
             android:id="@+id/LinearLayoutFriendlist"
@@ -122,5 +119,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"></LinearLayout>
     </ScrollView>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="664dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

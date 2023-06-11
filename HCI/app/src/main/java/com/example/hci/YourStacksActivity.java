@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,6 +31,26 @@ public class YourStacksActivity extends AppCompatActivity {
             txt.setGravity(Gravity.CENTER);
             linear.addView(txt);
         }
+
+        Button das = findViewById(R.id.buttonAddCard);
+        das.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), editCard.class);
+                startActivity(i);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
         navbar();
     }
     public void navbar() {
