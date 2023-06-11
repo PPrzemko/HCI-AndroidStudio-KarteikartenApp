@@ -55,7 +55,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonCreateStack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -64,20 +64,20 @@
         android:layout_marginBottom="73dp"
         android:text="Stapel erstellen"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAddCard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ScrollViewYourStacks"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonAddCard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="8dp"
         android:text="Karten hinzufügen"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button2"
+        app:layout_constraintStart_toEndOf="@+id/buttonCreateStack"
         app:layout_constraintTop_toBottomOf="@+id/ScrollViewYourStacks" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
