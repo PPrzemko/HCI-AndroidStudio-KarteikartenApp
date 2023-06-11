@@ -92,7 +92,8 @@ Begründung der Entwurfsentscheidungen:
 
 ## Meilenstein 4: 
 
- Ergebnisse mittels Screenshots und kurzer Erklärung der Funktionalität :
+ Ergebnisse mittels Screenshots und kurzer Erklärung der Funktionalität : <br>
+ [Screenshots+Erklärung](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein #4/Meilenstein #4.pdf)
 
  
 
