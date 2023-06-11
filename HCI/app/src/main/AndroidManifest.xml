@@ -28,6 +28,15 @@
             android:name=".navbar"
             android:exported="false" />
         <activity
+            android:name=".FriendlistActivity"
+            android:exported="false" />
+        <activity
+            android:name=".YourStacksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FriendfeedActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>
