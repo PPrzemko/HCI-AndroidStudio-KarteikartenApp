@@ -42,6 +42,15 @@ public class YourStacksActivity extends AppCompatActivity {
         });
 
 
+        Button stapelErstellen = findViewById(R.id.buttonCreateStack);
+
+        stapelErstellen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), create_new_deckActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 
