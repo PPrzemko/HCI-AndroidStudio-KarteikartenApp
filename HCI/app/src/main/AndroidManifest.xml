@@ -16,6 +16,9 @@
             android:name=".Registrierung"
             android:exported="true" />
         <activity
+            android:name=".ForgotPassword"
+            android:exported="true" />
+        <activity
             android:name=".create_new_deckActivity"
             android:exported="true" />
         <activity

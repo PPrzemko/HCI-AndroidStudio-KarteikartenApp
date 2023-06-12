@@ -36,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
         Button passwortVergessen = findViewById(R.id.PasswortVergessen);
 
+        passwortVergessen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), ForgotPassword.class);
+                startActivity(i);
+            }
+        });
 
 
 
