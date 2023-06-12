@@ -3,9 +3,14 @@ package com.example.hci.repositories;
 import com.example.hci.model.Deck;
 import com.example.hci.model.User;
 
+
 import java.util.*;
 
 public class UserRepository { //TODO Singleton werden
+    public HashMap<UUID, User> getUsersById() {
+        return usersById;
+    }
+
     private final HashMap<UUID, User> usersById = new HashMap<>();
 
     public UserRepository(){

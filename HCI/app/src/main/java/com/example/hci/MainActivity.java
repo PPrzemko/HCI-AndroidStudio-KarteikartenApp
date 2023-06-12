@@ -34,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button passwortVergessen = findViewById(R.id.PasswortVergessen);
+
+
+
+
 
     }
 }
