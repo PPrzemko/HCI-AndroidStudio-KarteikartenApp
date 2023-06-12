@@ -13,6 +13,12 @@
         android:theme="@style/Theme.HCI"
         tools:targetApi="31">
         <activity
+            android:name=".Registrierung"
+            android:exported="true" />
+        <activity
+            android:name=".create_new_deckActivity"
+            android:exported="true" />
+        <activity
             android:name=".card"
             android:exported="false" />
         <activity
