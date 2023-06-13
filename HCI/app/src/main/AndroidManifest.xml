@@ -23,7 +23,7 @@
             android:exported="true" />
         <activity
             android:name=".card"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".stackpreview"
             android:exported="false" />
@@ -44,7 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".YourStacksActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".FriendfeedActivity"
             android:exported="false" />
