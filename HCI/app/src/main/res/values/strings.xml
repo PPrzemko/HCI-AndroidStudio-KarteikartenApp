@@ -4,6 +4,12 @@
     <string name="no_acc">Du hast kein Konto?</string>
     <string name="login">Anmelden</string>
     <string name="pw_forgott">Passwort vergessen?</string>
+    <string name="username">Benutzername</string>
+    <string name="password">Passwort</string>
+    <string name="change_pwd">Passwort</string>
+    <string name="abort">Abbruch</string>
+    <string name="change">Ändern</string>
+
 
 
 </resources>
