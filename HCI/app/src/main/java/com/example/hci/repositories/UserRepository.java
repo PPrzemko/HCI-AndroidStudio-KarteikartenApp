@@ -13,9 +13,14 @@ public class UserRepository { //TODO Singleton werden
 
     private final HashMap<UUID, User> usersById = new HashMap<>();
 
-    public UserRepository(){
-        //Singleton!!
+    private static UserRepository instance;
+    public static UserRepository getInstance(){
+        if(instance == null){
+            instance = new UserRepository();
+        }
+        return instance;
     }
+
     public void save(User deck) {
         usersById.put(deck.getUserId(), deck);
     }
