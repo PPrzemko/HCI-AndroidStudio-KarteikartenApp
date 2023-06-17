@@ -38,7 +38,7 @@ public class Registrierung extends AppCompatActivity {
                 String password = editText.toString();
 
                 User user = new User(name, email, password);
-                UserRepository.getInstance().getUsersById().put(user.getUserId(),user);
+                UserRepository.getInstance().save(user);
 
 
 
