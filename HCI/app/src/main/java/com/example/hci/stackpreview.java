@@ -24,17 +24,5 @@ public class stackpreview extends AppCompatActivity {
             txt.setGravity(Gravity.CENTER);
             linear.addView(txt);
         }
-
-
-
-
-
-
-
-
-
     }
-
-
-
 }

@@ -8,6 +8,13 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.hci.repositories.UserRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+
+import java.io.File;
+import java.io.IOException;
+
 public class profile extends AppCompatActivity {
 
     @Override
@@ -66,6 +73,16 @@ public class profile extends AppCompatActivity {
             public void onClick(View v) {
                 // TO DO ADD LOGOUT FUNCTIONALITY
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                ObjectMapper objectMapper = new ObjectMapper();
+                objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+                try {
+                    File file = new File("/Users/mzerai/StudioProjects/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/HCI");
+                    objectMapper.writeValue(file, UserRepository.getInstance().getUsersList());
+                    System.out.println("HashMap wurde in data.json gespeichert.");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
                 startActivity(i);
             }
         });

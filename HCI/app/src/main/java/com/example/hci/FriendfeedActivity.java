@@ -8,9 +8,12 @@ import android.provider.ContactsContract;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.hci.repositories.UserRepository;
 
 public class FriendfeedActivity extends AppCompatActivity {
 
@@ -32,6 +35,13 @@ public class FriendfeedActivity extends AppCompatActivity {
             txt.setGravity(Gravity.CENTER);
             linear.addView(txt);
         }
+
+        LinearLayout linear2 = findViewById((R.id.anzahlUsers));
+        int size = UserRepository.getInstance().getUsersList().size();
+        TextView textView1;
+
+
+
         navbar();
 
 

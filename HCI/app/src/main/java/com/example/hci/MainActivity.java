@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), Registrierung.class);
+                System.out.println("Bist drin");
                 startActivity(i);
             }
         });
