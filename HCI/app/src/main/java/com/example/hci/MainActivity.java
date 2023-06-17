@@ -1,6 +1,7 @@
 package com.example.hci;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+
 
 
 
