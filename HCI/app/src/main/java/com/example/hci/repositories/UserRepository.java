@@ -22,8 +22,8 @@ public class UserRepository { //TODO Singleton werden
         return instance;
     }
 
-    public void save(User deck) {
-        usersList.put(deck.getUserId(), deck);
+    public void save(User benutzer) {
+        usersList.put(benutzer.getUserId(), benutzer);
     }
 
     public Optional<User> findById(UUID id) {
