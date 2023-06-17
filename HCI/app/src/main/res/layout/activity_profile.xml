@@ -145,7 +145,7 @@
         android:id="@+id/button3"
         android:layout_width="146dp"
         android:layout_height="58dp"
-        android:text="Passwort vergessen"
+        android:text="Passwort ändern"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.464"
