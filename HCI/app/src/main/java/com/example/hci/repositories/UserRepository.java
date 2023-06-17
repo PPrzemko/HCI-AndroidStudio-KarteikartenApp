@@ -23,7 +23,12 @@ public class UserRepository { //TODO Singleton werden
     }
 
     public void save(User benutzer) {
-        usersList.put(benutzer.getUserId(), benutzer);
+        if(usersList.containsKey(benutzer.getUserId())){
+            throw new IllegalArgumentException("User already exists");
+        }else{
+            usersList.put(benutzer.getUserId(), benutzer);
+        }
+
     }
 
     public Optional<User> findById(UUID id) {

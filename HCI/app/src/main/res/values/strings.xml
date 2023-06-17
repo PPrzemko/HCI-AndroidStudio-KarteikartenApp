@@ -6,9 +6,14 @@
     <string name="pw_forgott">Passwort vergessen?</string>
     <string name="username">Benutzername</string>
     <string name="password">Passwort</string>
-    <string name="change_pwd">Passwort</string>
+    <string name="change_pwd">Passwort ändern</string>
     <string name="abort">Abbruch</string>
     <string name="change">Ändern</string>
+    <string name="email">E-Mail</string>
+    <string name="create">Erstellen</string>
+    <string name="createDeck">Stapel erstellen</string>
+    <string name="addCard">Karte hinzufügen</string>
+    <string name="yourDecks">Deine Stapel</string>
 
 
 

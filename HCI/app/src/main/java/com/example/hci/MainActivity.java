@@ -14,9 +14,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button h=findViewById(R.id.Login);
+        Button LoginButton=findViewById(R.id.Login);
 
-        h.setOnClickListener(new View.OnClickListener() {
+        LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
@@ -25,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button r = findViewById(R.id.Register);
+        Button RegisterButton = findViewById(R.id.Register);
 
-        r.setOnClickListener(new View.OnClickListener() {
+        RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), Registrierung.class);
@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button passwortVergessen = findViewById(R.id.PasswortVergessen);
+        Button ResetPasswordBtn = findViewById(R.id.PasswortVergessen);
 
-        passwortVergessen.setOnClickListener(new View.OnClickListener() {
+        ResetPasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), ForgotPassword.class);
