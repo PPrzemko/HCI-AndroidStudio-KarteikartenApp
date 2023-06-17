@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -14,6 +15,17 @@ public class profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         navbar();
+
+        Button aendern = findViewById(R.id.button3);
+        aendern.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), ForgotPassword.class);
+                startActivity(i);
+            }
+        });
+
+
     }
     public void navbar() {
         ImageButton a = findViewById(R.id.btnActivity);

@@ -2,8 +2,11 @@ package com.example.hci;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 public class editCard extends AppCompatActivity {
@@ -21,7 +24,14 @@ public class editCard extends AppCompatActivity {
         dropdown.setAdapter(adapter);
 
 
-
+        Button zurueck = findViewById(R.id.buttonBack);
+        zurueck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), YourStacksActivity.class);
+                startActivity(i);
+            }
+        });
 
 
 

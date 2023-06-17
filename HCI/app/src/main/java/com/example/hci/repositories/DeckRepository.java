@@ -9,9 +9,16 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.Optional;
 
-public class DeckRepository { //TODO Singleton werden
+public class DeckRepository {
 
     private final HashMap<UUID, Deck> decksById = new HashMap<>();
+    private static DeckRepository instance;
+    public static DeckRepository getInstance(){
+        if(instance == null){
+            instance = new DeckRepository();
+        }
+        return instance;
+    }
 
     public void save(Deck deck) {
         decksById.put(deck.getDeckId(), deck);

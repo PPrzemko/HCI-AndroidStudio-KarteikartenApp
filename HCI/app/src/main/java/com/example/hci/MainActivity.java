@@ -1,6 +1,7 @@
 package com.example.hci;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -22,6 +23,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+
+        Button r = findViewById(R.id.Register);
+
+        r.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Registrierung.class);
+                startActivity(i);
+            }
+        });
+
+        Button passwortVergessen = findViewById(R.id.PasswortVergessen);
+
+        passwortVergessen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), ForgotPassword.class);
+                startActivity(i);
+            }
+        });
+
+
+
+
 
 
 
