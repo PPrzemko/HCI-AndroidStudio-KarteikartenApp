@@ -5,70 +5,75 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/ueberschrift"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="65dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="65dp"
-        android:text="Chemiekarte"
-        android:textSize="48sp"
+    <ImageButton
+        android:id="@+id/correctBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:tint="#4CAF50"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardtextback"
+        app:layout_constraintVertical_bias="0.902"
+        app:srcCompat="@drawable/done" />
+
+    <ImageButton
+        android:id="@+id/wrongBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:tint="#F44336"
+        app:layout_constraintEnd_toStartOf="@+id/correctBtn"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/close"
+        tools:layout_editor_absoluteY="635dp" />
+
+    <TextView
+        android:id="@+id/headingTxt"
+        android:layout_width="193dp"
+        android:layout_height="37dp"
+        android:text="DemoText"
+        app:layout_constraintBottom_toTopOf="@+id/cardtextfront"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.669"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.106" />
+
+    <ImageButton
+        android:id="@+id/backbtn"
+        android:layout_width="80dp"
+        android:layout_height="71dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:src="@drawable/back"
+        app:layout_constraintEnd_toStartOf="@+id/headingTxt"
+        app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginEnd="55dp"
-        android:layout_marginBottom="92dp"
-        android:text="Nochmal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button5"
+    <TextView
+        android:id="@+id/cardtextfront"
+        android:layout_width="217dp"
+        android:layout_height="91dp"
+        android:layout_marginBottom="64dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/cardtextback"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.427"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="70dp"
-        android:text="Weiter"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button4" />
-
-    <TableLayout
-        android:id="@+id/VorderseiteKasten"
-        android:layout_width="262dp"
-        android:layout_height="202dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="69dp"
-        app:divider="@color/design_default_color_error"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:showDividers="end|middle|none|beginning">
-
-    </TableLayout>
-
-    <TableLayout
-        android:id="@+id/RueckseiteKasten"
-        android:layout_width="259dp"
-        android:layout_height="221dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="61dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginBottom="51dp"
-        android:showDividers="middle|beginning|end|none"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/VorderseiteKasten" />
+    <TextView
+        android:id="@+id/cardtextback"
+        android:layout_width="214dp"
+        android:layout_height="93dp"
+        android:layout_marginBottom="268dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/wrongBtn"
+        tools:layout_editor_absoluteX="83dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
