@@ -8,12 +8,22 @@ import android.widget.Button;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.Map;
+import java.util.UUID;
 
 public class profile extends AppCompatActivity {
 
@@ -72,17 +82,51 @@ public class profile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TO DO ADD LOGOUT FUNCTIONALITY
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                ObjectMapper objectMapper = new ObjectMapper();
-                objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
+
+                //ERSTELLEN EINER JSON
+                File file = new File(getExternalFilesDir(null), "data.txt");
+
+
+
+
+                JSONArray jsonArray = new JSONArray();
+
+                for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
+                    JSONObject aUser = new JSONObject();
+                    try {
+                        aUser.put("Name", entry.getValue().getUsername());
+                    } catch (JSONException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    try {
+                        aUser.put("Email", entry.getValue().getEmail());
+                    } catch (JSONException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                    try {
+                        aUser.put("Password", entry.getValue().getPassword());
+                    } catch (JSONException ex) {
+                        throw new RuntimeException(ex);
+                    }
+
+                    jsonArray.put(aUser);
+
+                }
+
 
                 try {
-                    File file = new File("/Users/mzerai/StudioProjects/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/HCI");
-                    objectMapper.writeValue(file, UserRepository.getInstance().getUsersList());
-                    System.out.println("HashMap wurde in data.json gespeichert.");
+                    FileOutputStream outputStream = new FileOutputStream(file);
+                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
+                    writer.write(jsonArray.toString());
+                    writer.flush();
+                    writer.close();
+
+
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    throw new RuntimeException(e);
                 }
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+
                 startActivity(i);
             }
         });

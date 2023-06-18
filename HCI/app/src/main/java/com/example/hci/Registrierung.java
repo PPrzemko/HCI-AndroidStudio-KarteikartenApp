@@ -64,9 +64,8 @@ public class Registrierung extends AppCompatActivity {
 
                 System.out.print("User hinzugefuegt");
 
-
+                /*ERSTELLEN EINER JSON + LESEN EINER JSON
                 File file = new File(getExternalFilesDir(null), "data.txt");
-
 
 
 
@@ -75,17 +74,17 @@ public class Registrierung extends AppCompatActivity {
                 for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
                     JSONObject aUser = new JSONObject();
                     try {
-                        aUser.put("Name", name);
+                        aUser.put("Name", entry.getValue().getUsername());
                     } catch (JSONException ex) {
                         throw new RuntimeException(ex);
                     }
                     try {
-                        aUser.put("Email", email);
+                        aUser.put("Email", entry.getValue().getEmail());
                     } catch (JSONException ex) {
                         throw new RuntimeException(ex);
                     }
                     try {
-                        aUser.put("Password", password);
+                        aUser.put("Password", entry.getValue().getPassword());
                     } catch (JSONException ex) {
                         throw new RuntimeException(ex);
                     }
@@ -105,8 +104,8 @@ public class Registrierung extends AppCompatActivity {
 
                 } catch (IOException e) {
                     throw new RuntimeException(e);
-                }
-                try {
+                }*/
+                /*try {
                     FileInputStream inputStream = new FileInputStream(file);
                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
                     String line;
@@ -125,10 +124,7 @@ public class Registrierung extends AppCompatActivity {
                     // Use the fileContents variable which contains the contents of the file
                 } catch (IOException e) {
                     e.printStackTrace();
-                }
-
-
-
+                }*/
                 startActivity(i);
             }
 
