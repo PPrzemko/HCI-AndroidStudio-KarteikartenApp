@@ -104,7 +104,7 @@ public class Registrierung extends AppCompatActivity {
 
                 } catch (IOException e) {
                     throw new RuntimeException(e);
-                }*/
+                }
                 /*try {
                     FileInputStream inputStream = new FileInputStream(file);
                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));

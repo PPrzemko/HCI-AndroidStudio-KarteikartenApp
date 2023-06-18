@@ -1,17 +1,26 @@
 package com.example.hci;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+
+import org.json.JSONException;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.hci.model.User;
+import com.example.hci.repositories.UserRepository;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -27,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
+
+                    //JSON DATEI LESEN
                     String fileName = "data.txt";
                     String path = getApplicationContext().getExternalFilesDir(null).getPath();
                     String filePath = path + "/" + fileName;
@@ -34,21 +45,44 @@ public class MainActivity extends AppCompatActivity {
                     FileInputStream fis = new FileInputStream(file);
                     BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
 
-                    String line;
+                    //********IN HASH-MAP BRINGEN *****
+
+                    JSONParser parser = new JSONParser();
+                    JSONArray a = (JSONArray) parser.parse(new FileReader(filePath));
+
+                    for (Object o : a)
+                    {
+                        JSONObject person = (JSONObject) o;
+
+                        String name = (String) person.get("Name");
+
+
+                        String email = (String) person.get("Email");
+
+
+                        String password = (String) person.get("Password");
+
+                        User user = new User(name, email, password);
+                        UserRepository.getInstance().save(user);
+
+                    }
+
+                    /*String line;
                     StringBuilder stringBuilder = new StringBuilder();
                     while ((line = reader.readLine()) != null) {
                         stringBuilder.append(line);
                         stringBuilder.append("\n");
-                    }
+                    }*/
+
                     reader.close();
                     fis.close();
 
 
-                    String fileContents = stringBuilder.toString();
+                    //String fileContents = stringBuilder.toString();
 
-                    Log.d("HIER IST DER STRING",fileContents);
+                    //Log.d("HIER IST DER STRING",fileContents);
                     // Use the fileContents variable which contains the contents of the file
-                } catch (IOException e) {
+                } catch (IOException | ParseException e) {
                     e.printStackTrace();
                 }
                 Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
