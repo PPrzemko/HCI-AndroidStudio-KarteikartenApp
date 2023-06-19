@@ -59,52 +59,54 @@ public class Registrierung extends AppCompatActivity {
                 editText = findViewById(R.id.EingabePasswort);
                 String password = editText.getText().toString();
 
-                User user = new User(name, email, password);
-                UserRepository.getInstance().save(user);
+                if(UserRepository.getInstance().getUsersList().size() == 0){
+                    User user = new User(name, email, password);
+                    UserRepository.getInstance().save(user);
 
-                System.out.print("User hinzugefuegt");
+                    System.out.print("User hinzugefuegt");
 
-                /*ERSTELLEN EINER JSON + LESEN EINER JSON
-                File file = new File(getExternalFilesDir(null), "data.txt");
+                    //ERSTELLEN EINER JSON + LESEN EINER JSON
+                    File file = new File(getExternalFilesDir(null), "data.txt");
 
 
 
-                JSONArray jsonArray = new JSONArray();
+                    JSONArray jsonArray = new JSONArray();
 
-                for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
-                    JSONObject aUser = new JSONObject();
-                    try {
-                        aUser.put("Name", entry.getValue().getUsername());
-                    } catch (JSONException ex) {
-                        throw new RuntimeException(ex);
+                    for (Map.Entry<UUID, User> neuMap : UserRepository.getInstance().getUsersList().entrySet()) {
+                        JSONObject aUser = new JSONObject();
+                        try {
+                            aUser.put("Name", neuMap.getValue().getUsername());
+                        } catch (JSONException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        try {
+                            aUser.put("Email", neuMap.getValue().getEmail());
+                        } catch (JSONException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        try {
+                            aUser.put("Password", neuMap.getValue().getPassword());
+                        } catch (JSONException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+
+                        jsonArray.put(aUser);
+
                     }
+
+
                     try {
-                        aUser.put("Email", entry.getValue().getEmail());
-                    } catch (JSONException ex) {
-                        throw new RuntimeException(ex);
+                        FileOutputStream outputStream = new FileOutputStream(file);
+                        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
+                        writer.write(jsonArray.toString());
+                        writer.flush();
+                        writer.close();
+
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
                     }
-                    try {
-                        aUser.put("Password", entry.getValue().getPassword());
-                    } catch (JSONException ex) {
-                        throw new RuntimeException(ex);
-                    }
-
-                    jsonArray.put(aUser);
-
-                }
-
-
-                try {
-                    FileOutputStream outputStream = new FileOutputStream(file);
-                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-                    writer.write(jsonArray.toString());
-                    writer.flush();
-                    writer.close();
-
-
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
                 /*try {
                     FileInputStream inputStream = new FileInputStream(file);
                     BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -125,7 +127,86 @@ public class Registrierung extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }*/
-                startActivity(i);
+                    startActivity(i);
+                }
+
+                for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
+                    if(entry.getValue().getUsername().equals(name)){
+                        Log.d("TEST","Gibt den User nicht");
+                    }
+                    else {
+                        User user = new User(name, email, password);
+                        UserRepository.getInstance().save(user);
+
+                        System.out.print("User hinzugefuegt");
+
+                        //ERSTELLEN EINER JSON + LESEN EINER JSON
+                        File file = new File(getExternalFilesDir(null), "data.txt");
+
+
+
+                        JSONArray jsonArray = new JSONArray();
+
+                        for (Map.Entry<UUID, User> neuMap : UserRepository.getInstance().getUsersList().entrySet()) {
+                            JSONObject aUser = new JSONObject();
+                            try {
+                                aUser.put("Name", neuMap.getValue().getUsername());
+                            } catch (JSONException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                            try {
+                                aUser.put("Email", neuMap.getValue().getEmail());
+                            } catch (JSONException ex) {
+                                throw new RuntimeException(ex);
+                            }
+                            try {
+                                aUser.put("Password", neuMap.getValue().getPassword());
+                            } catch (JSONException ex) {
+                                throw new RuntimeException(ex);
+                            }
+
+
+                            jsonArray.put(aUser);
+
+                        }
+
+
+                        try {
+                            FileOutputStream outputStream = new FileOutputStream(file);
+                            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
+                            writer.write(jsonArray.toString());
+                            writer.flush();
+                            writer.close();
+
+
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                /*try {
+                    FileInputStream inputStream = new FileInputStream(file);
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                    String line;
+                    StringBuilder stringBuilder = new StringBuilder();
+                    while ((line = reader.readLine()) != null) {
+                        stringBuilder.append(line);
+                        stringBuilder.append("\n");
+                    }
+                    reader.close();
+                    inputStream.close();
+
+
+                    String fileContents = stringBuilder.toString();
+
+                    Log.d("Test",fileContents);
+                    // Use the fileContents variable which contains the contents of the file
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }*/
+                        startActivity(i);
+                    }
+
+                }
+
             }
 
 

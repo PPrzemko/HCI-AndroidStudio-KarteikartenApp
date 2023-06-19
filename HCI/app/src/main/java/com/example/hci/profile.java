@@ -125,6 +125,7 @@ public class profile extends AppCompatActivity {
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
+                UserRepository.getInstance().getUsersList().clear();
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
 
                 startActivity(i);
