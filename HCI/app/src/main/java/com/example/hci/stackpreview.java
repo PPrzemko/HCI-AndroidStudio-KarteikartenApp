@@ -55,7 +55,4 @@ public class stackpreview extends AppCompatActivity {
 
 
     }
-
-
-
 }

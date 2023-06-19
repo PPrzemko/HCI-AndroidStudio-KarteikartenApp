@@ -26,6 +26,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    buildToolsVersion '34.0.0'
 }
 
 dependencies {
@@ -36,4 +37,9 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.8.9'
+    //implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    implementation('com.googlecode.json-simple:json-simple:1.1.1') {
+        exclude group: 'org.hamcrest'}
+
 }
