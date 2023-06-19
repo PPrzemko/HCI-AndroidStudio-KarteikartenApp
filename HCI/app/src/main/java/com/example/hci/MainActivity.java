@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        h.setOnClickListener(new View.OnClickListener() {
+        LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Boolean exitstiert = false;
@@ -108,9 +108,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button r = findViewById(R.id.Register);
+        Button RegisterButton = findViewById(R.id.Register);
 
-        r.setOnClickListener(new View.OnClickListener() {
+        RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -120,9 +120,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button passwortVergessen = findViewById(R.id.PasswortVergessen);
+        Button ResetPasswordBtn = findViewById(R.id.PasswortVergessen);
 
-        passwortVergessen.setOnClickListener(new View.OnClickListener() {
+        ResetPasswordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), ForgotPassword.class);
