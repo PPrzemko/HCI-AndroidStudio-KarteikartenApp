@@ -1,7 +1,5 @@
 package com.example.hci.usecase;
 
-import com.example.hci.repositories.DeckRepository;
-
 import java.util.UUID;
 
 public class CurrentData {
@@ -9,11 +7,11 @@ public class CurrentData {
     private UUID userId;
     private UUID deckId;
 
-    private static RememberCurrentData instance;
+    private static CurrentData instance;
 
-    public static RememberCurrentData getInstance(){
+    public static CurrentData getInstance(){
         if(instance == null){
-            instance = new RememberCurrentData();
+            instance = new CurrentData();
         }
         return instance;
     }

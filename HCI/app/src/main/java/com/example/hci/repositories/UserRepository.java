@@ -28,14 +28,13 @@ public class UserRepository { //TODO Singleton werden
         }else{
             usersList.put(benutzer.getUserId(), benutzer);
         }
-
     }
 
-    public Optional<User> findById(UUID id) {
-        return Optional.ofNullable(usersList.get(id));
+    public User findById(UUID id) {
+        return usersList.get(id);
     }
 
-    public Set<User> findDecksByName(Set<String> searchWords) {
+    public Set<User> findUserByName(Set<String> searchWords) {
         Set<User> returnSet = new HashSet<>();
         for (String word : searchWords) {
             String wordLowerCase = word.toLowerCase();

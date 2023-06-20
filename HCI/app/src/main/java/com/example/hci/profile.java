@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
+import com.example.hci.usecase.CurrentData;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -27,12 +30,22 @@ import java.util.UUID;
 
 public class profile extends AppCompatActivity {
 
+    private CurrentData currentData = CurrentData.getInstance();
+    private UserRepository userRepository = UserRepository.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         navbar();
+/*
+        TextView tvUsername = findViewById(R.id.editTextText3);
+        User currentUser = userRepository.findById(currentData.getUserId());
+        tvUsername.setText(currentUser.getUsername());
 
+        TextView tvEmailadress = findViewById(R.id.editTextTextEmailAddress);
+        tvEmailadress.setText(currentUser.getEmail());
+*/
         Button aendern = findViewById(R.id.button3);
         aendern.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,9 +54,23 @@ public class profile extends AppCompatActivity {
                 startActivity(i);
             }
         });
+/*
+        Button saveEditButton = findViewById(R.id.buttonSaveEdit);
+        saveEditButton.setOnClickListener(new View.OnClickListener() {
 
+            EditText inputTextUsername = (EditText)findViewById(R.id.editTextText3);
+            EditText inputTextEmail = (EditText)findViewById(R.id.editTextTextEmailAddress);
 
+            @Override
+            public void onClick(View view) {
+                currentUser.setEmail(tvEmailadress.getText().toString());
+                currentUser.setUsername(tvUsername.getText().toString());
+
+                finish(); //soll hoffentlich die activity neu laden
+            }
+        });*/
     }
+
     public void navbar() {
         ImageButton a = findViewById(R.id.btnActivity);
         ImageButton b = findViewById(R.id.btnFriendslist);
@@ -85,8 +112,6 @@ public class profile extends AppCompatActivity {
 
                 //ERSTELLEN EINER JSON
                 File file = new File(getExternalFilesDir(null), "data.txt");
-
-
 
 
                 JSONArray jsonArray = new JSONArray();
