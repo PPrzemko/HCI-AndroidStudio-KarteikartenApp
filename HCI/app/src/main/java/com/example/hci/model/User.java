@@ -82,12 +82,4 @@ public class User {
     public void addOwnDeck(Deck deck){
         ownDecks.put(deck.getDeckId(), deck);
     }
-
-
-    public void changePassword(String input1, String input2) throws IncorrectPasswordInputException {
-        if(!input1.equals(input2)){
-            throw new IncorrectPasswordInputException();
-        }
-        setPassword(input1);
-    }
 }

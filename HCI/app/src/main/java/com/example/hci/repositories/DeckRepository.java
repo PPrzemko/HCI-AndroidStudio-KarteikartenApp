@@ -24,8 +24,8 @@ public class DeckRepository {
         decksById.put(deck.getDeckId(), deck);
     }
 
-    public Optional<Deck> findById(UUID id) {
-        return Optional.ofNullable(decksById.get(id));
+    public Deck findById(UUID id) {
+        return decksById.get(id);
     }
 
     public Set<Deck> findDecksByName(Set<String> searchWords) {

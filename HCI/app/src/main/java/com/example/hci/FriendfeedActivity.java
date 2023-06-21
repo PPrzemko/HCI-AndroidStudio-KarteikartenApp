@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
+import com.example.hci.usecase.CurrentData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +30,9 @@ import java.util.Map;
 import java.util.UUID;
 
 public class FriendfeedActivity extends AppCompatActivity {
+
+    private UserRepository userRepository= UserRepository.getInstance();
+    private CurrentData currentData = CurrentData.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +57,7 @@ public class FriendfeedActivity extends AppCompatActivity {
         int size = UserRepository.getInstance().getUsersList().size();
         TextView textView1;
 
-
-
         navbar();
-
-
-
-
-
     }
     public void navbar(){
         ImageButton a=findViewById(R.id.btnActivity);

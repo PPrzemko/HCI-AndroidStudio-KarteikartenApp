@@ -39,19 +39,7 @@ public class Deck {
         this.flashCards = flashCards;
     }
 
-
-/*
-    public Set<FlashCard> findCardsByQuery(Set<String> words){ //bei shop dings schauen
-        var wordsLower = words.stream()
-                .map(String::toLowerCase)
-                .collect(toSet());
-
-        return shopRepository.findPredicate(shop -> shopNameContainsWord(shop, wordsLower)
+    public void addFlashCard(FlashCard newFlashCard){
+        flashCards.add(newFlashCard);
     }
-
-    private boolean shopNameContainsWord(Shop shop, Set<String> words) {
-        return words.stream()
-                .anyMatch(word -> shop.name().toLowerCase().contains(word));
-    }
- */
 }

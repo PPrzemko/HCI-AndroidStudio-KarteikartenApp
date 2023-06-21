@@ -1,4 +1,5 @@
 package com.example.hci;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -6,6 +7,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,7 @@ import android.widget.EditText;
 
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
+import com.example.hci.usecase.CurrentData;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -26,11 +29,13 @@ import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
+    private CurrentData currentData = CurrentData.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button LoginButton=findViewById(R.id.Login);
+        Button LoginButton = findViewById(R.id.Login);
         try {
 
             //JSON DATEI LESEN
@@ -46,8 +51,7 @@ public class MainActivity extends AppCompatActivity {
             JSONParser parser = new JSONParser();
             JSONArray a = (JSONArray) parser.parse(new FileReader(filePath));
 
-            for (Object o : a)
-            {
+            for (Object o : a) {
                 JSONObject person = (JSONObject) o;
 
                 String name = (String) person.get("Name");
@@ -95,14 +99,16 @@ public class MainActivity extends AppCompatActivity {
                 String password = editText.getText().toString();
 
                 for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
-                        String neuerName = entry.getValue().getUsername().toString();
-                        String nerPasswort = entry.getValue().getPassword().toString();
-                    if(neuerName.equals(nutzername) && nerPasswort.equals(password)){
-                            Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
-                            startActivity(i);
-
-                        };
-                };
+                    String neuerName = entry.getValue().getUsername().toString();
+                    String nerPasswort = entry.getValue().getPassword().toString();
+                    if (neuerName.equals(nutzername) && nerPasswort.equals(password)) {
+                        currentData.setUserId(entry.getKey());
+                        Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
+                        startActivity(i);
+                    }
+                    ;
+                }
+                ;
 
             }
         });
@@ -126,15 +132,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), ForgotPassword.class);
+                i.putExtra("cameFromProfile", false);
                 startActivity(i);
             }
         });
-
-
-
-
-
-
-
     }
 }

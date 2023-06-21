@@ -1,33 +1,27 @@
 package com.example.hci;
 
 import com.example.hci.repositories.UserRepository;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-
-
-
 import com.example.hci.model.User;
+import com.example.hci.usecase.CurrentData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Map;
 import java.util.UUID;
@@ -35,19 +29,23 @@ import java.util.UUID;
 
 public class Registrierung extends AppCompatActivity {
 
-
+    private UserRepository userRepository = UserRepository.getInstance();
+    private CurrentData currentData = CurrentData.getInstance();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrierung);
 
-
         Button erstellen = findViewById(R.id.erstellenButton);
         erstellen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                //neuen User speicher
+                //zu Activitäten view wechseln -> user name übergeben
+                //json einlesen
+
+                Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
                 EditText editText;
 
                 editText = findViewById(R.id.NameEingabe);
@@ -59,20 +57,18 @@ public class Registrierung extends AppCompatActivity {
                 editText = findViewById(R.id.EingabePasswort);
                 String password = editText.getText().toString();
 
-                if(UserRepository.getInstance().getUsersList().size() == 0){
+                if (userRepository.getUsersList().size() == 0) {
                     User user = new User(name, email, password);
-                    UserRepository.getInstance().save(user);
+                    userRepository.save(user);
 
                     System.out.print("User hinzugefuegt");
 
                     //ERSTELLEN EINER JSON + LESEN EINER JSON
                     File file = new File(getExternalFilesDir(null), "data.txt");
 
-
-
                     JSONArray jsonArray = new JSONArray();
 
-                    for (Map.Entry<UUID, User> neuMap : UserRepository.getInstance().getUsersList().entrySet()) {
+                    for (Map.Entry<UUID, User> neuMap : userRepository.getUsersList().entrySet()) {
                         JSONObject aUser = new JSONObject();
                         try {
                             aUser.put("Name", neuMap.getValue().getUsername());
@@ -89,12 +85,8 @@ public class Registrierung extends AppCompatActivity {
                         } catch (JSONException ex) {
                             throw new RuntimeException(ex);
                         }
-
-
                         jsonArray.put(aUser);
-
                     }
-
 
                     try {
                         FileOutputStream outputStream = new FileOutputStream(file);
@@ -102,52 +94,29 @@ public class Registrierung extends AppCompatActivity {
                         writer.write(jsonArray.toString());
                         writer.flush();
                         writer.close();
-
-
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
-                /*try {
-                    FileInputStream inputStream = new FileInputStream(file);
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                    String line;
-                    StringBuilder stringBuilder = new StringBuilder();
-                    while ((line = reader.readLine()) != null) {
-                        stringBuilder.append(line);
-                        stringBuilder.append("\n");
-                    }
-                    reader.close();
-                    inputStream.close();
 
-
-                    String fileContents = stringBuilder.toString();
-
-                    Log.d("Test",fileContents);
-                    // Use the fileContents variable which contains the contents of the file
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
+                    currentData.setUserId(user.getUserId());
                     startActivity(i);
                 }
 
-                for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
-                    if(entry.getValue().getUsername().equals(name)){
-                        Log.d("TEST","Gibt den User nicht");
-                    }
-                    else {
+                for (Map.Entry<UUID, User> entry : userRepository.getUsersList().entrySet()) {
+                    if (entry.getValue().getUsername().equals(name)) {
+                        Log.d("TEST", "Gibt den User nicht");
+                    } else {
                         User user = new User(name, email, password);
-                        UserRepository.getInstance().save(user);
+                        userRepository.save(user);
 
                         System.out.print("User hinzugefuegt");
 
                         //ERSTELLEN EINER JSON + LESEN EINER JSON
                         File file = new File(getExternalFilesDir(null), "data.txt");
 
-
-
                         JSONArray jsonArray = new JSONArray();
 
-                        for (Map.Entry<UUID, User> neuMap : UserRepository.getInstance().getUsersList().entrySet()) {
+                        for (Map.Entry<UUID, User> neuMap : userRepository.getUsersList().entrySet()) {
                             JSONObject aUser = new JSONObject();
                             try {
                                 aUser.put("Name", neuMap.getValue().getUsername());
@@ -164,12 +133,8 @@ public class Registrierung extends AppCompatActivity {
                             } catch (JSONException ex) {
                                 throw new RuntimeException(ex);
                             }
-
-
                             jsonArray.put(aUser);
-
                         }
-
 
                         try {
                             FileOutputStream outputStream = new FileOutputStream(file);
@@ -177,40 +142,17 @@ public class Registrierung extends AppCompatActivity {
                             writer.write(jsonArray.toString());
                             writer.flush();
                             writer.close();
-
-
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
-                /*try {
-                    FileInputStream inputStream = new FileInputStream(file);
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                    String line;
-                    StringBuilder stringBuilder = new StringBuilder();
-                    while ((line = reader.readLine()) != null) {
-                        stringBuilder.append(line);
-                        stringBuilder.append("\n");
-                    }
-                    reader.close();
-                    inputStream.close();
 
-
-                    String fileContents = stringBuilder.toString();
-
-                    Log.d("Test",fileContents);
-                    // Use the fileContents variable which contains the contents of the file
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }*/
+                        currentData.setUserId(user.getUserId());
                         startActivity(i);
                     }
 
                 }
 
             }
-
-
-
         });
     }
 }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
+import com.example.hci.usecase.CurrentData;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,6 +30,8 @@ import java.util.UUID;
 
 
 public class FriendlistActivity extends AppCompatActivity {
+
+    private CurrentData currentData = CurrentData.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
