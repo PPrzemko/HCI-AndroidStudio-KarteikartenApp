@@ -17,6 +17,7 @@ import android.widget.EditText;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
+import com.example.hci.usecase.Jsonmanager;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -36,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button LoginButton = findViewById(R.id.Login);
+
+        /*
+        Jsonmanager j = Jsonmanager.getInstance();
+        j.writeToJson(getApplicationContext());
+        */
+
+
         try {
 
             //JSON DATEI LESEN
