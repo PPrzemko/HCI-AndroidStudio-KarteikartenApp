@@ -68,7 +68,7 @@ public class Jsonmanager {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        UserRepository.getInstance().getUsersList().clear();
+        //UserRepository.getInstance().getUsersList().clear();
 
     }
 }
