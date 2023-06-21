@@ -40,7 +40,6 @@ public class ForgotPassword extends AppCompatActivity {
             tvUsername.setText(currentUser.getUsername());
         }
 
-        /* macht dass die app abstürzt
         neu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,21 +50,16 @@ public class ForgotPassword extends AppCompatActivity {
                     i = new Intent(getApplicationContext(), MainActivity.class);
                 }
 
-                    if (currentUser.areBothPasswordsTheSame(pwInput1TextEdit.getText().toString(), pwInput2TextEdit.getText().toString())) {
-                        currentUser.setPassword(pwInput1TextEdit.getText().toString());
-                        DisplayErrorMessageTextView.setVisibility(View.INVISIBLE);
-                        startActivity(i);
-
-
-                    } else {
-                        //fehlerausgabe an nutzer dass passwörter ungleich sind
-                        DisplayErrorMessageTextView.setVisibility(View.VISIBLE);
-                    }
-
+                if (pwInput1TextEdit.getText().toString().equals(pwInput2TextEdit.getText().toString())) {
+                    currentUser.setPassword(pwInput1TextEdit.getText().toString());
+                    DisplayErrorMessageTextView.setVisibility(View.INVISIBLE);
+                    startActivity(i);
+                } else {
+                    DisplayErrorMessageTextView.setVisibility(View.VISIBLE);
                 }
-
+            }
         });
-        */
+
 
         abbruch.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -82,12 +82,4 @@ public class User {
     public void addOwnDeck(Deck deck){
         ownDecks.put(deck.getDeckId(), deck);
     }
-
-
-    public Boolean areBothPasswordsTheSame(String input1, String input2) { //incorrect password exception klasse kann gelöscht werden
-        if(!input1.equals(input2)){
-            return false;
-        }
-        return true;
-    }
 }
