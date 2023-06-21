@@ -9,8 +9,8 @@
 
     <EditText
         android:id="@+id/CardFrontText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="390dp"
+        android:layout_height="49dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:gravity="start|top"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.075" />
 
     <Spinner
-        android:id="@+id/spinner1"
+        android:id="@+id/spinnerChoseDeck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -63,7 +63,7 @@
         app:layout_constraintVertical_bias="0.086" />
 
     <Button
-        android:id="@+id/save"
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -72,13 +72,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner1"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerChoseDeck"
         app:layout_constraintVertical_bias="0.219" />
 
     <EditText
         android:id="@+id/cardRearText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="391dp"
+        android:layout_height="47dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="236dp"
         android:ems="10"

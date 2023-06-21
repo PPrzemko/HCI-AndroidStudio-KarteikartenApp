@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), ForgotPassword.class);
+                i.putExtra("cameFromProfile", false);
                 startActivity(i);
             }
         });

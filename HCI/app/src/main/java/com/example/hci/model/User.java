@@ -84,10 +84,10 @@ public class User {
     }
 
 
-    public void changePassword(String input1, String input2) throws IncorrectPasswordInputException {
+    public Boolean areBothPasswordsTheSame(String input1, String input2) { //incorrect password exception klasse kann gelöscht werden
         if(!input1.equals(input2)){
-            throw new IncorrectPasswordInputException();
+            return false;
         }
-        setPassword(input1);
+        return true;
     }
 }

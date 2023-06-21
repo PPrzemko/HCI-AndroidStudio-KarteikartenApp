@@ -46,27 +46,22 @@ public class profile extends AppCompatActivity {
         TextView tvEmailadress = findViewById(R.id.editTextTextEmailAddress);
         tvEmailadress.setText(currentUser.getEmail());
 
-        Button aendern = findViewById(R.id.button3);
-        aendern.setOnClickListener(new View.OnClickListener() {
+        Button changePasswordButton = findViewById(R.id.button3);
+        changePasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), ForgotPassword.class);
+                i.putExtra("cameFromProfile", true);
                 startActivity(i);
             }
         });
 
         Button saveEditButton = findViewById(R.id.buttonSaveEdit);
         saveEditButton.setOnClickListener(new View.OnClickListener() {
-
-            EditText inputTextUsername = (EditText)findViewById(R.id.editTextText3);
-            EditText inputTextEmail = (EditText)findViewById(R.id.editTextTextEmailAddress);
-
             @Override
             public void onClick(View view) {
                 currentUser.setEmail(tvEmailadress.getText().toString());
                 currentUser.setUsername(tvUsername.getText().toString());
-
-                finish(); //soll hoffentlich die activity neu laden
             }
         });
     }
