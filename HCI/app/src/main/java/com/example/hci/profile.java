@@ -38,14 +38,14 @@ public class profile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         navbar();
-/*
+
         TextView tvUsername = findViewById(R.id.editTextText3);
         User currentUser = userRepository.findById(currentData.getUserId());
         tvUsername.setText(currentUser.getUsername());
 
         TextView tvEmailadress = findViewById(R.id.editTextTextEmailAddress);
         tvEmailadress.setText(currentUser.getEmail());
-*/
+
         Button aendern = findViewById(R.id.button3);
         aendern.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +54,7 @@ public class profile extends AppCompatActivity {
                 startActivity(i);
             }
         });
-/*
+
         Button saveEditButton = findViewById(R.id.buttonSaveEdit);
         saveEditButton.setOnClickListener(new View.OnClickListener() {
 
@@ -68,7 +68,7 @@ public class profile extends AppCompatActivity {
 
                 finish(); //soll hoffentlich die activity neu laden
             }
-        });*/
+        });
     }
 
     public void navbar() {
