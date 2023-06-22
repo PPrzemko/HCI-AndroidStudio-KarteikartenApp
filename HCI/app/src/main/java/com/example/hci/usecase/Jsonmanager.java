@@ -2,6 +2,8 @@ package com.example.hci.usecase;
 
 import android.content.Context;
 
+import com.example.hci.model.Deck;
+import com.example.hci.model.FlashCard;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 
@@ -20,6 +22,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
 
@@ -37,6 +40,7 @@ public class Jsonmanager {
     public void writeToJson(Context context) {
 
         UserRepository userRepository = UserRepository.getInstance();
+
         File file = new File(context.getExternalFilesDir(null), "data.txt");
 
         JSONArray jsonArray = new JSONArray();
@@ -60,7 +64,42 @@ public class Jsonmanager {
             } catch (JSONException ex) {
                 throw new RuntimeException(ex);
             }
+            JSONArray ganzerStapel = new JSONArray();
+            for (Map.Entry<UUID, Deck> entry2 : entry.getValue().getOwnDecks().entrySet()) {
+                String deckName = entry2.getValue().getName();
+                ArrayList<FlashCard> flashCards = entry2.getValue().getFlashCards();
+                JSONArray einDeck = new JSONArray();
+                for (FlashCard cardEntry : flashCards) {
 
+                    JSONObject karte = new JSONObject();
+
+                    try {
+                        karte.put("Voderseite", cardEntry.getFront());
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                    try {
+                        karte.put("Rückseite", cardEntry.getBack());
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                    einDeck.put(karte);
+                }
+                JSONObject neuesDeck = new JSONObject();
+                try {
+                    neuesDeck.put(deckName, einDeck);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+                ganzerStapel.put(neuesDeck);
+            }
+            try {
+                aUser.put("Stapel", ganzerStapel);
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
             jsonArray.put(aUser);
         }
         try {
