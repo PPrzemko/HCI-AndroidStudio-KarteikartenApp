@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#00FFFFFF"
         android:tint="#4CAF50"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.84"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#00FFFFFF"
         android:tint="#F44336"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/correctBtn"
         app:layout_constraintHorizontal_bias="0.253"
@@ -92,8 +92,8 @@
 
     <Button
         android:id="@+id/buttonBackgroundClickable"
-        android:layout_width="409dp"
-        android:layout_height="571dp"
+        android:layout_width="390dp"
+        android:layout_height="669dp"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
