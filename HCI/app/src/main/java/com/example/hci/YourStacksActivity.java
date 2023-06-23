@@ -56,7 +56,7 @@ public class YourStacksActivity extends AppCompatActivity {
             }
         });
 
-        Button untenlinks = findViewById(R.id.buttonCreateStack);
+        Button untenlinks = findViewById(R.id.buttonCreateStack); //beide buttens sind der gleiche!!
 
         untenlinks.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +64,6 @@ public class YourStacksActivity extends AppCompatActivity {
 
             }
         });
-
 
         Button stapelErstellen = findViewById(R.id.buttonCreateStack);
 
@@ -75,14 +74,6 @@ public class YourStacksActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
-
-
-
-
-
-
-
 
         navbar();
     }
@@ -153,7 +144,6 @@ public class YourStacksActivity extends AppCompatActivity {
                     jsonArray.put(aUser);
 
                 }
-
 
                 try {
                     FileOutputStream outputStream = new FileOutputStream(file);

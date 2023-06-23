@@ -11,7 +11,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
+import com.example.hci.repositories.DeckRepository;
+import com.example.hci.usecase.CurrentData;
+import com.example.hci.usecase.LearningSession;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,10 +24,15 @@ public class stackpreview extends AppCompatActivity {
     List<FlashCard> cardList;
     RecyclerView recyclerView;
     StackPreviewCustomViewAdapter customViewAdapter;
+    CurrentData currentData = CurrentData.getInstance();
+    DeckRepository deckRepository = DeckRepository.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stackpreview);
+
+        Deck currentDeck = deckRepository.findById(currentData.getDeckId());
+        LearningSession learningSession = new LearningSession(currentDeck); ////////////////current data learnign session setzen
 
 
         recyclerView = findViewById(R.id.recyclerView);

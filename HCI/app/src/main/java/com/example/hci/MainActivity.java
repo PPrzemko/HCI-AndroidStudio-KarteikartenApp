@@ -89,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), card.class);
+                startActivity(i);
+                /*
                 Boolean exitstiert = false;
                 EditText editText;
 
@@ -110,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 ;
 
+                 */
             }
         });
 

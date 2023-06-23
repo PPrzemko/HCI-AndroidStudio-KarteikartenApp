@@ -15,7 +15,6 @@ public class create_new_deckActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.create_new_deck);
 
-
         Button deckErstellen = findViewById(R.id.Erstellen);
 
         deckErstellen.setOnClickListener(new View.OnClickListener() {
@@ -25,7 +24,5 @@ public class create_new_deckActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
-
 }
