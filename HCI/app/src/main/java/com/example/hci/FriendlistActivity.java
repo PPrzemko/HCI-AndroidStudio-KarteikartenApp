@@ -33,6 +33,7 @@ import java.util.UUID;
 public class FriendlistActivity extends AppCompatActivity {
 
     private CurrentData currentData = CurrentData.getInstance();
+    private UserRepository userRepository= UserRepository.getInstance();
     private Jsonmanager jsonmanager = Jsonmanager.getInstance();
 
     @Override
@@ -44,11 +45,17 @@ public class FriendlistActivity extends AppCompatActivity {
         textView.setText("Freundesliste");
 
         LinearLayout linear =findViewById(R.id.LinearLayoutFriendlist);
-        TextView[] textViews = new TextView[20];
+        User neu = userRepository.findById(currentData.getUserId());
 
+        TextView[] textViews = new TextView[20];
+        String alleFreunde = "";
+        for(User u : neu.getFriends()){
+            alleFreunde += u.getUsername() ;
+            alleFreunde += "\n";
+        }
         for(TextView txt : textViews){
             txt = new TextView(this);
-            txt.setText("Hans Peter");
+            txt.setText(alleFreunde);
             txt.setPadding(0,40,0,40);
             txt.setGravity(Gravity.CENTER);
             linear.addView(txt);

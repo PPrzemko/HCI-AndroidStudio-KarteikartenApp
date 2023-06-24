@@ -10,6 +10,7 @@ import com.example.hci.repositories.UserRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -72,7 +74,11 @@ public class Jsonmanager {
                 for (FlashCard cardEntry : flashCards) {
 
                     JSONObject karte = new JSONObject();
-
+                    try {
+                        karte.put("Deckname", deckName);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
                     try {
                         karte.put("Voderseite", cardEntry.getFront());
                     } catch (JSONException e) {
@@ -84,16 +90,10 @@ public class Jsonmanager {
                         throw new RuntimeException(e);
                     }
 
-                    einDeck.put(karte);
-                }
-                JSONObject neuesDeck = new JSONObject();
-                try {
-                    neuesDeck.put(deckName, einDeck);
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
+                    ganzerStapel.put(karte);
                 }
 
-                ganzerStapel.put(neuesDeck);
+
             }
             try {
                 aUser.put("Stapel", ganzerStapel);
@@ -139,14 +139,48 @@ public class Jsonmanager {
                 String name = (String) person.get("Name");
 
 
-                String email = (String) person.get("Email");
+                String email = person.get("Email").toString();
 
 
-                String password = (String) person.get("Password");
+                String password = person.get("Password").toString();
 
                 User user = new User(name, email, password);
                 UserRepository.getInstance().save(user);
 
+
+                /*JSONArray innerArray;
+                innerArray = (JSONArray) person.get("Stapel");*/
+
+                String jsonStringStapel = person.get("Stapel").toString();
+                JSONArray jsonArray = new JSONArray(jsonStringStapel);
+
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject obj = jsonArray.getJSONObject(i);
+
+                    String deckName = (String) obj.get("Deckname");
+                    String voderseite = (String) obj.get("Voderseite");
+                    String rueckseite = (String) obj.get("Rückseite");
+
+                    FlashCard flashCard = new FlashCard(voderseite, rueckseite);
+
+                    HashMap<UUID, Deck> enstandesDeck = user.getOwnDecks();
+                    boolean existiert = false;
+                    for (Map.Entry<UUID, Deck> entry2 : enstandesDeck.entrySet()) {
+                        if(entry2.getValue().getName().equals(deckName)){
+                            Deck deck = entry2.getValue();
+                            deck.addFlashCard(flashCard);
+                            existiert = true;
+                            break;
+                        }
+                        existiert = false;
+                    }
+                    if(existiert == false){
+                        Deck neuesDeck = new Deck(deckName);
+                        enstandesDeck.put(neuesDeck.getDeckId(), neuesDeck);
+                        neuesDeck.addFlashCard(flashCard);
+                    };
+
+                }
             }
 
                     /*String line;
@@ -164,7 +198,7 @@ public class Jsonmanager {
 
             //Log.d("HIER IST DER STRING",fileContents);
             // Use the fileContents variable which contains the contents of the file
-        } catch (IOException | ParseException e) {
+        } catch (IOException | ParseException | JSONException e) {
             e.printStackTrace();
         }
     }
