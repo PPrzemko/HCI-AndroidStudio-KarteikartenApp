@@ -92,8 +92,6 @@ public class Jsonmanager {
 
                     ganzerStapel.put(karte);
                 }
-
-
             }
             try {
                 aUser.put("Stapel", ganzerStapel);

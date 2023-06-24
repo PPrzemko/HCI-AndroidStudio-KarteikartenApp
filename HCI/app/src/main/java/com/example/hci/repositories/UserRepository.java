@@ -46,4 +46,16 @@ public class UserRepository { //TODO Singleton werden
         }
         return returnSet;
     }
+
+    public User findbyUserName2(String name){
+        User gefundenerUser = null;
+        for(User user : usersList.values()){
+            if(user.getUsername().equals(name)){
+                gefundenerUser = user;
+                break;
+            }
+        }
+        return gefundenerUser;
+    };
+
 }

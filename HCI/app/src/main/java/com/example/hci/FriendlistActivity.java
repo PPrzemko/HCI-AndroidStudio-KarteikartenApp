@@ -4,6 +4,7 @@ package com.example.hci;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import androidx.appcompat.widget.SearchView;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -61,6 +62,23 @@ public class FriendlistActivity extends AppCompatActivity {
             linear.addView(txt);
         }
         navbar();
+
+        SearchView searchView = findViewById(R.id.SearchViewFriendlist);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                User newFriend = userRepository.findbyUserName2(query);
+                User momentanerUser = userRepository.findById(currentData.getUserId());
+                momentanerUser.addFriend(newFriend);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Aktion, die bei Änderungen des Suchtextes ausgeführt werden soll
+                return true;
+            }
+        });
     }
 
 
