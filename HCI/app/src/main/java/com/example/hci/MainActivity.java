@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
@@ -30,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button LoginButton = findViewById(R.id.Login);
-
+        TextView errorNoUser = findViewById(R.id.errorNoUser);
+        errorNoUser.setVisibility(View.INVISIBLE);
+        errorNoUser.setText("Der Nutzername oder das Passwort ist falsch oder existiert nicht");
         jsonmanager.readFromJson(getApplicationContext());
 
 
@@ -65,15 +68,22 @@ public class MainActivity extends AppCompatActivity {
                 editText = findViewById(R.id.editTextTextPassword);
                 String password = editText.getText().toString();
 
-                for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
-                    String neuerName = entry.getValue().getUsername().toString();
-                    String nerPasswort = entry.getValue().getPassword().toString();
-                    if (neuerName.equals(nutzername) && nerPasswort.equals(password)) {
-                        currentData.setUserId(entry.getKey());
-                        Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
-                        startActivity(i);
+                if(UserRepository.getInstance().getUsersList().size() == 0){
+                    errorNoUser.setVisibility(View.VISIBLE);
+                }else {
+                    for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
+                        String neuerName = entry.getValue().getUsername().toString();
+                        String nerPasswort = entry.getValue().getPassword().toString();
+                        if (neuerName.equals(nutzername) && nerPasswort.equals(password)) {
+                            currentData.setUserId(entry.getKey());
+                            Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
+                            startActivity(i);
+                        }else{
+                            //TODO: Fehlermeldung
+                            errorNoUser.setVisibility(View.VISIBLE);
+                        }
+                        ;
                     }
-                    ;
                 }
                 ;
             }

@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,6 +40,10 @@ public class Registrierung extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrierung);
+
+        TextView errorNoUser = findViewById(R.id.errorNoUserReg);
+        errorNoUser.setVisibility(View.INVISIBLE);
+        errorNoUser.setText("Dieser Benutzername ist bereits vergeben");
 
         Button erstellen = findViewById(R.id.erstellenButton);
         erstellen.setOnClickListener(new View.OnClickListener() {
@@ -75,7 +80,9 @@ public class Registrierung extends AppCompatActivity {
 
                 for (Map.Entry<UUID, User> entry : userRepository.getUsersList().entrySet()) {
                     if (entry.getValue().getUsername().equals(name)) {
-                        Log.d("TEST", "Gibt den User nicht");
+                        Log.d("TEST", "Gibt den User schon");
+                        //TODO: Fehlermeldung
+                        errorNoUser.setVisibility(View.VISIBLE);
                     } else {
                         User user = new User(name, email, password);
                         userRepository.save(user);
