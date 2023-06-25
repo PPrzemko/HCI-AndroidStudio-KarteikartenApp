@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
                 Boolean exitstiert = false;
                 EditText editText;
 
@@ -77,9 +76,6 @@ public class MainActivity extends AppCompatActivity {
                     ;
                 }
                 ;
-*/
-                Intent i = new Intent(getApplicationContext(), stackpreview.class);
-                startActivity(i);
             }
         });
 
