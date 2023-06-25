@@ -92,12 +92,29 @@ public class Jsonmanager {
 
                     ganzerStapel.put(karte);
                 }
-            }
+                }
+                try {
+                    aUser.put("Stapel", ganzerStapel);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+                JSONArray alleFreunde = new JSONArray();
+                for (User friends : entry.getValue().getFriends()) {
+                    JSONObject einFreund = new JSONObject();
+                    try {
+                        einFreund.put("Username", friends.getUsername());
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                    alleFreunde.put(einFreund);
+                }
             try {
-                aUser.put("Stapel", ganzerStapel);
+                aUser.put("Alle Freunde", alleFreunde);
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
+
             jsonArray.put(aUser);
         }
         try {
@@ -179,6 +196,10 @@ public class Jsonmanager {
                     };
 
                 }
+
+
+
+
             }
 
                     /*String line;

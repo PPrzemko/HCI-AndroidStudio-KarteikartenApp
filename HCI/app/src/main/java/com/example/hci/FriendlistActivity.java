@@ -2,14 +2,17 @@ package com.example.hci;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import androidx.appcompat.widget.SearchView;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.hci.model.User;
@@ -27,6 +30,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
 
@@ -37,49 +41,69 @@ public class FriendlistActivity extends AppCompatActivity {
     private UserRepository userRepository= UserRepository.getInstance();
     private Jsonmanager jsonmanager = Jsonmanager.getInstance();
 
+
+    SearchView searchView;
+    ListView listView;
+    ArrayList<String> list;
+    ArrayAdapter<String > adapter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friendlist);
+        navbar();
+
+        searchView = (SearchView) findViewById(R.id.SearchViewFriendlist);
+        //listView = (ListView) findViewById(R.id.listview1);
 
         TextView textView = findViewById(R.id.textViewFriendlistHeadline);
         textView.setText("Freundesliste");
 
-        LinearLayout linear =findViewById(R.id.LinearLayoutFriendlist);
+        LinearLayout linear = findViewById(R.id.LinearLayoutFriendlist);
         User neu = userRepository.findById(currentData.getUserId());
+
+
 
         TextView[] textViews = new TextView[20];
         String alleFreunde = "";
-        for(User u : neu.getFriends()){
-            alleFreunde += u.getUsername() ;
+        for (User u : neu.getFriends()) {
+            alleFreunde += u.getUsername();
             alleFreunde += "\n";
         }
-        for(TextView txt : textViews){
+        for (TextView txt : textViews) {
             txt = new TextView(this);
             txt.setText(alleFreunde);
-            txt.setPadding(0,40,0,40);
+            txt.setPadding(0, 40, 0, 40);
             txt.setGravity(Gravity.CENTER);
             linear.addView(txt);
         }
-        navbar();
 
-        SearchView searchView = findViewById(R.id.SearchViewFriendlist);
+        /*list = new ArrayList<>();
+        for (User u : neu.getFriends()) {
+            list.add(u.getUsername());
+        }
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
+        listView.setAdapter(adapter);
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                User newFriend = userRepository.findbyUserName2(query);
-                User momentanerUser = userRepository.findById(currentData.getUserId());
-                momentanerUser.addFriend(newFriend);
-                return true;
+
+
+                return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                // Aktion, die bei Änderungen des Suchtextes ausgeführt werden soll
-                return true;
+                //    adapter.getFilter().filter(newText);
+                return false;
             }
-        });
+        });*/
+
+
     }
+
 
 
     public void navbar() {
