@@ -34,7 +34,7 @@ public class editCard extends AppCompatActivity {
         setContentView(R.layout.activity_edit_card);
 
         // https://stackoverflow.com/questions/13377361/how-to-create-a-drop-down-list
-        Spinner dropdown = findViewById(R.id.spinnerChoseDeck);
+        Spinner dropdown = findViewById(R.id.spinnerChooseDeck);
         //String[] items = new String[]{};
         List<String> items = new ArrayList<String>();
 
@@ -45,7 +45,7 @@ public class editCard extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
-
+        Deck currentDeck = deckRepository.findById(currentData.getDeckId());
 
 
         //**BUTTON Zurück**
@@ -71,7 +71,7 @@ public class editCard extends AppCompatActivity {
                 String backText = backTextTextView.getText().toString();
 
                 FlashCard newFlashcard = new FlashCard(frontText, backText);
-                Spinner spinner = findViewById(R.id.spinnerChoseDeck);
+                Spinner spinner = findViewById(R.id.spinnerChooseDeck);
                 String text = spinner.getSelectedItem().toString();
 
 
