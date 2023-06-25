@@ -61,6 +61,9 @@ public class DeckRepository {
         return null;
     };
 
+    public void addNewDeck(Deck deck){
+        decksById.put(deck.getDeckId(), deck);
+    }
 
 
 }
