@@ -6,17 +6,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
 
-public class StackPreviewCustomViewHolder extends RecyclerView.ViewHolder {
+public class YourStacksCustomViewHolder extends RecyclerView.ViewHolder {
 
-    TextView front, back;
-    FlashCard card;
+    TextView name, count;
+    Deck deck;
 
-    public StackPreviewCustomViewHolder(@NonNull View itemView) {
+    public YourStacksCustomViewHolder(@NonNull View itemView) {
         super(itemView);
-        front = itemView.findViewById(R.id.DeckName);
-        back = itemView.findViewById(R.id.cardBackTxt);
+        name = itemView.findViewById(R.id.DeckName);
+        count = itemView.findViewById(R.id.DeckCount);
+
+
 
 
 /*
