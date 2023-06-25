@@ -64,7 +64,7 @@ public class YourStacksActivity extends AppCompatActivity {
             return;
         HashMap<UUID,Deck> allDecksMap = currentUser.getOwnDecks(); ////////////////////////////////////////////////////////////
 
-        ArrayList<Deck> allDecksList = new ArrayList<Deck>();
+         ArrayList<Deck> allDecksList = new ArrayList<Deck>();
          for(Deck deck : allDecksMap.values()){
              allDecksList.add(deck);
          }
