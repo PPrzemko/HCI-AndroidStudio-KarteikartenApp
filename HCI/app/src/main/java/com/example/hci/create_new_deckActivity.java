@@ -5,6 +5,7 @@ import android.view.View;
 import android.os.Bundle;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.hci.model.Deck;
@@ -46,7 +47,7 @@ public class create_new_deckActivity extends AppCompatActivity {
             public void onClick(View view) {
                 EditText editText;
 
-                editText = findViewById(R.id.Stapelname);
+                editText = findViewById(R.id.stapelnameNewStack);
                 String stackName = editText.getText().toString();
                 //NEUES DECK ERSTELLEN
                 Deck neuesDeck = new Deck(stackName);
@@ -56,6 +57,7 @@ public class create_new_deckActivity extends AppCompatActivity {
 
                 //DECK ZU DEN STAPELN HINZUFÜGEN
                 momentanerUser.addOwnDeck(neuesDeck);
+                deckRepository.addNewDeck(neuesDeck);
 
                 Intent i = new Intent(getApplicationContext(), YourStacksActivity.class);
                 startActivity(i);
@@ -70,10 +72,6 @@ public class create_new_deckActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), YourStacksActivity.class);
-
-                Deck newDeck = new Deck(deckName);
-                deckRepository.addNewDeck(newDeck);
-                currentUser.addOwnDeck(newDeck);
 
                 startActivity(i);
             }

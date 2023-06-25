@@ -45,7 +45,7 @@ public class editCard extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
-
+        Deck currentDeck = deckRepository.findById(currentData.getDeckId());
 
 
         //**BUTTON Zurück**
