@@ -2,18 +2,23 @@ package com.example.hci;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ArrayAdapter;
+import android.widget.Filter;
+import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
+import com.example.hci.usecase.Jsonmanager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,6 +30,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
 
@@ -32,27 +38,70 @@ import java.util.UUID;
 public class FriendlistActivity extends AppCompatActivity {
 
     private CurrentData currentData = CurrentData.getInstance();
+    private UserRepository userRepository= UserRepository.getInstance();
+    private Jsonmanager jsonmanager = Jsonmanager.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friendlist);
+        navbar();
+
+        //listView = (ListView) findViewById(R.id.listview1);
 
         TextView textView = findViewById(R.id.textViewFriendlistHeadline);
         textView.setText("Freundesliste");
 
-        LinearLayout linear =findViewById(R.id.LinearLayoutFriendlist);
-        TextView[] textViews = new TextView[20];
+        LinearLayout linear = findViewById(R.id.LinearLayoutFriendlist);
+        User neu = userRepository.findById(currentData.getUserId());
 
-        for(TextView txt : textViews){
+        //TESTOBJEKT
+        User momentanerUser = userRepository.findById(currentData.getUserId());
+        User neuerFreund = new User("Luis", "gmx", "123");
+        User neuerFreund2 = new User("Franzi", "gmx", "123");
+        User neuerFreund3 = new User("Leon", "gmx", "123");
+        User neuerFreund4 = new User("Milel", "gmx", "123");
+        momentanerUser.addFriend(neuerFreund);
+        momentanerUser.addFriend(neuerFreund2);
+        momentanerUser.addFriend(neuerFreund3);
+        momentanerUser.addFriend(neuerFreund4);
+        //**********
+
+
+        TextView[] textViews = new TextView[20];
+        String alleFreunde = "";
+        for (User u : neu.getFriends()) {
+            alleFreunde += u.getUsername();
+            alleFreunde += "\n";
+        }
+        for (TextView txt : textViews) {
             txt = new TextView(this);
-            txt.setText("Hans Peter");
-            txt.setPadding(0,40,0,40);
+            txt.setText(alleFreunde);
+            txt.setPadding(0, 40, 0, 40);
             txt.setGravity(Gravity.CENTER);
             linear.addView(txt);
         }
-        navbar();
+
+        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                User gesuchterUser = userRepository.findbyUserName2(s);
+                User momentanerUser = userRepository.findById(currentData.getUserId());
+                momentanerUser.addFriend(gesuchterUser);
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                return false;
+            }
+        });*/
+
+
     }
+
 
 
     public void navbar() {
@@ -95,47 +144,7 @@ public class FriendlistActivity extends AppCompatActivity {
                 // TO DO ADD LOGOUT FUNCTIONALITY
 
                 //ERSTELLEN EINER JSON
-                File file = new File(getExternalFilesDir(null), "data.txt");
-
-
-
-
-                JSONArray jsonArray = new JSONArray();
-
-                for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
-                    JSONObject aUser = new JSONObject();
-                    try {
-                        aUser.put("Name", entry.getValue().getUsername());
-                    } catch (JSONException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
-                        aUser.put("Email", entry.getValue().getEmail());
-                    } catch (JSONException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
-                        aUser.put("Password", entry.getValue().getPassword());
-                    } catch (JSONException ex) {
-                        throw new RuntimeException(ex);
-                    }
-
-                    jsonArray.put(aUser);
-
-                }
-
-
-                try {
-                    FileOutputStream outputStream = new FileOutputStream(file);
-                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-                    writer.write(jsonArray.toString());
-                    writer.flush();
-                    writer.close();
-
-
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                jsonmanager.writeToJson(getApplicationContext());
                 UserRepository.getInstance().getUsersList().clear();
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
 

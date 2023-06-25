@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
+import com.example.hci.usecase.Jsonmanager;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -32,6 +33,7 @@ public class profile extends AppCompatActivity {
 
     private CurrentData currentData = CurrentData.getInstance();
     private UserRepository userRepository = UserRepository.getInstance();
+    private Jsonmanager jsonmanager = Jsonmanager.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,45 +108,7 @@ public class profile extends AppCompatActivity {
                 // TO DO ADD LOGOUT FUNCTIONALITY
 
                 //ERSTELLEN EINER JSON
-                File file = new File(getExternalFilesDir(null), "data.txt");
-
-
-                JSONArray jsonArray = new JSONArray();
-
-                for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
-                    JSONObject aUser = new JSONObject();
-                    try {
-                        aUser.put("Name", entry.getValue().getUsername());
-                    } catch (JSONException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
-                        aUser.put("Email", entry.getValue().getEmail());
-                    } catch (JSONException ex) {
-                        throw new RuntimeException(ex);
-                    }
-                    try {
-                        aUser.put("Password", entry.getValue().getPassword());
-                    } catch (JSONException ex) {
-                        throw new RuntimeException(ex);
-                    }
-
-                    jsonArray.put(aUser);
-
-                }
-
-
-                try {
-                    FileOutputStream outputStream = new FileOutputStream(file);
-                    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-                    writer.write(jsonArray.toString());
-                    writer.flush();
-                    writer.close();
-
-
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
+                jsonmanager.writeToJson(getApplicationContext());
                 UserRepository.getInstance().getUsersList().clear();
                 Intent i = new Intent(getApplicationContext(), MainActivity.class);
 

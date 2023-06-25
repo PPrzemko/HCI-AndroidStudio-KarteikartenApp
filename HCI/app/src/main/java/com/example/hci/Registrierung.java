@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.hci.model.User;
 import com.example.hci.usecase.CurrentData;
+import com.example.hci.usecase.Jsonmanager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -31,6 +32,8 @@ public class Registrierung extends AppCompatActivity {
 
     private UserRepository userRepository = UserRepository.getInstance();
     private CurrentData currentData = CurrentData.getInstance();
+
+    private Jsonmanager jsonmanager = Jsonmanager.getInstance();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -64,39 +67,7 @@ public class Registrierung extends AppCompatActivity {
                     System.out.print("User hinzugefuegt");
 
                     //ERSTELLEN EINER JSON + LESEN EINER JSON
-                    File file = new File(getExternalFilesDir(null), "data.txt");
-
-                    JSONArray jsonArray = new JSONArray();
-
-                    for (Map.Entry<UUID, User> neuMap : userRepository.getUsersList().entrySet()) {
-                        JSONObject aUser = new JSONObject();
-                        try {
-                            aUser.put("Name", neuMap.getValue().getUsername());
-                        } catch (JSONException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                        try {
-                            aUser.put("Email", neuMap.getValue().getEmail());
-                        } catch (JSONException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                        try {
-                            aUser.put("Password", neuMap.getValue().getPassword());
-                        } catch (JSONException ex) {
-                            throw new RuntimeException(ex);
-                        }
-                        jsonArray.put(aUser);
-                    }
-
-                    try {
-                        FileOutputStream outputStream = new FileOutputStream(file);
-                        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-                        writer.write(jsonArray.toString());
-                        writer.flush();
-                        writer.close();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
+                    jsonmanager.writeToJson(getApplicationContext());
 
                     currentData.setUserId(user.getUserId());
                     startActivity(i);
@@ -109,42 +80,7 @@ public class Registrierung extends AppCompatActivity {
                         User user = new User(name, email, password);
                         userRepository.save(user);
 
-                        System.out.print("User hinzugefuegt");
-
-                        //ERSTELLEN EINER JSON + LESEN EINER JSON
-                        File file = new File(getExternalFilesDir(null), "data.txt");
-
-                        JSONArray jsonArray = new JSONArray();
-
-                        for (Map.Entry<UUID, User> neuMap : userRepository.getUsersList().entrySet()) {
-                            JSONObject aUser = new JSONObject();
-                            try {
-                                aUser.put("Name", neuMap.getValue().getUsername());
-                            } catch (JSONException ex) {
-                                throw new RuntimeException(ex);
-                            }
-                            try {
-                                aUser.put("Email", neuMap.getValue().getEmail());
-                            } catch (JSONException ex) {
-                                throw new RuntimeException(ex);
-                            }
-                            try {
-                                aUser.put("Password", neuMap.getValue().getPassword());
-                            } catch (JSONException ex) {
-                                throw new RuntimeException(ex);
-                            }
-                            jsonArray.put(aUser);
-                        }
-
-                        try {
-                            FileOutputStream outputStream = new FileOutputStream(file);
-                            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
-                            writer.write(jsonArray.toString());
-                            writer.flush();
-                            writer.close();
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
+                        jsonmanager.writeToJson(getApplicationContext());
 
                         currentData.setUserId(user.getUserId());
                         startActivity(i);

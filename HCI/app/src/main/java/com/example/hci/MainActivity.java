@@ -17,6 +17,7 @@ import android.widget.EditText;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
+import com.example.hci.usecase.Jsonmanager;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -30,61 +31,16 @@ import java.util.UUID;
 public class MainActivity extends AppCompatActivity {
 
     private CurrentData currentData = CurrentData.getInstance();
+    private Jsonmanager jsonmanager = Jsonmanager.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button LoginButton = findViewById(R.id.Login);
-        try {
 
-            //JSON DATEI LESEN
-            String fileName = "data.txt";
-            String path = getApplicationContext().getExternalFilesDir(null).getPath();
-            String filePath = path + "/" + fileName;
-            File file = new File(filePath);
-            FileInputStream fis = new FileInputStream(file);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(fis));
+        jsonmanager.readFromJson(getApplicationContext());
 
-            //********IN HASH-MAP BRINGEN *****
-
-            JSONParser parser = new JSONParser();
-            JSONArray a = (JSONArray) parser.parse(new FileReader(filePath));
-
-            for (Object o : a) {
-                JSONObject person = (JSONObject) o;
-
-                String name = (String) person.get("Name");
-
-
-                String email = (String) person.get("Email");
-
-
-                String password = (String) person.get("Password");
-
-                User user = new User(name, email, password);
-                UserRepository.getInstance().save(user);
-
-            }
-
-                    /*String line;
-                    StringBuilder stringBuilder = new StringBuilder();
-                    while ((line = reader.readLine()) != null) {
-                        stringBuilder.append(line);
-                        stringBuilder.append("\n");
-                    }*/
-
-            reader.close();
-            fis.close();
-
-
-            //String fileContents = stringBuilder.toString();
-
-            //Log.d("HIER IST DER STRING",fileContents);
-            // Use the fileContents variable which contains the contents of the file
-        } catch (IOException | ParseException e) {
-            e.printStackTrace();
-        }
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override

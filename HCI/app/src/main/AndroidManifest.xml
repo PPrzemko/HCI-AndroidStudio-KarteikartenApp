@@ -41,13 +41,13 @@
             android:exported="false" />
         <activity
             android:name=".FriendlistActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".YourStacksActivity"
             android:exported="true" />
         <activity
             android:name=".FriendfeedActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
