@@ -3,7 +3,6 @@ package com.example.hci;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import androidx.appcompat.widget.SearchView;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -13,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import com.example.hci.model.User;
@@ -42,19 +42,13 @@ public class FriendlistActivity extends AppCompatActivity {
     private Jsonmanager jsonmanager = Jsonmanager.getInstance();
 
 
-    SearchView searchView;
-    ListView listView;
-    ArrayList<String> list;
-    ArrayAdapter<String > adapter;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friendlist);
         navbar();
 
-        searchView = (SearchView) findViewById(R.id.SearchViewFriendlist);
+        SearchView searchView = findViewById(R.id.SearchViewFriendlist);
         //listView = (ListView) findViewById(R.id.listview1);
 
         TextView textView = findViewById(R.id.textViewFriendlistHeadline);
@@ -63,6 +57,17 @@ public class FriendlistActivity extends AppCompatActivity {
         LinearLayout linear = findViewById(R.id.LinearLayoutFriendlist);
         User neu = userRepository.findById(currentData.getUserId());
 
+        //TESTOBJEKT
+        User momentanerUser = userRepository.findById(currentData.getUserId());
+        User neuerFreund = new User("Luis", "gmx", "123");
+        User neuerFreund2 = new User("Franzi", "gmx", "123");
+        User neuerFreund3 = new User("Leon", "gmx", "123");
+        User neuerFreund4 = new User("Milel", "gmx", "123");
+        momentanerUser.addFriend(neuerFreund);
+        momentanerUser.addFriend(neuerFreund2);
+        momentanerUser.addFriend(neuerFreund3);
+        momentanerUser.addFriend(neuerFreund4);
+        //**********
 
 
         TextView[] textViews = new TextView[20];
@@ -79,24 +84,18 @@ public class FriendlistActivity extends AppCompatActivity {
             linear.addView(txt);
         }
 
-        /*list = new ArrayList<>();
-        for (User u : neu.getFriends()) {
-            list.add(u.getUsername());
-        }
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,list);
-        listView.setAdapter(adapter);
-
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
-
+            public boolean onQueryTextSubmit(String s) {
+                User gesuchterUser = userRepository.findbyUserName2(s);
+                User momentanerUser = userRepository.findById(currentData.getUserId());
+                momentanerUser.addFriend(gesuchterUser);
 
                 return false;
             }
 
             @Override
-            public boolean onQueryTextChange(String newText) {
-                //    adapter.getFilter().filter(newText);
+            public boolean onQueryTextChange(String s) {
                 return false;
             }
         });*/
