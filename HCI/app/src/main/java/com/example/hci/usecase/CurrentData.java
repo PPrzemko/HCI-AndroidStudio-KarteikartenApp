@@ -1,5 +1,9 @@
 package com.example.hci.usecase;
 
+import android.content.Context;
+
+import com.example.hci.YourStacksActivity;
+
 import java.util.UUID;
 
 public class CurrentData {
@@ -8,6 +12,17 @@ public class CurrentData {
     private UUID deckId;
 
     private LearningSession learningSession;
+
+    public YourStacksActivity getYourStacksActivity() {
+        return yourStacksActivity;
+    }
+
+    public void setYourStacksActivity(YourStacksActivity yourStacksActivity) {
+        this.yourStacksActivity = yourStacksActivity;
+    }
+
+    private YourStacksActivity yourStacksActivity;
+
     private static CurrentData instance;
 
     public static CurrentData getInstance() {

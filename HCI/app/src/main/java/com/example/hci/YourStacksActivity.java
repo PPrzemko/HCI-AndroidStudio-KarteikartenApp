@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +20,7 @@ import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.Jsonmanager;
+import com.example.hci.usecase.LearningSession;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,12 +55,20 @@ public class YourStacksActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.textViewYourStacksHeadline);
         textView.setText("Deine Stapel");
 
-        User currentUser = userRepository.findById(currentData.getUserId());
-        HashMap<UUID,Deck> allDecksMap = currentUser.getOwnDecks();
+        UUID id=currentData.getUserId();
+        Log.d("HHHHHHHHHHHHHHHHHHH", id.toString());
+        User currentUser = userRepository.findById(id);
+        Log.d("DDDDDDDDDDD", currentUser.toString());
+        if(currentUser ==null)
+            return;
+        HashMap<UUID,Deck> allDecksMap = currentUser.getOwnDecks(); ////////////////////////////////////////////////////////////
+
         ArrayList<Deck> allDecksList = new ArrayList<Deck>();
          for(Deck deck : allDecksMap.values()){
              allDecksList.add(deck);
          }
+
+         currentData.setYourStacksActivity(this);
 
         recyclerView = findViewById(R.id.recyclerView);
         customViewAdapter = new YourStacksCustomViewAdapter(allDecksList, getApplicationContext());
@@ -86,6 +96,11 @@ public class YourStacksActivity extends AppCompatActivity {
         });
 
         navbar();
+    }
+
+    public void fakeOnClickListener(){
+        Intent i = new Intent(getApplicationContext(), stackpreview.class);
+        startActivity(i);
     }
 
     public void navbar() {
