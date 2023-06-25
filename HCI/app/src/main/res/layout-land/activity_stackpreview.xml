@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?attr/actionBarSize">
+
+    <ImageButton
+        android:id="@+id/btnLogout"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/btnProfile"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.998" />
+
+    <ImageButton
+        android:id="@+id/btnActivity"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnFriendslist"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.998" />
+
+    <ImageButton
+        android:id="@+id/btnFriendslist"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/friends"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnStack"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/btnActivity"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.998" />
+
+    <ImageButton
+        android:id="@+id/btnStack"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/cards"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnProfile"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/btnFriendslist"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.998" />
+
+    <ImageButton
+        android:id="@+id/btnProfile"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/user"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnLogout"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toEndOf="@+id/btnStack"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.998" />
+
+    <Button
+        android:id="@+id/registerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stapel lernen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.949"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.349" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="290dp"
+        android:layout_height="48dp"
+        android:ems="10"
+        android:hint="       Suche"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewStackPreview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/stackPreviewTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/yourDecks"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.446"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SearchView
+        android:layout_width="47dp"
+        android:layout_height="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.308"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.155" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewStackPreview"
+        android:layout_width="291dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.479"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
