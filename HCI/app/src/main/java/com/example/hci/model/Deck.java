@@ -7,6 +7,8 @@ import java.util.UUID;
 
 import static java.util.stream.Collectors.toSet;
 
+import android.util.Log;
+
 public class Deck {
 
     private UUID deckId;
@@ -41,5 +43,16 @@ public class Deck {
 
     public void addFlashCard(FlashCard newFlashCard){
         flashCards.add(newFlashCard);
+    }
+
+    public ArrayList<FlashCard> searchForCardByQuery(String input) {
+        ArrayList<FlashCard> returnList = new ArrayList<FlashCard>();
+        for (FlashCard flashCard : flashCards) {
+            if (flashCard.getFront().toLowerCase().contains(input.toLowerCase()) || flashCard.getBack().toLowerCase().contains(input.toLowerCase())) {
+                returnList.add(flashCard);
+            }
+        }
+        returnList.add(new FlashCard("zusatz", "zusat"));
+        return returnList;
     }
 }

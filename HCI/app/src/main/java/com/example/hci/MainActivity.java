@@ -3,28 +3,21 @@ package com.example.hci;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.hci.model.Deck;
+import com.example.hci.model.FlashCard;
 import com.example.hci.model.User;
+import com.example.hci.repositories.DeckRepository;
 import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.Jsonmanager;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.Map;
 import java.util.UUID;
 
@@ -38,8 +31,29 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button LoginButton = findViewById(R.id.Login);
-
+        TextView errorNoUser = findViewById(R.id.errorNoUser);
+        errorNoUser.setVisibility(View.INVISIBLE);
+        errorNoUser.setText("Der Nutzername oder das Passwort ist falsch oder existiert nicht");
         jsonmanager.readFromJson(getApplicationContext());
+
+
+
+        //test sachen für filterfunktion
+        Deck testDeck = new Deck("test");
+
+        testDeck.addFlashCard(new FlashCard("aaaaa", "ddd"));
+        testDeck.addFlashCard(new FlashCard("bbbb", "eeee"));
+        testDeck.addFlashCard(new FlashCard("ccccccccccc", "fffffffff"));
+
+
+        final Deck currentDeck= testDeck;
+        DeckRepository deckRepository = DeckRepository.getInstance();
+        deckRepository.addNewDeck(testDeck);
+
+        currentData.setDeckId(testDeck.getDeckId());
+        currentData.setCurrenedFilteredCards(testDeck.getFlashCards());
+
+
 
 
         LoginButton.setOnClickListener(new View.OnClickListener() {
@@ -48,24 +62,30 @@ public class MainActivity extends AppCompatActivity {
                 Boolean exitstiert = false;
                 EditText editText;
 
-                editText = findViewById(R.id.editTextText);
+                editText = findViewById(R.id.editTextFilterInput);
                 String nutzername = editText.getText().toString();
 
                 editText = findViewById(R.id.editTextTextPassword);
                 String password = editText.getText().toString();
 
-                for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
-                    String neuerName = entry.getValue().getUsername().toString();
-                    String nerPasswort = entry.getValue().getPassword().toString();
-                    if (neuerName.equals(nutzername) && nerPasswort.equals(password)) {
-                        currentData.setUserId(entry.getKey());
-                        Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
-                        startActivity(i);
+                if(UserRepository.getInstance().getUsersList().size() == 0){
+                    errorNoUser.setVisibility(View.VISIBLE);
+                }else {
+                    for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
+                        String neuerName = entry.getValue().getUsername().toString();
+                        String nerPasswort = entry.getValue().getPassword().toString();
+                        if (neuerName.equals(nutzername) && nerPasswort.equals(password)) {
+                            currentData.setUserId(entry.getKey());
+                            Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
+                            startActivity(i);
+                        }else{
+                            //TODO: Fehlermeldung
+                            errorNoUser.setVisibility(View.VISIBLE);
+                        }
+                        ;
                     }
-                    ;
                 }
                 ;
-
             }
         });
 
