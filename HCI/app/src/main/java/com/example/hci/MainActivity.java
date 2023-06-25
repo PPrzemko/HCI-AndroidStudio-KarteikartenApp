@@ -45,14 +45,14 @@ public class MainActivity extends AppCompatActivity {
         testDeck.addFlashCard(new FlashCard("bbbb", "eeee"));
         testDeck.addFlashCard(new FlashCard("ccccccccccc", "fffffffff"));
 
-
+        /*
         final Deck currentDeck= testDeck;
         DeckRepository deckRepository = DeckRepository.getInstance();
         deckRepository.addNewDeck(testDeck);
 
         currentData.setDeckId(testDeck.getDeckId());
         currentData.setCurrenedFilteredCards(testDeck.getFlashCards());
-
+        */
 
 
 
