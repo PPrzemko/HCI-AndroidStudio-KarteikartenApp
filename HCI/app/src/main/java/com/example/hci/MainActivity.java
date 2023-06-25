@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
@@ -23,6 +24,8 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Map;
+import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -86,9 +89,6 @@ public class MainActivity extends AppCompatActivity {
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), stackpreview.class);
-                startActivity(i);
-                /*
                 Boolean exitstiert = false;
                 EditText editText;
 
@@ -110,12 +110,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 ;
 
-                 */
             }
         });
 
 
-        Button RegisterButton = findViewById(R.id.learnStackButton);
+        Button RegisterButton = findViewById(R.id.registerButton);
 
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override

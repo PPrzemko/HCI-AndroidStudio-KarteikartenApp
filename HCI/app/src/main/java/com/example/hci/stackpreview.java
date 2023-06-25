@@ -15,7 +15,6 @@ import com.example.hci.repositories.DeckRepository;
 import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.LearningSession;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class stackpreview extends AppCompatActivity {
@@ -51,7 +50,7 @@ public class stackpreview extends AppCompatActivity {
         recyclerView.setAdapter(customViewAdapter);
 
 
-        Button learnStackButton = findViewById(R.id.learnStackButton);
+        Button learnStackButton = findViewById(R.id.registerButton);
         learnStackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

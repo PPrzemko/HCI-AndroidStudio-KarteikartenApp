@@ -77,6 +77,7 @@ public class YourStacksActivity extends AppCompatActivity {
 
         navbar();
     }
+
     public void navbar() {
         ImageButton a = findViewById(R.id.btnActivity);
         ImageButton b = findViewById(R.id.btnFriendslist);
@@ -117,9 +118,6 @@ public class YourStacksActivity extends AppCompatActivity {
                 // TO DO ADD LOGOUT FUNCTIONALITY
                 //ERSTELLEN EINER JSON
                 File file = new File(getExternalFilesDir(null), "data.txt");
-
-
-
 
                 JSONArray jsonArray = new JSONArray();
 

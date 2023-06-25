@@ -41,4 +41,7 @@ public class DeckRepository {
         return returnSet;
     }
 
+    public void addNewDeck(Deck deck){
+        decksById.put(deck.getDeckId(), deck);
+    }
 }

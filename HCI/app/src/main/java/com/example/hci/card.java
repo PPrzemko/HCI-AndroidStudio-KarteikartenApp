@@ -19,8 +19,6 @@ import com.example.hci.usecase.LearningSession;
 
 public class card extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +54,6 @@ public class card extends AppCompatActivity {
         ImageButton wrongButton = findViewById(R.id.wrongBtn);
         ImageButton correctButton = findViewById(R.id.correctBtn);
         ImageButton backButton = findViewById(R.id.backbtn);
-
 
         backgroundButton.setOnClickListener(new View.OnClickListener() {
             @Override
