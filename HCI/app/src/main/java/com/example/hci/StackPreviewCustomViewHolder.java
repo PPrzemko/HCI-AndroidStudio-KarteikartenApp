@@ -1,13 +1,7 @@
 package com.example.hci;
 
-import android.bluetooth.BluetoothAssignedNumbers;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,7 +19,7 @@ public class StackPreviewCustomViewHolder extends RecyclerView.ViewHolder {
         back = itemView.findViewById(R.id.cardBackTxt);
 
 
-/*
+        /*
         icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

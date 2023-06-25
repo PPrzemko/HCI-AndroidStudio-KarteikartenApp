@@ -48,7 +48,14 @@ public class stackpreview extends AppCompatActivity {
 */
 
         recyclerView = findViewById(R.id.recyclerViewStackPreview);
-        customViewAdapter = new StackPreviewCustomViewAdapter(currentData.getCurrenedFilteredCards(), getApplicationContext());
+        ArrayList<FlashCard> test = null;
+        try {
+            test = currentDeck.getFlashCards();
+        } catch (Exception e) {
+            Log.d("Error:", "onCreate: " + e);
+        }
+
+        customViewAdapter = new StackPreviewCustomViewAdapter(test, getApplicationContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(customViewAdapter);

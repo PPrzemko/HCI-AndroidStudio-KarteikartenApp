@@ -1,9 +1,12 @@
 package com.example.hci;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -11,9 +14,13 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.hci.model.Deck;
+import com.example.hci.model.FlashCard;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
+import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.Jsonmanager;
+import com.example.hci.usecase.LearningSession;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,12 +31,23 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 //currentDeck.getFlashCards() als currenedFilteredCards setzen
 public class YourStacksActivity extends AppCompatActivity {
+
     private Jsonmanager jsonmanager = Jsonmanager.getInstance();
+    RecyclerView recyclerView;
+
+    YourStacksCustomViewAdapter customViewAdapter;
+
+    CurrentData currentData = CurrentData.getInstance();
+    UserRepository userRepository = UserRepository.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,16 +56,26 @@ public class YourStacksActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.textViewYourStacksHeadline);
         textView.setText("Deine Stapel");
 
-        LinearLayout linear =findViewById(R.id.linearLayoutYourStacks);
-        TextView[] textViews = new TextView[20];
+        UUID id=currentData.getUserId();
+        Log.d("HHHHHHHHHHHHHHHHHHH", id.toString());
+        User currentUser = userRepository.findById(id);
+        Log.d("DDDDDDDDDDD", currentUser.toString());
+        if(currentUser ==null)
+            return;
+        HashMap<UUID,Deck> allDecksMap = currentUser.getOwnDecks(); ////////////////////////////////////////////////////////////
 
-        for(TextView txt : textViews){
-            txt = new TextView(this);
-            txt.setText("Englisch 68");
-            txt.setPadding(0,40,0,40);
-            txt.setGravity(Gravity.CENTER);
-            linear.addView(txt);
-        }
+        ArrayList<Deck> allDecksList = new ArrayList<Deck>();
+         for(Deck deck : allDecksMap.values()){
+             allDecksList.add(deck);
+         }
+
+         currentData.setYourStacksActivity(this);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        customViewAdapter = new YourStacksCustomViewAdapter(allDecksList, getApplicationContext());
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(customViewAdapter);
 
         Button das = findViewById(R.id.buttonAddCard);
         das.setOnClickListener(new View.OnClickListener() {
@@ -55,15 +83,6 @@ public class YourStacksActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), editCard.class);
                 startActivity(i);
-            }
-        });
-
-        Button untenlinks = findViewById(R.id.buttonCreateStack); //beide buttens sind der gleiche!!
-
-        untenlinks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
 
@@ -78,6 +97,11 @@ public class YourStacksActivity extends AppCompatActivity {
         });
 
         navbar();
+    }
+
+    public void fakeOnClickListener(){
+        Intent i = new Intent(getApplicationContext(), stackpreview.class);
+        startActivity(i);
     }
 
     public void navbar() {

@@ -1,8 +1,11 @@
 package com.example.hci.usecase;
 
-import com.example.hci.model.FlashCard;
 
+import android.content.Context;
+import com.example.hci.YourStacksActivity;
+import com.example.hci.model.FlashCard;
 import java.util.ArrayList;
+
 import java.util.UUID;
 
 public class CurrentData {
@@ -11,6 +14,17 @@ public class CurrentData {
     private UUID deckId;
 
     private LearningSession learningSession;
+
+    public YourStacksActivity getYourStacksActivity() {
+        return yourStacksActivity;
+    }
+
+    public void setYourStacksActivity(YourStacksActivity yourStacksActivity) {
+        this.yourStacksActivity = yourStacksActivity;
+    }
+
+    private YourStacksActivity yourStacksActivity;
+
 
     public ArrayList<FlashCard> getCurrenedFilteredCards() {
         return currenedFilteredCards;
@@ -21,6 +35,7 @@ public class CurrentData {
     }
 
     private ArrayList<FlashCard> currenedFilteredCards;
+
     private static CurrentData instance;
 
     public static CurrentData getInstance() {
