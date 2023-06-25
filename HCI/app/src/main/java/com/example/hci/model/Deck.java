@@ -9,7 +9,9 @@ import static java.util.stream.Collectors.toSet;
 
 import android.util.Log;
 
-public class Deck {
+import androidx.annotation.NonNull;
+
+public class Deck implements Cloneable{
 
     private UUID deckId;
     private String name;
@@ -20,7 +22,22 @@ public class Deck {
         flashCards=new ArrayList<>();
         deckId=UUID.randomUUID();
     }
+    @NonNull
+    @Override
+    public Deck clone() {
+        // copy constructor needded for deep copy (Needed for learning Deck (append wrong answers to end of deck))
+        try {
+            Deck cloned = (Deck) super.clone();
+            cloned.flashCards = new ArrayList<FlashCard>();
+            for (FlashCard flashCard : flashCards) {
+                cloned.flashCards.add(new FlashCard((flashCard.getFront()), flashCard.getBack()));
+            }
 
+            return cloned;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
     public String getName() {
         return name;
     }

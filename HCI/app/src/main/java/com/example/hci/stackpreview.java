@@ -65,7 +65,7 @@ public class stackpreview extends AppCompatActivity {
         learnStackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LearningSession learningSession = new LearningSession(currentDeck);
+                LearningSession learningSession = new LearningSession(currentDeck.clone());
                 currentData.setLearningSession(learningSession);
 
                 Intent i = new Intent(getApplicationContext(), card.class);
