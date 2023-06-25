@@ -47,8 +47,6 @@ public class Deck {
 
     public ArrayList<FlashCard> searchForCardByQuery(String input) {
         ArrayList<FlashCard> returnList = new ArrayList<FlashCard>();
-        //input="a";
-        Log.d("hhh",input);
         for (FlashCard flashCard : flashCards) {
             if (flashCard.getFront().toLowerCase().contains(input.toLowerCase()) || flashCard.getBack().toLowerCase().contains(input.toLowerCase())) {
                 returnList.add(flashCard);

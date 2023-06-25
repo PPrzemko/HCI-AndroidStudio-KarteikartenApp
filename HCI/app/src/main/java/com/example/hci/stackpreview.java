@@ -67,13 +67,15 @@ public class stackpreview extends AppCompatActivity {
         });
 
         TextView searchInputTextEdit = findViewById(R.id.editTextFilterInput);
-        String searchInput = String.valueOf(searchInputTextEdit.getText());
-        Log.d("HHHHHHHHHHHHHHHHHHHHHHH", searchInput);
+
 
         ImageButton searchButton = findViewById(R.id.searchButton);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String searchInput = searchInputTextEdit.getText().toString();
+
                 ArrayList<FlashCard> filteredList = currentDeck.searchForCardByQuery(searchInput);
                 if (filteredList.size() != 0) {
                     currentData.setCurrenedFilteredCards(filteredList);
