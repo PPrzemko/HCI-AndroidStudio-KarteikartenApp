@@ -56,7 +56,7 @@ public class YourStacksActivity extends AppCompatActivity {
             }
         });
 
-        Button untenlinks = findViewById(R.id.buttonCreateStack);
+        Button untenlinks = findViewById(R.id.buttonCreateStack); //beide buttens sind der gleiche!!
 
         untenlinks.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +64,6 @@ public class YourStacksActivity extends AppCompatActivity {
 
             }
         });
-
 
         Button stapelErstellen = findViewById(R.id.buttonCreateStack);
 
@@ -76,16 +75,9 @@ public class YourStacksActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
-
         navbar();
     }
+
     public void navbar() {
         ImageButton a = findViewById(R.id.btnActivity);
         ImageButton b = findViewById(R.id.btnFriendslist);
@@ -127,9 +119,6 @@ public class YourStacksActivity extends AppCompatActivity {
                 //ERSTELLEN EINER JSON
                 File file = new File(getExternalFilesDir(null), "data.txt");
 
-
-
-
                 JSONArray jsonArray = new JSONArray();
 
                 for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
@@ -153,7 +142,6 @@ public class YourStacksActivity extends AppCompatActivity {
                     jsonArray.put(aUser);
 
                 }
-
 
                 try {
                     FileOutputStream outputStream = new FileOutputStream(file);

@@ -38,7 +38,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Stapelname"
+        android:id="@+id/stapelnameNewStack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="58dp"
@@ -57,7 +57,7 @@
         app:layout_constraintVertical_bias="0.434" />
 
     <Button
-        android:id="@+id/Erstellen"
+        android:id="@+id/erstellenButtonNewStack"
         android:layout_width="135dp"
         android:layout_height="48dp"
         android:layout_marginStart="147dp"
@@ -69,6 +69,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Stapelname"
+        app:layout_constraintTop_toBottomOf="@+id/stapelnameNewStack"
         app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

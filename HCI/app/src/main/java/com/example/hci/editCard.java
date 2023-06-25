@@ -14,26 +14,32 @@ import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
 import com.example.hci.model.User;
 import com.example.hci.repositories.DeckRepository;
+import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
+
+import java.util.Vector;
 
 public class editCard extends AppCompatActivity {
 
     CurrentData currentData = CurrentData.getInstance();
-    DeckRepository deckRepository = DeckRepository.getInstance();
+    UserRepository userRepository = UserRepository.getInstance();
+
+    User currentUser = userRepository.findById(currentData.getUserId());
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_card);
 
-
         // https://stackoverflow.com/questions/13377361/how-to-create-a-drop-down-list
-        Spinner dropdown = findViewById(R.id.spinnerChoseDeck);
-        String[] items = new String[]{"Chemie", "Mathe", "Deutsch"};
+        Spinner dropdown = findViewById(R.id.spinnerChooseDeck);
+        Vector<String> items = new Vector<String>(currentUser.getOwnDecks().size());
+        for (Deck deck : currentUser.getOwnDecks().values()){
+            items.add(deck.getName());
+        }
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
-
-        Deck currentDeck = deckRepository.findById(currentData.getDeckId());
 
 
         Button backButton = findViewById(R.id.buttonBack);
@@ -59,7 +65,7 @@ public class editCard extends AppCompatActivity {
 
                 FlashCard newFlashcard = new FlashCard(frontText, backText);
 
-                currentDeck.addFlashCard(newFlashcard);
+                //currentDeck.addFlashCard(newFlashcard);
 
                 startActivity(i);
             }
