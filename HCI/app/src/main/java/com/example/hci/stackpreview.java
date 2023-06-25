@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,6 +16,7 @@ import com.example.hci.repositories.DeckRepository;
 import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.LearningSession;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class stackpreview extends AppCompatActivity {
@@ -44,7 +46,14 @@ public class stackpreview extends AppCompatActivity {
 */
 
         recyclerView = findViewById(R.id.recyclerViewStackPreview);
-        customViewAdapter = new StackPreviewCustomViewAdapter(currentDeck.getFlashCards(), getApplicationContext());
+        ArrayList<FlashCard> test = null;
+        try {
+            test = currentDeck.getFlashCards();
+        } catch (Exception e) {
+            Log.d("Error:", "onCreate: " + e);
+        }
+
+        customViewAdapter = new StackPreviewCustomViewAdapter(test, getApplicationContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(customViewAdapter);

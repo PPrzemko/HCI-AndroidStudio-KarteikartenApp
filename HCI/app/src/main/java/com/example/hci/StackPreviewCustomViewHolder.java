@@ -15,7 +15,7 @@ public class StackPreviewCustomViewHolder extends RecyclerView.ViewHolder {
 
     public StackPreviewCustomViewHolder(@NonNull View itemView) {
         super(itemView);
-        front = itemView.findViewById(R.id.DeckName);
+        front = itemView.findViewById(R.id.cardFrontTxt);
         back = itemView.findViewById(R.id.cardBackTxt);
 
 

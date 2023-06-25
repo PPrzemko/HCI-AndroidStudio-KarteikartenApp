@@ -2,6 +2,7 @@ package com.example.hci;
 
 import android.content.Context;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,8 +35,13 @@ public class StackPreviewCustomViewAdapter extends RecyclerView.Adapter<StackPre
 
     @Override
     public void onBindViewHolder(@NonNull StackPreviewCustomViewHolder holder, int position) {
-        holder.front.setText( cardList.get(position).getFront());
-        holder.back.setText( cardList.get(position).getBack());
+        try {
+            holder.front.setText( cardList.get(position).getFront());
+            holder.back.setText( cardList.get(position).getBack());
+        } catch (Exception e) {
+            Log.d("Error:", "onBindViewHolder: Cant set text in StackPreviewCustomViewAdapter");
+        }
+
 
     }
 
