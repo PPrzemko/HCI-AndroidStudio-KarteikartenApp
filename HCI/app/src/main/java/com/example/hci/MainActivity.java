@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
@@ -38,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button LoginButton = findViewById(R.id.Login);
-
+        TextView errorNoUser = findViewById(R.id.errorNoUser);
+        errorNoUser.setVisibility(View.INVISIBLE);
+        errorNoUser.setText("Der Nutzername oder das Passwort ist falsch");
         jsonmanager.readFromJson(getApplicationContext());
 
 
@@ -61,6 +64,9 @@ public class MainActivity extends AppCompatActivity {
                         currentData.setUserId(entry.getKey());
                         Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
                         startActivity(i);
+                    }else{
+                        //TODO: Fehlermeldung
+                        errorNoUser.setVisibility(View.VISIBLE);
                     }
                     ;
                 }
