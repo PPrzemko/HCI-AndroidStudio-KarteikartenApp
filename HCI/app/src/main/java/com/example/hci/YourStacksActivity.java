@@ -27,6 +27,7 @@ import java.io.OutputStreamWriter;
 import java.util.Map;
 import java.util.UUID;
 
+//currentDeck.getFlashCards() als currenedFilteredCards setzen
 public class YourStacksActivity extends AppCompatActivity {
     private Jsonmanager jsonmanager = Jsonmanager.getInstance();
     @Override

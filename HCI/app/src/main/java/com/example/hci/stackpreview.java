@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
@@ -15,6 +18,7 @@ import com.example.hci.repositories.DeckRepository;
 import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.LearningSession;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class stackpreview extends AppCompatActivity {
@@ -44,7 +48,7 @@ public class stackpreview extends AppCompatActivity {
 */
 
         recyclerView = findViewById(R.id.recyclerViewStackPreview);
-        customViewAdapter = new StackPreviewCustomViewAdapter(currentDeck.getFlashCards(), getApplicationContext());
+        customViewAdapter = new StackPreviewCustomViewAdapter(currentData.getCurrenedFilteredCards(), getApplicationContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(customViewAdapter);
@@ -58,6 +62,26 @@ public class stackpreview extends AppCompatActivity {
                 currentData.setLearningSession(learningSession);
 
                 Intent i = new Intent(getApplicationContext(), card.class);
+                startActivity(i);
+            }
+        });
+
+        TextView searchInputTextEdit = findViewById(R.id.editTextFilterInput);
+        String searchInput = String.valueOf(searchInputTextEdit.getText());
+        Log.d("HHHHHHHHHHHHHHHHHHHHHHH", searchInput);
+
+        ImageButton searchButton = findViewById(R.id.searchButton);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<FlashCard> filteredList = currentDeck.searchForCardByQuery(searchInput);
+                if (filteredList.size() != 0) {
+                    currentData.setCurrenedFilteredCards(filteredList);
+                }else{
+                    currentData.setCurrenedFilteredCards(currentDeck.getFlashCards());
+                }
+
+                Intent i = new Intent(getApplicationContext(), stackpreview.class);
                 startActivity(i);
             }
         });
