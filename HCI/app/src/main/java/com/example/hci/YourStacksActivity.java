@@ -1,6 +1,7 @@
 package com.example.hci;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -16,6 +17,7 @@ import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
+import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.Jsonmanager;
 
 import org.json.JSONArray;
@@ -28,6 +30,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -39,6 +42,9 @@ public class YourStacksActivity extends AppCompatActivity {
 
     YourStacksCustomViewAdapter customViewAdapter;
 
+    CurrentData currentData = CurrentData.getInstance();
+    UserRepository userRepository = UserRepository.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,41 +53,18 @@ public class YourStacksActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.textViewYourStacksHeadline);
         textView.setText("Deine Stapel");
 
-        List<FlashCard> cardList;
-        cardList = new ArrayList<FlashCard>();
-        cardList.add(new FlashCard("1+1", "2"));
-        cardList.add(new FlashCard("10/2", "5"));
-        cardList.add(new FlashCard("3*3", "9" ));
-        cardList.add(new FlashCard("1+1", "2"));
-        cardList.add(new FlashCard("10/2", "5"));
-        cardList.add(new FlashCard("3*3", "9" ));
-        cardList.add(new FlashCard("1+1", "2"));
-        cardList.add(new FlashCard("10/2", "5"));
-        cardList.add(new FlashCard("3*3", "9" ));
-
-        List<Deck> decklist;
-        recyclerView = findViewById(R.id.recyclerView);
-        decklist = new ArrayList<Deck>();
-        decklist.add(new Deck("Mathe"));
-        decklist.add(new Deck("Deutsch"));
-        decklist.add(new Deck("Englisch"));
+        User currentUser = userRepository.findById(currentData.getUserId());
+        HashMap<UUID,Deck> allDecksMap = currentUser.getOwnDecks();
+        ArrayList<Deck> allDecksList = new ArrayList<Deck>();
+         for(Deck deck : allDecksMap.values()){
+             allDecksList.add(deck);
+         }
 
         recyclerView = findViewById(R.id.recyclerView);
-        customViewAdapter = new YourStacksCustomViewAdapter(decklist, getApplicationContext());
+        customViewAdapter = new YourStacksCustomViewAdapter(allDecksList, getApplicationContext());
 
-        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        // recyclerView.setAdapter(customViewAdapter);
-
-
-
-
-
-
-
-
-
-
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(customViewAdapter);
 
         Button das = findViewById(R.id.buttonAddCard);
         das.setOnClickListener(new View.OnClickListener() {
@@ -89,15 +72,6 @@ public class YourStacksActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), editCard.class);
                 startActivity(i);
-            }
-        });
-
-        Button untenlinks = findViewById(R.id.buttonCreateStack); //beide buttens sind der gleiche!!
-
-        untenlinks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
 

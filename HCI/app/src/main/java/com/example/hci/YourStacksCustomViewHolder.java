@@ -22,12 +22,14 @@ public class YourStacksCustomViewHolder extends RecyclerView.ViewHolder {
 
 
 
-/*
-        icon.setOnClickListener(new View.OnClickListener() {
+
+        /*name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fruit.doSomething();
-                Toast.makeText(view.getContext(), name.getText() + " clicked!", Toast.LENGTH_SHORT).show();
+
+
+                //fruit.doSomething();
+                //Toast.makeText(view.getContext(), name.getText() + " clicked!", Toast.LENGTH_SHORT).show();
             }
         });*/
 

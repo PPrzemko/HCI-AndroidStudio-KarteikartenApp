@@ -32,9 +32,8 @@ public class YourStacksCustomViewAdapter extends RecyclerView.Adapter<YourStacks
     @Override
     public void onBindViewHolder(@NonNull YourStacksCustomViewHolder holder, int position) {
         holder.name.setText( DeckList.get(position).getName());
-        holder.count.setText("5");
-        //holder.count.setText( DeckList.get(position).getFlashCards().size() + " Karten");
-        // holder.count.setText(  DeckList.get(position).getDeckId().toString());
+        holder.count.setText( DeckList.get(position).getFlashCards().size() + " Karten");
+        //holder.count.setText(  DeckList.get(position).getDeckId().toString());
     }
 
     @Override
