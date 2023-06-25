@@ -78,7 +78,7 @@
         app:layout_constraintVertical_bias="0.998" />
 
     <Button
-        android:id="@+id/Register"
+        android:id="@+id/learnStackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Stapel lernen"
@@ -95,7 +95,7 @@
         android:layout_height="48dp"
         android:ems="10"
         android:hint="       Suche"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewStackPreview"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,10 +126,10 @@
         app:layout_constraintVertical_bias="0.091" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewStackPreview"
         android:layout_width="409dp"
         android:layout_height="411dp"
-        app:layout_constraintBottom_toTopOf="@+id/Register"
+        app:layout_constraintBottom_toTopOf="@+id/learnStackButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"

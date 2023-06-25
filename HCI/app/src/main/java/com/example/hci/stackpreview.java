@@ -1,15 +1,13 @@
 package com.example.hci;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
@@ -26,42 +24,43 @@ public class stackpreview extends AppCompatActivity {
     StackPreviewCustomViewAdapter customViewAdapter;
     CurrentData currentData = CurrentData.getInstance();
     DeckRepository deckRepository = DeckRepository.getInstance();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stackpreview);
 
-        Deck currentDeck = deckRepository.findById(currentData.getDeckId());
-        LearningSession learningSession = new LearningSession(currentDeck); ////////////////current data learnign session setzen
+        final Deck currentDeck = deckRepository.findById(currentData.getDeckId());
 
+        recyclerView = findViewById(R.id.recyclerViewStackPreview);
+ /*
+        //Test stuff
+        Deck testDeck = new Deck("test");
 
-        recyclerView = findViewById(R.id.recyclerView);
-        cardList = new ArrayList<FlashCard>();
-        cardList.add(new FlashCard("1+1", "2"));
-        cardList.add(new FlashCard("10/2", "5"));
-        cardList.add(new FlashCard("3*3", "9" ));
-        cardList.add(new FlashCard("1+1", "2"));
-        cardList.add(new FlashCard("10/2", "5"));
-        cardList.add(new FlashCard("3*3", "9" ));
-        cardList.add(new FlashCard("1+1", "2"));
-        cardList.add(new FlashCard("10/2", "5"));
-        cardList.add(new FlashCard("3*3", "9" ));
+        testDeck.addFlashCard(new FlashCard("vorne1", "hinten1"));
+        testDeck.addFlashCard(new FlashCard("vorne2", "hinten2"));
 
-        recyclerView = findViewById(R.id.recyclerView);
-        customViewAdapter = new StackPreviewCustomViewAdapter(cardList, getApplicationContext());
+        final Deck currentDeck= testDeck;
+        //Test stuff ende
+*/
+
+        recyclerView = findViewById(R.id.recyclerViewStackPreview);
+        customViewAdapter = new StackPreviewCustomViewAdapter(currentDeck.getFlashCards(), getApplicationContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(customViewAdapter);
 
 
+        Button learnStackButton = findViewById(R.id.learnStackButton);
+        learnStackButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LearningSession learningSession = new LearningSession(currentDeck);
+                currentData.setLearningSession(learningSession);
 
-
-
-
-
-
-
-
-
+                Intent i = new Intent(getApplicationContext(), card.class);
+                startActivity(i);
+            }
+        });
     }
 }

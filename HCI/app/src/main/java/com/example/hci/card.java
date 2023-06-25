@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
+import com.example.hci.repositories.DeckRepository;
 import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.LearningSession;
 
@@ -26,8 +27,7 @@ public class card extends AppCompatActivity {
         setContentView(R.layout.activity_card);
 
         CurrentData currentData = CurrentData.getInstance();
-
-
+/*
         //test stuff
         Deck testDeck = new Deck("test");
 
@@ -37,7 +37,7 @@ public class card extends AppCompatActivity {
         LearningSession testLearningSession = new LearningSession(testDeck);
         currentData.setLearningSession(testLearningSession);
         //test stuff ende
-
+*/
         LearningSession learningSession = currentData.getLearningSession();
 
         FlashCard currentCard = learningSession.getFlashcard();
