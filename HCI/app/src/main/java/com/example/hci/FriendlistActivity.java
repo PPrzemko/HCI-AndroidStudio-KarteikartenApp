@@ -48,7 +48,6 @@ public class FriendlistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_friendlist);
         navbar();
 
-        SearchView searchView = findViewById(R.id.SearchViewFriendlist);
         //listView = (ListView) findViewById(R.id.listview1);
 
         TextView textView = findViewById(R.id.textViewFriendlistHeadline);
