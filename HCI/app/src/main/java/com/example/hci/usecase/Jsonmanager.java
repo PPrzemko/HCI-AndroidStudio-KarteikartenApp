@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
 import com.example.hci.model.User;
+import com.example.hci.repositories.DeckRepository;
 import com.example.hci.repositories.UserRepository;
 
 import org.json.JSONArray;
@@ -177,10 +178,11 @@ public class Jsonmanager {
                     String rueckseite = (String) obj.get("Rückseite");
 
                     FlashCard flashCard = new FlashCard(voderseite, rueckseite);
+                    DeckRepository deckRepository = DeckRepository.getInstance();
 
-                    HashMap<UUID, Deck> enstandesDeck = user.getOwnDecks();
+                    HashMap<UUID, Deck> deckMap = user.getOwnDecks();
                     boolean existiert = false;
-                    for (Map.Entry<UUID, Deck> entry2 : enstandesDeck.entrySet()) {
+                    for (Map.Entry<UUID, Deck> entry2 : deckMap.entrySet()) {
                         if(entry2.getValue().getName().equals(deckName)){
                             Deck deck = entry2.getValue();
                             deck.addFlashCard(flashCard);
@@ -191,9 +193,11 @@ public class Jsonmanager {
                     }
                     if(existiert == false){
                         Deck neuesDeck = new Deck(deckName);
-                        enstandesDeck.put(neuesDeck.getDeckId(), neuesDeck);
+                        deckMap.put(neuesDeck.getDeckId(), neuesDeck);
+                        deckRepository.addNewDeck(neuesDeck);
                         neuesDeck.addFlashCard(flashCard);
                     };
+
 
                 }
 
