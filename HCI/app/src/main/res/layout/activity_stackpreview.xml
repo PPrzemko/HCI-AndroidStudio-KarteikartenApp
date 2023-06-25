@@ -5,7 +5,23 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize">
+    android:paddingTop="?attr/actionBarSize"
+    android:windowSoftInputMode="adjustPan|adjustResize">
+
+    <ImageButton
+        android:id="@+id/searchButton"
+        android:layout_width="80dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="1dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/friends"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077" />
 
     <ImageButton
         android:id="@+id/btnLogout"
@@ -90,17 +106,17 @@
         app:layout_constraintVertical_bias="0.909" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/editTextFilterInput"
         android:layout_width="290dp"
         android:layout_height="48dp"
         android:ems="10"
         android:hint="       Suche"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerViewStackPreview"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.776"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.512" />
+        app:layout_constraintVertical_bias="0.093" />
 
     <TextView
         android:id="@+id/stackPreviewTitle"
@@ -108,22 +124,12 @@
         android:layout_height="wrap_content"
         android:text="@string/yourDecks"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextText"
+        app:layout_constraintBottom_toTopOf="@+id/editTextFilterInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
-    <SearchView
-        android:layout_width="47dp"
-        android:layout_height="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.091" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewStackPreview"
