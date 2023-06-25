@@ -11,8 +11,11 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.hci.model.Deck;
+import com.example.hci.model.FlashCard;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
+import com.example.hci.usecase.Jsonmanager;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,10 +26,18 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
 public class YourStacksActivity extends AppCompatActivity {
+
+    private Jsonmanager jsonmanager = Jsonmanager.getInstance();
+    private Jsonmanager jsonmanager = Jsonmanager.getInstance();
+    RecyclerView recyclerView;
+
+    YourStacksCustomViewAdapter customViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +47,41 @@ public class YourStacksActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.textViewYourStacksHeadline);
         textView.setText("Deine Stapel");
 
-        LinearLayout linear =findViewById(R.id.linearLayoutYourStacks);
-        TextView[] textViews = new TextView[20];
+        List<FlashCard> cardList;
+        cardList = new ArrayList<FlashCard>();
+        cardList.add(new FlashCard("1+1", "2"));
+        cardList.add(new FlashCard("10/2", "5"));
+        cardList.add(new FlashCard("3*3", "9" ));
+        cardList.add(new FlashCard("1+1", "2"));
+        cardList.add(new FlashCard("10/2", "5"));
+        cardList.add(new FlashCard("3*3", "9" ));
+        cardList.add(new FlashCard("1+1", "2"));
+        cardList.add(new FlashCard("10/2", "5"));
+        cardList.add(new FlashCard("3*3", "9" ));
 
-        for(TextView txt : textViews){
-            txt = new TextView(this);
-            txt.setText("Englisch 68");
-            txt.setPadding(0,40,0,40);
-            txt.setGravity(Gravity.CENTER);
-            linear.addView(txt);
-        }
+        List<Deck> decklist;
+        recyclerView = findViewById(R.id.recyclerView);
+        decklist = new ArrayList<Deck>();
+        decklist.add(new Deck("Mathe"));
+        decklist.add(new Deck("Deutsch"));
+        decklist.add(new Deck("Englisch"));
+
+        recyclerView = findViewById(R.id.recyclerView);
+        customViewAdapter = new YourStacksCustomViewAdapter(decklist, getApplicationContext());
+
+        //recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // recyclerView.setAdapter(customViewAdapter);
+
+
+
+
+
+
+
+
+
+
+
 
         Button das = findViewById(R.id.buttonAddCard);
         das.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +122,7 @@ public class YourStacksActivity extends AppCompatActivity {
 
         navbar();
     }
+
     public void navbar() {
         ImageButton a = findViewById(R.id.btnActivity);
         ImageButton b = findViewById(R.id.btnFriendslist);
