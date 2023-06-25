@@ -1,5 +1,8 @@
 package com.example.hci.usecase;
 
+import com.example.hci.model.FlashCard;
+
+import java.util.ArrayList;
 import java.util.UUID;
 
 public class CurrentData {
@@ -8,6 +11,16 @@ public class CurrentData {
     private UUID deckId;
 
     private LearningSession learningSession;
+
+    public ArrayList<FlashCard> getCurrenedFilteredCards() {
+        return currenedFilteredCards;
+    }
+
+    public void setCurrenedFilteredCards(ArrayList<FlashCard> currenedFilteredCards) {
+        this.currenedFilteredCards = currenedFilteredCards;
+    }
+
+    private ArrayList<FlashCard> currenedFilteredCards;
     private static CurrentData instance;
 
     public static CurrentData getInstance() {
