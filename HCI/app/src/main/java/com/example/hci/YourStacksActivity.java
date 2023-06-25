@@ -1,6 +1,7 @@
 package com.example.hci;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,7 +34,6 @@ import java.util.UUID;
 
 public class YourStacksActivity extends AppCompatActivity {
 
-    private Jsonmanager jsonmanager = Jsonmanager.getInstance();
     private Jsonmanager jsonmanager = Jsonmanager.getInstance();
     RecyclerView recyclerView;
 
