@@ -38,9 +38,10 @@ public class MainActivity extends AppCompatActivity {
         //test sachen für filterfunktion
         Deck testDeck = new Deck("test");
 
-        testDeck.addFlashCard(new FlashCard("aaaaa", "ddd"));
-        testDeck.addFlashCard(new FlashCard("bbbb", "eeee"));
-        testDeck.addFlashCard(new FlashCard("ccccccccccc", "fffffffff"));
+        testDeck.addFlashCard(new FlashCard("Katze", "Cat"));
+        testDeck.addFlashCard(new FlashCard("Hund", "Dog"));
+        testDeck.addFlashCard(new FlashCard("Blume", "Flower"));
+
 
 
         final Deck currentDeck= testDeck;
