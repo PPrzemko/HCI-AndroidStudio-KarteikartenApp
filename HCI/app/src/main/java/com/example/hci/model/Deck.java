@@ -52,7 +52,6 @@ public class Deck {
                 returnList.add(flashCard);
             }
         }
-        returnList.add(new FlashCard("zusatz", "zusat"));
         return returnList;
     }
 }

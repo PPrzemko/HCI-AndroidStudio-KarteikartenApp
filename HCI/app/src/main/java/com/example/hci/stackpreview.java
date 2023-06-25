@@ -94,5 +94,16 @@ public class stackpreview extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
+        ImageButton backButton = findViewById(R.id.backbtn2);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), YourStacksActivity.class);
+                startActivity(i);
+            }
+        });
     }
+
+
 }

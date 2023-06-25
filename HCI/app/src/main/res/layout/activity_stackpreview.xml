@@ -9,89 +9,34 @@
     android:windowSoftInputMode="adjustPan|adjustResize">
 
     <ImageButton
+        android:id="@+id/backbtn2"
+        android:layout_width="66dp"
+        android:layout_height="46dp"
+        android:backgroundTint="#00FFFFFF"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:src="@drawable/back"
+        app:layout_constraintBottom_toTopOf="@+id/stackPreviewTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
         android:id="@+id/searchButton"
         android:layout_width="80dp"
         android:layout_height="43dp"
         android:layout_marginBottom="1dp"
         android:backgroundTint="#00FFFFFF"
-        android:src="@drawable/friends"
+        android:src="@android:drawable/ic_menu_search"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.012"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
-
-    <ImageButton
-        android:id="@+id/btnLogout"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="#00FFFFFF"
-        android:src="@drawable/logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/btnProfile"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998" />
-
-    <ImageButton
-        android:id="@+id/btnActivity"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="#00FFFFFF"
-        android:src="@drawable/home"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnFriendslist"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998" />
-
-    <ImageButton
-        android:id="@+id/btnFriendslist"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="#00FFFFFF"
-        android:src="@drawable/friends"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnStack"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/btnActivity"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998" />
-
-    <ImageButton
-        android:id="@+id/btnStack"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="#00FFFFFF"
-        android:src="@drawable/cards"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnProfile"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/btnFriendslist"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998" />
-
-    <ImageButton
-        android:id="@+id/btnProfile"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="#00FFFFFF"
-        android:src="@drawable/user"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogout"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/btnStack"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.998" />
+        app:layout_constraintVertical_bias="0.114" />
 
     <Button
         android:id="@+id/registerButton"
@@ -100,10 +45,10 @@
         android:text="Stapel lernen"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.909" />
+        app:layout_constraintVertical_bias="0.976" />
 
     <EditText
         android:id="@+id/editTextFilterInput"
@@ -126,20 +71,19 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextFilterInput"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintStart_toEndOf="@+id/backbtn2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.177" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewStackPreview"
-        android:layout_width="409dp"
-        android:layout_height="411dp"
+        android:layout_width="403dp"
+        android:layout_height="445dp"
         app:layout_constraintBottom_toTopOf="@+id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.921" />
+        app:layout_constraintVertical_bias="0.849" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
