@@ -33,7 +33,6 @@ public class editCard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_card);
 
-
         // https://stackoverflow.com/questions/13377361/how-to-create-a-drop-down-list
         Spinner dropdown = findViewById(R.id.spinnerChoseDeck);
         //String[] items = new String[]{};
@@ -46,8 +45,6 @@ public class editCard extends AppCompatActivity {
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);
-
-        Deck currentDeck = deckRepository.findById(currentData.getDeckId());
 
 
 

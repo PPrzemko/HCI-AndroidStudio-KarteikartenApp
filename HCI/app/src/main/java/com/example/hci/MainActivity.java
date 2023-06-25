@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        Button RegisterButton = findViewById(R.id.Register);
+        Button RegisterButton = findViewById(R.id.registerButton);
 
         RegisterButton.setOnClickListener(new View.OnClickListener() {
             @Override

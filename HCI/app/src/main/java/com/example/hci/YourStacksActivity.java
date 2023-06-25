@@ -57,7 +57,7 @@ public class YourStacksActivity extends AppCompatActivity {
             }
         });
 
-        Button untenlinks = findViewById(R.id.buttonCreateStack);
+        Button untenlinks = findViewById(R.id.buttonCreateStack); //beide buttens sind der gleiche!!
 
         untenlinks.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +65,6 @@ public class YourStacksActivity extends AppCompatActivity {
 
             }
         });
-
 
         Button stapelErstellen = findViewById(R.id.buttonCreateStack);
 
@@ -77,16 +76,9 @@ public class YourStacksActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
-
-
-
-
         navbar();
     }
+
     public void navbar() {
         ImageButton a = findViewById(R.id.btnActivity);
         ImageButton b = findViewById(R.id.btnFriendslist);

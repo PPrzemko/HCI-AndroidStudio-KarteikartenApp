@@ -7,10 +7,11 @@ public class CurrentData {
     private UUID userId;
     private UUID deckId;
 
+    private LearningSession learningSession;
     private static CurrentData instance;
 
-    public static CurrentData getInstance(){
-        if(instance == null){
+    public static CurrentData getInstance() {
+        if (instance == null) {
             instance = new CurrentData();
         }
         return instance;
@@ -30,5 +31,13 @@ public class CurrentData {
 
     public void setDeckId(UUID deckId) {
         this.deckId = deckId;
+    }
+
+    public LearningSession getLearningSession() {
+        return learningSession;
+    }
+
+    public void setLearningSession(LearningSession learningSession) {
+        this.learningSession = learningSession;
     }
 }
