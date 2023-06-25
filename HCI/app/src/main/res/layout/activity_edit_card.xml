@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="0.075" />
 
     <Spinner
-        android:id="@+id/spinnerChoseDeck"
+        android:id="@+id/spinnerChooseDeck"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -72,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerChoseDeck"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerChooseDeck"
         app:layout_constraintVertical_bias="0.219" />
 
     <EditText
