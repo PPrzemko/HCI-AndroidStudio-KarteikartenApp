@@ -19,7 +19,9 @@ import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.LearningSession;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 public class stackpreview extends AppCompatActivity {
     List<FlashCard> cardList;
@@ -32,8 +34,8 @@ public class stackpreview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stackpreview);
-
-        final Deck currentDeck = deckRepository.findById(currentData.getDeckId());
+        UUID id = currentData.getDeckId();
+        final Deck currentDeck = deckRepository.findById(id);
 
         recyclerView = findViewById(R.id.recyclerViewStackPreview);
  /*
@@ -48,14 +50,14 @@ public class stackpreview extends AppCompatActivity {
 */
 
         recyclerView = findViewById(R.id.recyclerViewStackPreview);
-        ArrayList<FlashCard> test = null;
+        ArrayList<FlashCard> test4 = null;
         try {
-            test = currentDeck.getFlashCards();
+            test4 = currentDeck.getFlashCards();
         } catch (Exception e) {
             Log.d("Error:", "onCreate: " + e);
         }
 
-        customViewAdapter = new StackPreviewCustomViewAdapter(test, getApplicationContext());
+        customViewAdapter = new StackPreviewCustomViewAdapter(test4, getApplicationContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(customViewAdapter);

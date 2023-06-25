@@ -47,6 +47,10 @@ public class StackPreviewCustomViewAdapter extends RecyclerView.Adapter<StackPre
 
     @Override
     public int getItemCount() {
+        if (cardList == null) {
+            Log.d("Error:", "getItemCount: cardList is null in StackPreviewCustomViewAdapter");
+            return 0;
+        }
         return cardList.size();
     }
 
