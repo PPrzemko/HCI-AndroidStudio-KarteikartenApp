@@ -2,6 +2,7 @@ package com.example.hci;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -45,6 +46,9 @@ public class FriendlistActivity extends AppCompatActivity {
     private CurrentData currentData = CurrentData.getInstance();
     private UserRepository userRepository= UserRepository.getInstance();
     private Jsonmanager jsonmanager = Jsonmanager.getInstance();
+
+    CustomAdapter customViewAdapterFreunde;
+
     RecyclerView recyclerView;
 
 
@@ -59,17 +63,22 @@ public class FriendlistActivity extends AppCompatActivity {
 
         User neu = userRepository.findById(currentData.getUserId());
 
-        TextView textView = findViewById(R.id.textViewFriendlistHeadline);
-        textView.setText("Freundesliste");
-        recyclerView = findViewById(R.id.recyclerViewFreunde);
-        TextView MeldungHinzugefuegt = findViewById(R.id.Meldung2);
-        MeldungHinzugefuegt.setVisibility(View.INVISIBLE);
-
+        //TextView textView = findViewById(R.id.textViewFriendlistHeadline);
+        //textView.setText("Freundesliste");
+        if(neu ==null)
+            return;
         ArrayList<User> allFriends = new ArrayList<User>();
         for(User user : neu.getFriends()){
             allFriends.add(user);
         }
 
+        recyclerView = findViewById(R.id.recyclerViewFreunde);
+        customViewAdapterFreunde = new CustomAdapter(allFriends, getApplicationContext());
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(customViewAdapterFreunde);
+
+        TextView MeldungHinzugefuegt = findViewById(R.id.Meldung2);
+        MeldungHinzugefuegt.setVisibility(View.INVISIBLE);
 
 
 
@@ -79,7 +88,7 @@ public class FriendlistActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView usernameEingabe = findViewById(R.id.UsernameEingeben);
-                String userNameEingabeString = usernameEingabe.toString();
+                String userNameEingabeString = usernameEingabe.getText().toString();
                 if(userRepository.findbyUserName3(userNameEingabeString) == true){
                     User neuerFreund = userRepository.findbyUserName2(userNameEingabeString);
                     neu.addFriend(neuerFreund);
@@ -87,7 +96,7 @@ public class FriendlistActivity extends AppCompatActivity {
                     MeldungHinzugefuegt.setVisibility(View.VISIBLE);
                 }
                 else{
-                    MeldungHinzugefuegt.setText("User existiert");
+                    MeldungHinzugefuegt.setText("User existiert nicht");
                     MeldungHinzugefuegt.setVisibility(View.VISIBLE);
                 }
             }

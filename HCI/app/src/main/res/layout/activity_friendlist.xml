@@ -17,9 +17,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/btnProfile"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.998" />
+        app:layout_constraintStart_toEndOf="@+id/btnProfile" />
 
     <ImageButton
         android:id="@+id/btnActivity"
@@ -45,9 +43,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnStack"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/btnActivity"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.998" />
+        app:layout_constraintStart_toEndOf="@+id/btnActivity" />
 
     <ImageButton
         android:id="@+id/btnStack"
@@ -59,9 +55,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnProfile"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/btnFriendslist"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toEndOf="@+id/btnFriendslist" />
 
     <ImageButton
         android:id="@+id/btnProfile"
@@ -73,9 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnLogout"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/btnStack"
-        app:layout_constraintTop_toBottomOf="@+id/divider"
-        app:layout_constraintVertical_bias="0.998" />
+        app:layout_constraintStart_toEndOf="@+id/btnStack" />
 
     <TextView
         android:id="@+id/textViewFriendlistHeadline"
@@ -89,14 +81,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.039" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="409dp"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="664dp" />
-
     <TextView
         android:id="@+id/textViewFreunde"
         android:layout_width="230dp"
@@ -104,14 +88,13 @@
         android:layout_marginStart="67dp"
         android:layout_marginTop="58dp"
         android:layout_marginEnd="180dp"
-        android:layout_marginBottom="507dp"
         android:text="Finden Sie Ihre Freunde?"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFriendlistHeadline" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewFriendlistHeadline"
+        tools:ignore="TextSizeCheck" />
 
     <EditText
         android:id="@+id/UsernameEingeben"
@@ -120,11 +103,9 @@
         android:layout_marginStart="54dp"
         android:layout_marginTop="31dp"
         android:layout_marginEnd="147dp"
-        android:layout_marginBottom="434dp"
         android:ems="10"
         android:inputType="text"
         android:text="Username eingeben"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFreunde" />
@@ -135,17 +116,14 @@
         android:layout_height="44dp"
         android:layout_marginTop="31dp"
         android:layout_marginEnd="103dp"
-        android:layout_marginBottom="438dp"
         android:foreground="@android:drawable/ic_menu_search"
         android:text="F"
         android:textColorHighlight="#00BCD4"
         android:textColorLink="#00BCD4"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/UsernameEingeben"
-        app:layout_constraintTop_toBottomOf="@+id/textViewFreunde"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewFreunde" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewFreunde"
@@ -154,13 +132,10 @@
         android:layout_marginStart="46dp"
         android:layout_marginTop="37dp"
         android:layout_marginEnd="46dp"
-        android:layout_marginBottom="52dp"
-        app:layout_constraintBottom_toTopOf="@+id/divider"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/UsernameEingeben"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/UsernameEingeben" />
 
     <TextView
         android:id="@+id/Meldung2"
