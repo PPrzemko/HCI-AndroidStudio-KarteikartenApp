@@ -40,24 +40,20 @@ public class FriendfeedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friendfeed);
+        User momentaneruser = userRepository.findById(currentData.getUserId());
 
         TextView textView = findViewById(R.id.textViewHeadline);
         textView.setText("Aktivitäten");
 
-        LinearLayout linear =findViewById(R.id.linearLayoutFriendfeed);
-        TextView[] textViews = new TextView[20];
-
-        for(TextView txt : textViews){
-            txt = new TextView(this);
-            txt.setText("XYZ hat den Stapel ZYX erstellt");
-            txt.setPadding(0,40,0,40);
-            txt.setGravity(Gravity.CENTER);
-            linear.addView(txt);
+        LinearLayout linearLayout = findViewById(R.id.linearLayoutFriendfeed);
+        for(User user : momentaneruser.getFriends()){
+           TextView aktivi = new TextView(this);
+           String scoreString = String.valueOf(user.getScore());
+           int letztesElement = user.getAchievements().size()-1;
+           String ausgabe = user.getUsername() + " hat folgendes Deck gelernt:  " + user.getAchievements().get(letztesElement).getDeckname() + " - Score " + scoreString + System.lineSeparator();
+           aktivi.setText(ausgabe);
+           linearLayout.addView(aktivi);
         }
-
-        LinearLayout linear2 = findViewById((R.id.anzahlUsers));
-        int size = UserRepository.getInstance().getUsersList().size();
-        TextView textView1;
 
         navbar();
     }

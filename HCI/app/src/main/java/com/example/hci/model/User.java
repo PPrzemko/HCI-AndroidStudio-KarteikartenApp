@@ -12,10 +12,23 @@ public class User {
     private ArrayList<Achievement> achievements;
     private HashMap<UUID, Deck> ownDecks;
 
+    int score;
+
     public User(String username, String email, String password){
         this.username=username;
         this.email=email;
         this.password=password;
+        this.score = 0;
+        userId=UUID.randomUUID();
+        friends=new ArrayList<>();
+        achievements=new ArrayList<>();
+        ownDecks=new HashMap<>();
+    }
+    public User(String username, String email, String password, int score){
+        this.username=username;
+        this.email=email;
+        this.password=password;
+        this.score = score;
         userId=UUID.randomUUID();
         friends=new ArrayList<>();
         achievements=new ArrayList<>();
@@ -38,6 +51,10 @@ public class User {
         return password;
     }
 
+    public int getScore() {
+        return score;
+    }
+
     public ArrayList<User> getFriends() {
         return friends;
     }
@@ -56,6 +73,10 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public void setScore(int zahl) {
+        this.score = score + zahl;
     }
 
     public void setPassword(String password) {

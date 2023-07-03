@@ -54,7 +54,7 @@ public class FriendlistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friendlist);
         navbar();
-        long delayMillis = 10000;
+        long delayMillis = 2000;
 
         //listView = (ListView) findViewById(R.id.listview1);
 
