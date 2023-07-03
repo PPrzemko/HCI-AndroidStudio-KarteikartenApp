@@ -10,13 +10,15 @@
         android:id="@+id/uberschriftNewDeck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="43dp"
         android:text="Neuer Stapel"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/SearchViewYourStacks"
+        app:layout_constraintBottom_toTopOf="@+id/stapelName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.455"
+        app:layout_constraintHorizontal_bias="0.435"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.125" />
@@ -59,37 +61,24 @@
 
     <Button
         android:id="@+id/erstellenButtonNewStack"
-        android:layout_width="135dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="147dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="129dp"
-        android:layout_marginBottom="250dp"
-        android:backgroundTint="@color/Primary"
+        android:layout_width="326dp"
+        android:layout_height="64dp"
+        android:background="@drawable/button_shape"
         android:text="Erstellen"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/stapelnameNewStack"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.224" />
 
-    <Button
-        android:id="@+id/back2"
-        android:layout_width="97dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="99dp"
-        android:backgroundTint="@color/Primary"
-        android:text="zurück"
-        app:layout_constraintBottom_toTopOf="@+id/stapelName"
-        app:layout_constraintEnd_toStartOf="@+id/uberschriftNewDeck"
-        app:layout_constraintHorizontal_bias="0.615"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="TouchTargetSizeCheck" />
+    <ImageButton
+        android:id="@+id/backbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        app:srcCompat="@drawable/back"
+        tools:layout_editor_absoluteY="3dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

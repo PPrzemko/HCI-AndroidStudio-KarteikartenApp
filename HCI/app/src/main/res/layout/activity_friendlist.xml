@@ -8,18 +8,6 @@
     tools:context=".FriendlistActivity">
 
     <ImageButton
-        android:id="@+id/btnLogout"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="#00FFFFFF"
-        android:src="@drawable/logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toEndOf="@+id/btnProfile" />
-
-    <ImageButton
         android:id="@+id/btnActivity"
         android:layout_width="0dp"
         android:layout_height="50dp"
@@ -65,7 +53,7 @@
         android:backgroundTint="#00FFFFFF"
         android:src="@drawable/user"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toEndOf="@+id/btnStack" />
 

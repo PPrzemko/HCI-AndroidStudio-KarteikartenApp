@@ -66,7 +66,7 @@ public class FriendfeedActivity extends AppCompatActivity {
         ImageButton b=findViewById(R.id.btnFriendslist);
         ImageButton c=findViewById(R.id.btnStack);
         ImageButton d=findViewById(R.id.btnProfile);
-        ImageButton e=findViewById(R.id.btnLogout);
+
         a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,17 +95,7 @@ public class FriendfeedActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-        e.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TO DO ADD LOGOUT FUNCTIONALITY
-                //ERSTELLEN EINER JSON
-                jsonmanager.writeToJson(getApplicationContext());
-                UserRepository.getInstance().getUsersList().clear();
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-            }
-        });
+
 
     }
 }

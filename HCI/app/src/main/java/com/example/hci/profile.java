@@ -48,7 +48,7 @@ public class profile extends AppCompatActivity {
         TextView tvEmailadress = findViewById(R.id.editTextTextEmailAddress);
         tvEmailadress.setText(currentUser.getEmail());
 
-        Button changePasswordButton = findViewById(R.id.button3);
+        ImageButton changePasswordButton = findViewById(R.id.changepwd);
         changePasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,7 +73,7 @@ public class profile extends AppCompatActivity {
         ImageButton b = findViewById(R.id.btnFriendslist);
         ImageButton c = findViewById(R.id.btnStack);
         ImageButton d = findViewById(R.id.btnProfile);
-        ImageButton e = findViewById(R.id.btnLogout);
+        ImageButton e = findViewById(R.id.btnLogout2);
         a.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
