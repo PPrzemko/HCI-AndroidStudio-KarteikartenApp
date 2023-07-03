@@ -33,11 +33,14 @@ public class ForgotPassword extends AppCompatActivity {
         TextView pwInput1TextEdit = findViewById(R.id.TextEditInput1changePw);
         TextView pwInput2TextEdit = findViewById(R.id.TextEditInput2changePw);
         TextView DisplayErrorMessageTextView = findViewById(R.id.DisplayErrorMessageChangePw);
+        TextView benutzernameAnzeige = findViewById(R.id.benutzernameChangePw);
 
         User currentUser = userRepository.findById(currentData.getUserId());
 
         if (cameFromProfile) {
             tvUsername.setText(currentUser.getUsername());
+            tvUsername.setVisibility(View.INVISIBLE);
+            benutzernameAnzeige.setVisibility(View.INVISIBLE);
         }
 
         neu.setOnClickListener(new View.OnClickListener() {
