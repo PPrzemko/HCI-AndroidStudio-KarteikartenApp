@@ -24,10 +24,13 @@
 
     <TextView
         android:id="@+id/registrierungUberschrift"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="214dp"
+        android:layout_height="53dp"
         android:text="@string/register"
-        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textColor="@color/Titel"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.436"
@@ -95,10 +98,11 @@
 
     <Button
         android:id="@+id/erstellenButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="134dp"
+        android:layout_height="52dp"
         android:backgroundTint="@color/Primary"
         android:text="@string/create"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.403"

@@ -66,10 +66,13 @@
 
     <TextView
         android:id="@+id/stackPreviewTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="251dp"
+        android:layout_height="50dp"
         android:text="@string/yourDecks"
-        android:textSize="24sp"
+        android:textAlignment="center"
+        android:textColor="@color/Titel"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editTextFilterInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.283"

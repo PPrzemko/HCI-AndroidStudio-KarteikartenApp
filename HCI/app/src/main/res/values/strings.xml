@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">HCI</string>
+    <string name="app_name">DIE Karteikartenapp</string>
     <string name="register">Registrieren</string>
-    <string name="no_acc">Du hast kein Konto?</string>
+    <string name="no_acc">Du hast noch kein Konto?</string>
     <string name="login">Anmelden</string>
     <string name="pw_forgott">Passwort vergessen?</string>
     <string name="username">Benutzername</string>

@@ -78,15 +78,12 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="332dp"
-        android:layout_height="554dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="346dp"
+        android:layout_height="485dp"
         android:layout_marginTop="19dp"
-        android:layout_marginEnd="24dp"
         android:background="@color/Background"
         app:layout_constraintBottom_toTopOf="@+id/btnStack"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewHeadline"
         app:layout_constraintVertical_bias="0.008">
@@ -106,16 +103,20 @@
 
     <TextView
         android:id="@+id/textViewHeadline"
-        android:layout_width="109dp"
-        android:layout_height="37dp"
+        android:layout_width="332dp"
+        android:layout_height="103dp"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/Titel"
+        android:textSize="34sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.456"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.056"
-        tools:text="Aktivitäten" />
+        tools:text="Aktivitäten deiner Freunde" />
 
     <LinearLayout
         android:id="@+id/anzahlUsers"

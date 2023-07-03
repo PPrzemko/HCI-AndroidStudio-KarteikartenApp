@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextClock;
 import android.widget.TextView;
 
 import com.example.hci.model.Deck;
@@ -38,6 +39,8 @@ public class stackpreview extends AppCompatActivity {
         final Deck currentDeck = deckRepository.findById(id);
 
         recyclerView = findViewById(R.id.recyclerViewStackPreview);
+        TextView titelTv = findViewById(R.id.stackPreviewTitle);
+        titelTv.setText(currentDeck.getName());
  /*
         //Test stuff
         Deck testDeck = new Deck("test");
