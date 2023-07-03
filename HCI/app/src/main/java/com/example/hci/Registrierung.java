@@ -43,7 +43,7 @@ public class Registrierung extends AppCompatActivity {
 
         TextView errorNoUser = findViewById(R.id.errorNoUserReg);
         errorNoUser.setVisibility(View.INVISIBLE);
-        errorNoUser.setText("Dieser Benutzername ist bereits vergeben");
+        errorNoUser.setText("");
 
         Button erstellen = findViewById(R.id.erstellenButton);
         erstellen.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +83,7 @@ public class Registrierung extends AppCompatActivity {
                         Log.d("TEST", "Gibt den User schon");
                         //TODO: Fehlermeldung
                         errorNoUser.setVisibility(View.VISIBLE);
+                        errorNoUser.setText("Dieser Benutzername ist bereits vergeben");
                     } else {
                         User user = new User(name, email, password);
                         userRepository.save(user);
