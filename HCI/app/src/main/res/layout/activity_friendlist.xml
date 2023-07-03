@@ -137,15 +137,14 @@
 
     <ScrollView
         android:id="@+id/scrollView3"
-        android:layout_width="324dp"
-        android:layout_height="191dp"
+        android:layout_width="331dp"
+        android:layout_height="256dp"
         android:scrollbarSize="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/btnStack"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Meldung2"
-        app:layout_constraintVertical_bias="0.574">
+        app:layout_constraintVertical_bias="0.268">
 
         <LinearLayout
             android:id="@+id/linearlayout"

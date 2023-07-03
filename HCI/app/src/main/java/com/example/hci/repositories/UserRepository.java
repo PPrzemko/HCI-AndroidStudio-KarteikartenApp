@@ -1,16 +1,23 @@
 package com.example.hci.repositories;
 
+import android.content.Intent;
+import android.util.Log;
+import android.view.View;
+
+import com.example.hci.YourStacksActivity;
 import com.example.hci.model.User;
 
 
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class UserRepository { //TODO Singleton werden
+public class UserRepository  { //TODO Singleton werden
 
 
     public HashMap<UUID, User> getUsersList() {
         return usersList;
     }
+
 
     private final HashMap<UUID, User> usersList = new HashMap<>();
 
@@ -70,5 +77,62 @@ public class UserRepository { //TODO Singleton werden
         return existiert;
 
     };
+
+
+    public User checkLoginCreds(String givenusername, String givenpassword){
+        // Checks User credentials and returns User if found, else null
+        User returnUser = null;
+        if(UserRepository.getInstance().getUsersList().size() == 0){
+            returnUser = null;
+        }else {
+            try{
+                for (User entry : getUsersList().values()) {
+                    if (entry.getUsername().equals(givenusername) && entry.getPassword().equals(givenpassword)) {
+                        returnUser = entry;
+                        break;
+                    }
+                }
+
+            }catch (Exception e){
+                Log.d("TEST", "Gibt den User schon" + e.toString());
+                returnUser = null;
+            }
+
+        }
+        return returnUser;
+    }
+
+
+    public boolean createNewUser(User user){
+        // creates a new User and returns true if successful, else false it already exists
+        boolean wurdeErfolgreichErstellt = false;
+        if(usersList.isEmpty()){
+            usersList.put(user.getUserId(), user);
+            wurdeErfolgreichErstellt = true;
+        }else{
+            try{
+                boolean userFound = false;
+                for (User entry : getUsersList().values()) {
+                    if (entry.getUsername().equals(user.getUsername())) {
+                        Log.d("TEST", "Gibt den User schon");
+                        userFound = true;
+                    }
+                }
+                if(!userFound){
+                    usersList.put(user.getUserId(), user);
+                    wurdeErfolgreichErstellt = true;
+                }
+
+            }catch (Exception e){
+                Log.d("TEST", "Gibt den User schon" + e.toString());
+                wurdeErfolgreichErstellt = false;
+            }
+
+        }
+
+        return wurdeErfolgreichErstellt;
+    }
+
+
 
 }

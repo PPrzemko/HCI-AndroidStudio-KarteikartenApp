@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,27 +69,16 @@ public class MainActivity extends AppCompatActivity {
 
                 editText = findViewById(R.id.editTextTextPassword);
                 String password = editText.getText().toString();
-
-                if(UserRepository.getInstance().getUsersList().size() == 0){
+                User user = UserRepository.getInstance().checkLoginCreds(nutzername, password);
+                if(user != null){
+                    currentData.setUserId(user.getUserId());
+                    Intent i = new Intent(getApplicationContext(), YourStacksActivity.class);
+                    startActivity(i);
+                }else{
                     errorNoUser.setVisibility(View.VISIBLE);
                     errorNoUser.setText("Der Nutzername oder das Passwort ist falsch oder existiert nicht");;
-                }else {
-                    for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
-                        String neuerName = entry.getValue().getUsername().toString();
-                        String nerPasswort = entry.getValue().getPassword().toString();
-                        if (neuerName.equals(nutzername) && nerPasswort.equals(password)) {
-                            currentData.setUserId(entry.getKey());
-                            Intent i = new Intent(getApplicationContext(), YourStacksActivity.class);
-                            startActivity(i);
-                        }else{
-                            //TODO: Fehlermeldung
-                            errorNoUser.setVisibility(View.VISIBLE);
-                            errorNoUser.setText("Der Nutzername oder das Passwort ist falsch oder existiert nicht");;
-                        }
-                        ;
-                    }
                 }
-                ;
+
             }
         });
 
