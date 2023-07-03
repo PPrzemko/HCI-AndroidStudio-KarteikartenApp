@@ -20,7 +20,6 @@ import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.Jsonmanager;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.UUID;
 
 //currentDeck.getFlashCards() als currenedFilteredCards setzen
@@ -50,12 +49,9 @@ public class YourStacksActivity extends AppCompatActivity {
         User currentUser = userRepository.findById(id);
         Log.d("DDDDDDDDDDD", currentUser.toString());
 
-        HashMap<UUID,Deck> allDecksMap = currentUser.getOwnDecks(); ////////////////////////////////////////////////////////////
 
-         ArrayList<Deck> allDecksList = new ArrayList<Deck>();
-         for(Deck deck : allDecksMap.values()){
-             allDecksList.add(deck);
-         }
+         ArrayList<Deck> allDecksList = currentUser.getOwnDecksAsArray();
+
 
         currentData.setYourStacksActivity(this);
 

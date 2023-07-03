@@ -43,9 +43,11 @@ public class editCard extends AppCompatActivity {
         if (momentaner == null) {
             Log.d("ERROR:", "EditCard: User nicht gefunden");
         }
-        for(Map.Entry<UUID, Deck> entry : momentaner.getOwnDecks().entrySet()){
-            items.add(entry.getValue().getName());
-        };
+
+        for(Deck deck : momentaner.getOwnDecksAsArray()){
+            items.add(deck.getName());
+        }
+
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         dropdown.setAdapter(adapter);

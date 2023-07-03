@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.Optional;
 
-public class DeckRepository {
+public class DeckRepository{
 
     UserRepository userRepository = UserRepository.getInstance();
     private CurrentData currentData = CurrentData.getInstance();

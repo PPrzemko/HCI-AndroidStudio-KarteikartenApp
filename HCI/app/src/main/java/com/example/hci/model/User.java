@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class User {
+public class User{
 
     private UUID userId;
     private String username, email, password;
@@ -47,7 +47,16 @@ public class User {
     }
 
     public HashMap<UUID, Deck> getOwnDecks() {
+        // DONT every use DEPRECATED
         return ownDecks;
+    }
+
+    public ArrayList<Deck> getOwnDecksAsArray(){
+        ArrayList<Deck> allDecksList = new ArrayList<Deck>();
+        for(Deck deck : ownDecks.values()){
+            allDecksList.add(deck);
+        }
+        return allDecksList;
     }
 
     public void setUsername(String username) {

@@ -65,36 +65,19 @@ public class Registrierung extends AppCompatActivity {
                 editText = findViewById(R.id.EingabePasswort);
                 String password = editText.getText().toString();
 
-                if (userRepository.getUsersList().size() == 0) {
-                    User user = new User(name, email, password);
-                    userRepository.save(user);
 
-                    System.out.print("User hinzugefuegt");
-
-                    //ERSTELLEN EINER JSON + LESEN EINER JSON
+                User newuser = new User(name, email, password);
+                if(userRepository.createNewUser(newuser)){
                     jsonmanager.writeToJson(getApplicationContext());
-
-                    currentData.setUserId(user.getUserId());
+                    currentData.setUserId(newuser.getUserId());
                     startActivity(i);
+                }else{
+                    errorNoUser.setVisibility(View.VISIBLE);
+                    errorNoUser.setText("User already exists");
                 }
 
-                for (Map.Entry<UUID, User> entry : userRepository.getUsersList().entrySet()) {
-                    if (entry.getValue().getUsername().equals(name)) {
-                        Log.d("TEST", "Gibt den User schon");
-                        //TODO: Fehlermeldung
-                        errorNoUser.setVisibility(View.VISIBLE);
-                        errorNoUser.setText("Dieser Benutzername ist bereits vergeben");
-                    } else {
-                        User user = new User(name, email, password);
-                        userRepository.save(user);
 
-                        jsonmanager.writeToJson(getApplicationContext());
 
-                        currentData.setUserId(user.getUserId());
-                        startActivity(i);
-                    }
-
-                }
 
             }
         });
