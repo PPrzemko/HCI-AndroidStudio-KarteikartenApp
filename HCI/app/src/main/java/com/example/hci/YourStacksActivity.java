@@ -4,37 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.hci.model.Deck;
-import com.example.hci.model.FlashCard;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.Jsonmanager;
-import com.example.hci.usecase.LearningSession;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 //currentDeck.getFlashCards() als currenedFilteredCards setzen
@@ -48,6 +34,7 @@ public class YourStacksActivity extends AppCompatActivity {
     CurrentData currentData = CurrentData.getInstance();
     UserRepository userRepository = UserRepository.getInstance();
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,9 +56,9 @@ public class YourStacksActivity extends AppCompatActivity {
              allDecksList.add(deck);
          }
 
-         currentData.setYourStacksActivity(this);
+        currentData.setYourStacksActivity(this);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.recyclerViewStapel);
         customViewAdapter = new YourStacksCustomViewAdapter(allDecksList, getApplicationContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

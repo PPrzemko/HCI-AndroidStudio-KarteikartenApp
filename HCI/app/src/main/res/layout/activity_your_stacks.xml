@@ -98,7 +98,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnFriendslist"
         app:layout_constraintEnd_toStartOf="@+id/buttonAddCard"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewStapel" />
 
     <Button
         android:id="@+id/buttonAddCard"
@@ -109,17 +109,18 @@
         app:layout_constraintBottom_toTopOf="@+id/btnLogout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonCreateStack"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewStapel"
         app:layout_constraintVertical_bias="0.508" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerViewStapel"
         android:layout_width="366dp"
         android:layout_height="386dp"
         android:background="@color/Background"
         android:backgroundTint="@color/Background"
         app:layout_constraintBottom_toTopOf="@+id/buttonCreateStack"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewYourStacksHeadline" />
 
