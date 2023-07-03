@@ -58,4 +58,17 @@ public class UserRepository { //TODO Singleton werden
         return gefundenerUser;
     };
 
+    public boolean findbyUserName3(String name){
+        boolean existiert = false;
+        for(User user : usersList.values()){
+            if(user.getUsername().equals(name)){
+                existiert = true;
+                break;
+            }
+                existiert = false;
+        }
+        return existiert;
+
+    };
+
 }

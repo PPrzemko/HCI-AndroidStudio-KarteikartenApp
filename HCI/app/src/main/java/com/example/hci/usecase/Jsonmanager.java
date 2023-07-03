@@ -33,6 +33,7 @@ import java.util.UUID;
 public class Jsonmanager {
 
     private static Jsonmanager instance;
+    UserRepository userRepository = UserRepository.getInstance();
     public static Jsonmanager getInstance(){
         if(instance == null){
             instance = new Jsonmanager();
@@ -200,6 +201,16 @@ public class Jsonmanager {
 
 
                 }
+                String jsonStringFreunde = person.get("Alle Freunde").toString();
+                JSONArray jsonArrayFreunde = new JSONArray(jsonStringFreunde);
+                for (int i = 0; i < jsonArrayFreunde.length(); i++) {
+                    JSONObject obj = jsonArrayFreunde.getJSONObject(i);
+                    String username = (String) obj.get("Username");
+                    User freund = userRepository.findbyUserName2(username);
+                    user.addFriend(freund);
+                }
+
+
 
 
 

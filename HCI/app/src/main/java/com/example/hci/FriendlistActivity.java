@@ -2,11 +2,15 @@ package com.example.hci;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ArrayAdapter;
@@ -15,6 +19,7 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.example.hci.model.Deck;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
@@ -31,6 +36,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -42,6 +48,7 @@ public class FriendlistActivity extends AppCompatActivity {
     private Jsonmanager jsonmanager = Jsonmanager.getInstance();
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,14 +57,54 @@ public class FriendlistActivity extends AppCompatActivity {
 
         //listView = (ListView) findViewById(R.id.listview1);
 
-        TextView textView = findViewById(R.id.textViewFriendlistHeadline);
-        textView.setText("Freundesliste");
 
-        LinearLayout linear = findViewById(R.id.LinearLayoutFriendlist);
         User neu = userRepository.findById(currentData.getUserId());
 
+        LinearLayout linearLayout = findViewById(R.id.linearlayout);
+
+        for(User friends : neu.getFriends()){
+            TextView einFreund = new TextView(this);
+            einFreund.setText(friends.getUsername());
+            linearLayout.addView(einFreund);
+        }
+
+        TextView MeldungHinzugefuegt = findViewById(R.id.Meldung2);
+        MeldungHinzugefuegt.setVisibility(View.INVISIBLE);
+
+
+
+        Button freundesuchenButton = findViewById(R.id.buttonFreunde);
+
+        freundesuchenButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView usernameEingabe = findViewById(R.id.UsernameEingeben);
+                String userNameEingabeString = usernameEingabe.getText().toString();
+                if(userRepository.findbyUserName3(userNameEingabeString) == true){
+                    User neuerFreund = userRepository.findbyUserName2(userNameEingabeString);
+                    neu.addFriend(neuerFreund);
+                    MeldungHinzugefuegt.setText("User wurde zu deinen Freuden hinzugefügt");
+                    MeldungHinzugefuegt.setVisibility(View.VISIBLE);
+                    LinearLayout linearLayout = findViewById(R.id.linearlayout);
+                    linearLayout.removeAllViews();
+                    for(User friends : neu.getFriends()){
+                        TextView einFreund2 = new TextView(FriendlistActivity.this);
+                        einFreund2.setText(friends.getUsername());
+                        linearLayout.addView(einFreund2);
+                    }
+                }
+                else{
+                    MeldungHinzugefuegt.setText("User existiert nicht");
+                    MeldungHinzugefuegt.setVisibility(View.VISIBLE);
+                }
+                MeldungHinzugefuegt.setVisibility(View.INVISIBLE);
+                usernameEingabe.setText("");
+            }
+        });
+
+
         //TESTOBJEKT
-        User momentanerUser = userRepository.findById(currentData.getUserId());
+        /*User momentanerUser = userRepository.findById(currentData.getUserId());
         User neuerFreund = new User("Luis", "gmx", "123");
         User neuerFreund2 = new User("Franzi", "gmx", "123");
         User neuerFreund3 = new User("Leon", "gmx", "123");
@@ -80,7 +127,8 @@ public class FriendlistActivity extends AppCompatActivity {
             txt.setPadding(0, 40, 0, 40);
             txt.setGravity(Gravity.CENTER);
             linear.addView(txt);
-        }
+        }*/
+
     }
 
     public void navbar() {
