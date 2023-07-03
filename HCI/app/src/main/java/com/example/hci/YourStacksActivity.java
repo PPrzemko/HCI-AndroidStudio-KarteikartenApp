@@ -44,11 +44,12 @@ public class YourStacksActivity extends AppCompatActivity {
         textView.setText("Deine Stapel");
 
         UUID id=currentData.getUserId();
+        if(id==null)
+            return;
         Log.d("HHHHHHHHHHHHHHHHHHH", id.toString());
         User currentUser = userRepository.findById(id);
         Log.d("DDDDDDDDDDD", currentUser.toString());
-        if(currentUser ==null)
-            return;
+
         HashMap<UUID,Deck> allDecksMap = currentUser.getOwnDecks(); ////////////////////////////////////////////////////////////
 
          ArrayList<Deck> allDecksList = new ArrayList<Deck>();

@@ -53,7 +53,7 @@ public class Registrierung extends AppCompatActivity {
                 //zu Activitäten view wechseln -> user name übergeben
                 //json einlesen
 
-                Intent i = new Intent(getApplicationContext(), YourStacksActivity.class);
+                Intent i = new Intent(getApplicationContext(), Tutorial1.class);
                 EditText editText;
 
                 editText = findViewById(R.id.NameEingabe);
