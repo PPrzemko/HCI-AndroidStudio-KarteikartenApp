@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:background="@drawable/roundedcorner"
 
+    android:backgroundTint="#add8e6"
     tools:visibility="visible">
 
     <TextView

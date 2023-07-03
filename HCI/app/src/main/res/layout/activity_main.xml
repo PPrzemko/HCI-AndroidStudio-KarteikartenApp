@@ -97,6 +97,7 @@
         android:id="@+id/Login"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/Primary"
         android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

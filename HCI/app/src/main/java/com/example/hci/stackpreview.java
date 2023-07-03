@@ -77,7 +77,6 @@ public class stackpreview extends AppCompatActivity {
 
         TextView searchInputTextEdit = findViewById(R.id.editTextFilterInput);
 
-
         ImageButton searchButton = findViewById(R.id.searchButton);
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,6 +105,4 @@ public class stackpreview extends AppCompatActivity {
             }
         });
     }
-
-
 }
