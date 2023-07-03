@@ -116,8 +116,6 @@
         android:id="@+id/recyclerView"
         android:layout_width="366dp"
         android:layout_height="386dp"
-        android:background="@color/Background"
-        android:backgroundTint="@color/Background"
         app:layout_constraintBottom_toTopOf="@+id/buttonCreateStack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
