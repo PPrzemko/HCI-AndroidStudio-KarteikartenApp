@@ -54,6 +54,7 @@ public class FriendlistActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_friendlist);
         navbar();
+        long delayMillis = 10000;
 
         //listView = (ListView) findViewById(R.id.listview1);
 
@@ -83,8 +84,10 @@ public class FriendlistActivity extends AppCompatActivity {
                 if(userRepository.findbyUserName3(userNameEingabeString) == true){
                     User neuerFreund = userRepository.findbyUserName2(userNameEingabeString);
                     neu.addFriend(neuerFreund);
+
                     MeldungHinzugefuegt.setText("User wurde zu deinen Freuden hinzugefügt");
                     MeldungHinzugefuegt.setVisibility(View.VISIBLE);
+
                     LinearLayout linearLayout = findViewById(R.id.linearlayout);
                     linearLayout.removeAllViews();
                     for(User friends : neu.getFriends()){
@@ -94,11 +97,19 @@ public class FriendlistActivity extends AppCompatActivity {
                     }
                 }
                 else{
-                    MeldungHinzugefuegt.setText("User existiert nicht");
-                    MeldungHinzugefuegt.setVisibility(View.VISIBLE);
+                     MeldungHinzugefuegt.setText("User existiert nicht");
+
+                     MeldungHinzugefuegt.setVisibility(View.VISIBLE);
+
                 }
-                MeldungHinzugefuegt.setVisibility(View.INVISIBLE);
-                usernameEingabe.setText("");
+                MeldungHinzugefuegt.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        MeldungHinzugefuegt.setVisibility(View.INVISIBLE);
+                        usernameEingabe.setText("");
+                    }
+                },delayMillis);
+
             }
         });
 
