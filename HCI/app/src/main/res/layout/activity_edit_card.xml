@@ -67,11 +67,13 @@
 
     <Button
         android:id="@+id/saveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="148dp"
+        android:layout_height="62dp"
         android:layout_marginTop="28dp"
         android:backgroundTint="@color/Primary"
         android:text="Speichern"
+        android:textAlignment="center"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/btnStack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
@@ -104,6 +106,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/Primary"
         android:text="back"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

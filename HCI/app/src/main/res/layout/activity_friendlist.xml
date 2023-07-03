@@ -71,9 +71,10 @@
 
     <TextView
         android:id="@+id/textViewFriendlistHeadline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="239dp"
+        android:layout_height="47dp"
         android:text="Freundesliste"
+        android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"

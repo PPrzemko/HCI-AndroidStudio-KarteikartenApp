@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         Button LoginButton = findViewById(R.id.Login);
         TextView errorNoUser = findViewById(R.id.errorNoUser);
         errorNoUser.setVisibility(View.INVISIBLE);
-        errorNoUser.setText("Der Nutzername oder das Passwort ist falsch oder existiert nicht");
+        errorNoUser.setText("");
         jsonmanager.readFromJson(getApplicationContext());
 
 
@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if(UserRepository.getInstance().getUsersList().size() == 0){
                     errorNoUser.setVisibility(View.VISIBLE);
+                    errorNoUser.setText("Der Nutzername oder das Passwort ist falsch oder existiert nicht");;
                 }else {
                     for (Map.Entry<UUID, User> entry : UserRepository.getInstance().getUsersList().entrySet()) {
                         String neuerName = entry.getValue().getUsername().toString();
@@ -82,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         }else{
                             //TODO: Fehlermeldung
                             errorNoUser.setVisibility(View.VISIBLE);
+                            errorNoUser.setText("Der Nutzername oder das Passwort ist falsch oder existiert nicht");;
                         }
                         ;
                     }

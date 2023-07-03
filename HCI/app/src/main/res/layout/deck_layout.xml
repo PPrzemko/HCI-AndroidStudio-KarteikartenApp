@@ -11,8 +11,9 @@
 
     <TextView
         android:id="@+id/DeckName"
-        android:layout_width="244dp"
-        android:layout_height="34dp"
+        android:layout_width="254dp"
+        android:layout_height="44dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.098"
@@ -22,8 +23,9 @@
 
     <TextView
         android:id="@+id/DeckCount"
-        android:layout_width="82dp"
-        android:layout_height="37dp"
+        android:layout_width="86dp"
+        android:layout_height="43dp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.899"
