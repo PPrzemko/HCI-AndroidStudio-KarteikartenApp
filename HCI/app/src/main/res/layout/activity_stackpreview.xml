@@ -53,16 +53,17 @@
 
     <EditText
         android:id="@+id/editTextFilterInput"
-        android:layout_width="290dp"
-        android:layout_height="48dp"
+        android:layout_width="286dp"
+        android:layout_height="63dp"
         android:ems="10"
         android:hint="       Suche"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintHorizontal_bias="0.793"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.101" />
 
     <TextView
         android:id="@+id/stackPreviewTitle"
@@ -81,6 +82,7 @@
         android:id="@+id/recyclerViewStackPreview"
         android:layout_width="403dp"
         android:layout_height="445dp"
+        android:scrollbarSize="16dp"
         app:layout_constraintBottom_toTopOf="@+id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

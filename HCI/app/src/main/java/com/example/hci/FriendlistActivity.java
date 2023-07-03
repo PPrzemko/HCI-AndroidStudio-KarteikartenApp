@@ -47,9 +47,6 @@ public class FriendlistActivity extends AppCompatActivity {
     private UserRepository userRepository= UserRepository.getInstance();
     private Jsonmanager jsonmanager = Jsonmanager.getInstance();
 
-    CustomAdapter customViewAdapterFreunde;
-
-    RecyclerView recyclerView;
 
 
     @Override
@@ -63,19 +60,13 @@ public class FriendlistActivity extends AppCompatActivity {
 
         User neu = userRepository.findById(currentData.getUserId());
 
-        //TextView textView = findViewById(R.id.textViewFriendlistHeadline);
-        //textView.setText("Freundesliste");
-        if(neu ==null)
-            return;
-        ArrayList<User> allFriends = new ArrayList<User>();
-        for(User user : neu.getFriends()){
-            allFriends.add(user);
-        }
+        LinearLayout linearLayout = findViewById(R.id.linearlayout);
 
-        recyclerView = findViewById(R.id.recyclerViewFreunde);
-        customViewAdapterFreunde = new CustomAdapter(allFriends, getApplicationContext());
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(customViewAdapterFreunde);
+        for(User friends : neu.getFriends()){
+            TextView einFreund = new TextView(this);
+            einFreund.setText(friends.getUsername());
+            linearLayout.addView(einFreund);
+        }
 
         TextView MeldungHinzugefuegt = findViewById(R.id.Meldung2);
         MeldungHinzugefuegt.setVisibility(View.INVISIBLE);
@@ -94,11 +85,20 @@ public class FriendlistActivity extends AppCompatActivity {
                     neu.addFriend(neuerFreund);
                     MeldungHinzugefuegt.setText("User wurde zu deinen Freuden hinzugefügt");
                     MeldungHinzugefuegt.setVisibility(View.VISIBLE);
+                    LinearLayout linearLayout = findViewById(R.id.linearlayout);
+                    linearLayout.removeAllViews();
+                    for(User friends : neu.getFriends()){
+                        TextView einFreund2 = new TextView(FriendlistActivity.this);
+                        einFreund2.setText(friends.getUsername());
+                        linearLayout.addView(einFreund2);
+                    }
                 }
                 else{
                     MeldungHinzugefuegt.setText("User existiert nicht");
                     MeldungHinzugefuegt.setVisibility(View.VISIBLE);
                 }
+                MeldungHinzugefuegt.setVisibility(View.INVISIBLE);
+                usernameEingabe.setText("");
             }
         });
 
