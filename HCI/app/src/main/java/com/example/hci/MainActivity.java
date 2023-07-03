@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button LoginButton = findViewById(R.id.Login);
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                         String nerPasswort = entry.getValue().getPassword().toString();
                         if (neuerName.equals(nutzername) && nerPasswort.equals(password)) {
                             currentData.setUserId(entry.getKey());
-                            Intent i = new Intent(getApplicationContext(), FriendfeedActivity.class);
+                            Intent i = new Intent(getApplicationContext(), YourStacksActivity.class);
                             startActivity(i);
                         }else{
                             //TODO: Fehlermeldung

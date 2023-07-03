@@ -68,7 +68,6 @@ public class FriendlistActivity extends AppCompatActivity {
         momentanerUser.addFriend(neuerFreund4);
         //**********
 
-
         TextView[] textViews = new TextView[20];
         String alleFreunde = "";
         for (User u : neu.getFriends()) {
@@ -82,27 +81,7 @@ public class FriendlistActivity extends AppCompatActivity {
             txt.setGravity(Gravity.CENTER);
             linear.addView(txt);
         }
-
-        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String s) {
-                User gesuchterUser = userRepository.findbyUserName2(s);
-                User momentanerUser = userRepository.findById(currentData.getUserId());
-                momentanerUser.addFriend(gesuchterUser);
-
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String s) {
-                return false;
-            }
-        });*/
-
-
     }
-
-
 
     public void navbar() {
         ImageButton a = findViewById(R.id.btnActivity);

@@ -75,6 +75,7 @@
         app:layout_constraintStart_toEndOf="@+id/btnStack"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.998" />
+
     <TextView
         android:id="@+id/textViewYourStacksHeadline"
         android:layout_width="wrap_content"
@@ -82,24 +83,11 @@
         android:layout_marginStart="126dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="125dp"
-        android:layout_marginBottom="38dp"
         android:text="Deine Stapel"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:layout_constraintBottom_toTopOf="@+id/SearchViewYourStacks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <SearchView
-        android:id="@+id/SearchViewYourStacks"
-        android:layout_width="305dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="34dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewYourStacksHeadline" />
 
     <Button
         android:id="@+id/buttonCreateStack"
@@ -129,7 +117,6 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonCreateStack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/SearchViewYourStacks"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewYourStacksHeadline" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
