@@ -67,7 +67,6 @@
         android:layout_width="346dp"
         android:layout_height="485dp"
         android:layout_marginTop="19dp"
-        android:background="@color/Background"
         app:layout_constraintBottom_toTopOf="@+id/btnStack"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

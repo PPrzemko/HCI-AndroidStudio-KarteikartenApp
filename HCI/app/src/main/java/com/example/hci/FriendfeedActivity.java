@@ -50,6 +50,7 @@ public class FriendfeedActivity extends AppCompatActivity {
         LinearLayout linearLayout = findViewById(R.id.linearLayoutFriendfeed);
         for(User user : momentaneruser.getFriends()){
            TextView aktivi = new TextView(this);
+           aktivi.setTextSize(20);
            String scoreString = String.valueOf(user.getScore());
            int letztesElement = user.getAchievements().size()-1;
            Achievement letztesAchievement = user.getLatestAchievements();
