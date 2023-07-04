@@ -11,14 +11,19 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.hci.model.Achievement;
 import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
+import com.example.hci.model.User;
 import com.example.hci.repositories.DeckRepository;
+import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.LearningSession;
 
 public class card extends AppCompatActivity {
 
+    private UserRepository userRepository= UserRepository.getInstance();
+    DeckRepository deckRepository = DeckRepository.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,6 +77,8 @@ public class card extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), card.class);
                 learningSession.showFlashCardAgainAtEnd(currentCard);
+                Deck aktuellesDeck = deckRepository.findById(currentData.getDeckId());
+                Achievement achievementneu = new Achievement(aktuellesDeck.getName());
                 learningSession.incrementCounter();
                 if (learningSession.checkForLastCard()) {
                     i = new Intent(getApplicationContext(), stackpreview.class);
@@ -79,6 +86,9 @@ public class card extends AppCompatActivity {
                     wrongButton.setVisibility(View.INVISIBLE);
                     correctButton.setVisibility(View.INVISIBLE);
                     front.setText("Herzlichen Glückwunsch, du hast die letzte Karte dieses Durchgangs gelernt");
+                    User momentaner = userRepository.findById(currentData.getUserId());
+                    momentaner.getAchievements().add(achievementneu);
+                    momentaner.setScore(1);
                 } else {
                     startActivity(i);
                 }
@@ -90,12 +100,17 @@ public class card extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), card.class);
                 learningSession.incrementCounter();
+                Deck aktuellesDeck = deckRepository.findById(currentData.getDeckId());
+                Achievement achievementneu = new Achievement(aktuellesDeck.getName());
                 if (learningSession.checkForLastCard()) {
                     i = new Intent(getApplicationContext(), stackpreview.class);
                     back.setVisibility(View.INVISIBLE);
                     wrongButton.setVisibility(View.INVISIBLE);
                     correctButton.setVisibility(View.INVISIBLE);
                     front.setText("Herzlichen Glückwunsch, du hast die letzte Karte dieses Durchgangs gelernt");
+                    User momentaner = userRepository.findById(currentData.getUserId());
+                    momentaner.getAchievements().add(achievementneu);
+                    momentaner.setScore(1);
                 } else {
                     startActivity(i);
                 }

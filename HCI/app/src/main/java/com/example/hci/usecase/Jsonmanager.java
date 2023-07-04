@@ -2,6 +2,7 @@ package com.example.hci.usecase;
 
 import android.content.Context;
 
+import com.example.hci.model.Achievement;
 import com.example.hci.model.Deck;
 import com.example.hci.model.FlashCard;
 import com.example.hci.model.User;
@@ -68,6 +69,12 @@ public class Jsonmanager {
             } catch (JSONException ex) {
                 throw new RuntimeException(ex);
             }
+            try {
+                aUser.put("Score", entry.getValue().getScore());
+            } catch (JSONException ex) {
+                throw new RuntimeException(ex);
+            }
+
             JSONArray ganzerStapel = new JSONArray();
             for (Map.Entry<UUID, Deck> entry2 : entry.getValue().getOwnDecks().entrySet()) {
                 String deckName = entry2.getValue().getName();
@@ -117,6 +124,23 @@ public class Jsonmanager {
                 throw new RuntimeException(e);
             }
 
+            JSONArray ganzesAchivement = new JSONArray();
+            for(Achievement eigenes : entry.getValue().getAchievements()){
+                JSONObject einAchivement = new JSONObject();
+                try {
+                    einAchivement.put("Aktivitaet", eigenes.getDeckname());
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+                ganzesAchivement.put(einAchivement);
+            }
+
+            try {
+                aUser.put("Alle Aktivitaeten", ganzesAchivement);
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+
             jsonArray.put(aUser);
         }
         try {
@@ -161,7 +185,12 @@ public class Jsonmanager {
 
                 String password = person.get("Password").toString();
 
-                User user = new User(name, email, password);
+                String scoure = person.get("Score").toString();
+
+                int score = Integer.parseInt(scoure);
+
+
+                User user = new User(name, email, password, score);
                 UserRepository.getInstance().save(user);
 
 
@@ -208,6 +237,14 @@ public class Jsonmanager {
                     String username = (String) obj.get("Username");
                     User freund = userRepository.findbyUserName2(username);
                     user.addFriend(freund);
+                }
+                String jsonStringAktivi = person.get("Alle Aktivitaeten").toString();
+                JSONArray jsonArrayAktivi = new JSONArray(jsonStringAktivi);
+                for (int i = 0; i < jsonArrayAktivi.length(); i++) {
+                    JSONObject obj = jsonArrayAktivi.getJSONObject(i);
+                    String aktiname = (String) obj.get("Aktivitaet");
+                    Achievement achievement = new Achievement(aktiname);
+                    user.addAchievment(achievement);
                 }
 
 
