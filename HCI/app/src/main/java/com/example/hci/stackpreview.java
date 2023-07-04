@@ -59,6 +59,9 @@ public class stackpreview extends AppCompatActivity {
 
 
         Button learnStackButton = findViewById(R.id.registerButton);
+        if(currentDeck.getFlashCards().size() == 0) {
+            learnStackButton.setEnabled(false);
+        }
         learnStackButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
