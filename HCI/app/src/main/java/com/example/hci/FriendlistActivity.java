@@ -42,11 +42,13 @@ public class FriendlistActivity extends AppCompatActivity {
 
         for(User friends : neu.getFriends()){
             TextView einFreund = new TextView(this);
+            einFreund.setTextSize(20);
             einFreund.setText(friends.getUsername());
             linearLayout.addView(einFreund);
         }
 
         TextView MeldungHinzugefuegt = findViewById(R.id.Meldung2);
+        MeldungHinzugefuegt.setTextSize(15);
         MeldungHinzugefuegt.setVisibility(View.INVISIBLE);
 
 
@@ -69,6 +71,7 @@ public class FriendlistActivity extends AppCompatActivity {
                         for(User friends : neu.getFriends()){
                             TextView einFreund2 = new TextView(FriendlistActivity.this);
                             einFreund2.setText(friends.getUsername());
+                            einFreund2.setTextSize(20);
                             linearLayout.addView(einFreund2);
                         }
                     }
