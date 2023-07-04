@@ -1,15 +1,11 @@
 package com.example.hci.repositories;
 
-import android.content.Intent;
 import android.util.Log;
-import android.view.View;
 
-import com.example.hci.YourStacksActivity;
 import com.example.hci.model.User;
 
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class UserRepository  { //TODO Singleton werden
 
@@ -54,7 +50,7 @@ public class UserRepository  { //TODO Singleton werden
         return returnSet;
     }
 
-    public User findbyUserName2(String name){
+    public User findUserByName(String name){
         User gefundenerUser = null;
         for(User user : usersList.values()){
             if(user.getUsername().equals(name)){
@@ -65,7 +61,7 @@ public class UserRepository  { //TODO Singleton werden
         return gefundenerUser;
     };
 
-    public boolean findbyUserName3(String name){
+    public boolean checkIfUserExists(String name){
         boolean existiert = false;
         for(User user : usersList.values()){
             if(user.getUsername().equals(name)){

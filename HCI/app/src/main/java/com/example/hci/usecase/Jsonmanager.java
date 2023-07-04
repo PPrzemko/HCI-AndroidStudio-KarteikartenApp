@@ -243,7 +243,7 @@ public class Jsonmanager {
                 for (int i = 0; i < jsonArrayFreunde.length(); i++) {
                     JSONObject obj = jsonArrayFreunde.getJSONObject(i);
                     String username = (String) obj.get("Username");
-                    User freund = userRepository.findbyUserName2(username);
+                    User freund = userRepository.findUserByName(username);
                     user.addFriend(freund);
                 }
                 String jsonStringAktivi = person.get("Alle Aktivitaeten").toString();
