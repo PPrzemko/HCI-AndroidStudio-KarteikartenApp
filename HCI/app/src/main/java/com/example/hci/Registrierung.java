@@ -73,7 +73,7 @@ public class Registrierung extends AppCompatActivity {
                     startActivity(i);
                 }else{
                     errorNoUser.setVisibility(View.VISIBLE);
-                    errorNoUser.setText("User already exists");
+                    errorNoUser.setText("Benutzername existiert schon");
                 }
 
 
