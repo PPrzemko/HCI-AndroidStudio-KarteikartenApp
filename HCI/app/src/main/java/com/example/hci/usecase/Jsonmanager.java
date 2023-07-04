@@ -1,6 +1,7 @@
 package com.example.hci.usecase;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.example.hci.model.Achievement;
 import com.example.hci.model.Deck;
@@ -12,7 +13,6 @@ import com.example.hci.repositories.UserRepository;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.JSONStringer;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -109,14 +109,22 @@ public class Jsonmanager {
                 }
 
                 JSONArray alleFreunde = new JSONArray();
-                for (User friends : entry.getValue().getFriends()) {
-                    JSONObject einFreund = new JSONObject();
-                    try {
-                        einFreund.put("Username", friends.getUsername());
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
+                ArrayList<User> friendList = entry.getValue().getFriends();
+                if(!friendList.isEmpty()){
+                    for (User friends : friendList) {
+                        JSONObject einFreund = new JSONObject();
+                        try {
+                            if (friends != null){
+                                einFreund.put("Username", friends.getUsername());
+                            }else{
+                                // TODO: Error log
+                                Log.e("JsonManager", "Friend is null");
+                            }
+                        } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                        alleFreunde.put(einFreund);
                     }
-                    alleFreunde.put(einFreund);
                 }
             try {
                 aUser.put("Alle Freunde", alleFreunde);
