@@ -48,21 +48,29 @@ public class FriendfeedActivity extends AppCompatActivity {
         textView.setText("Aktivitäten");
 
         LinearLayout linearLayout = findViewById(R.id.linearLayoutFriendfeed);
-        for(User user : momentaneruser.getFriends()){
-           TextView aktivi = new TextView(this);
-           aktivi.setTextSize(20);
-           String scoreString = String.valueOf(user.getScore());
-           int letztesElement = user.getAchievements().size()-1;
-           Achievement letztesAchievement = user.getLatestAchievements();
-           if(letztesAchievement != null){
-               String ausgabe = user.getUsername() + " hat folgendes Deck gelernt:  " + letztesAchievement.getDeckname() + " - Score " + scoreString + System.lineSeparator();
-               aktivi.setText(ausgabe);
-               linearLayout.addView(aktivi);
-           }else{
-               Log.d("Error:", "FriendFeedActivity: " + "Keine Achievements vorhanden");
-           }
+        if(momentaneruser.getFriends().size() == 0){
+            TextView textView1 = new TextView(this);
+            textView1.setText("Ganz schön leer hier...");
+            textView1.setTextSize(20);
+            linearLayout.addView(textView1);
+        }else{
+            for(User user : momentaneruser.getFriends()){
+                TextView aktivi = new TextView(this);
+                aktivi.setTextSize(20);
+                String scoreString = String.valueOf(user.getScore());
+                int letztesElement = user.getAchievements().size()-1;
+                Achievement letztesAchievement = user.getLatestAchievements();
+                if(letztesAchievement != null){
+                    String ausgabe = user.getUsername() + " hat folgendes Deck gelernt:  " + letztesAchievement.getDeckname() + " - Score " + scoreString + System.lineSeparator();
+                    aktivi.setText(ausgabe);
+                    linearLayout.addView(aktivi);
+                }else{
+                    Log.d("Error:", "FriendFeedActivity: " + "Keine Achievements vorhanden");
+                }
 
+            }
         }
+
 
         navbar();
     }
