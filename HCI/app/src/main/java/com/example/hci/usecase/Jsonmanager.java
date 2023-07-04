@@ -240,21 +240,29 @@ public class Jsonmanager {
                 }
                 String jsonStringFreunde = person.get("Alle Freunde").toString();
                 JSONArray jsonArrayFreunde = new JSONArray(jsonStringFreunde);
-                for (int i = 0; i < jsonArrayFreunde.length(); i++) {
-                    JSONObject obj = jsonArrayFreunde.getJSONObject(i);
-                    String username = (String) obj.get("Username");
-                    User freund = userRepository.findUserByName(username);
-                    user.addFriend(freund);
+                if(jsonArrayFreunde.length() > 0) {
+                    for (int i = 0; i < jsonArrayFreunde.length(); i++) {
+                        JSONObject obj = jsonArrayFreunde.getJSONObject(i);
+                        String username = (String) obj.get("Username");
+                        User freund = userRepository.findUserByName(username);
+                        // TODO: nullptr execption fix
+                        if(freund != null){
+                            user.addFriend(freund);
+                        }else{
+                            Log.d("JsonManager", "Friend is null ERROR0");
+                        }
+                    }
                 }
                 String jsonStringAktivi = person.get("Alle Aktivitaeten").toString();
                 JSONArray jsonArrayAktivi = new JSONArray(jsonStringAktivi);
-                for (int i = 0; i < jsonArrayAktivi.length(); i++) {
-                    JSONObject obj = jsonArrayAktivi.getJSONObject(i);
-                    String aktiname = (String) obj.get("Aktivitaet");
-                    Achievement achievement = new Achievement(aktiname);
-                    user.addAchievment(achievement);
+                if(jsonArrayAktivi.length() > 0) {
+                    for (int i = 0; i < jsonArrayAktivi.length(); i++) {
+                        JSONObject obj = jsonArrayAktivi.getJSONObject(i);
+                        String aktiname = (String) obj.get("Aktivitaet");
+                        Achievement achievement = new Achievement(aktiname);
+                        user.addAchievment(achievement);
+                    }
                 }
-
 
 
 
