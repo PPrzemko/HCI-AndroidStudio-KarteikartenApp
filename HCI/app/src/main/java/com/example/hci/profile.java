@@ -66,6 +66,15 @@ public class profile extends AppCompatActivity {
                 currentUser.setUsername(tvUsername.getText().toString());
             }
         });
+
+        ImageButton helpbtn = findViewById(R.id.helpbtn);
+        helpbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), Tutorial1.class);
+                startActivity(i);
+            }
+        });
     }
 
     public void navbar() {
