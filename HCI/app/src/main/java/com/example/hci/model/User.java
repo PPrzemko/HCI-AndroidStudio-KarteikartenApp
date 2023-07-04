@@ -63,6 +63,12 @@ public class User{
         return achievements;
     }
 
+    public Achievement getLatestAchievements() {
+        if(achievements.isEmpty()){
+            return null;
+        }
+        return achievements.get(achievements.size() - 1);
+    }
     public HashMap<UUID, Deck> getOwnDecks() {
         // DONT every use DEPRECATED
         return ownDecks;

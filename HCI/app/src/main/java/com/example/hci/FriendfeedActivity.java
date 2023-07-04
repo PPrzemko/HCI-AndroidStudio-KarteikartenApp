@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.hci.model.Achievement;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
@@ -50,9 +52,15 @@ public class FriendfeedActivity extends AppCompatActivity {
            TextView aktivi = new TextView(this);
            String scoreString = String.valueOf(user.getScore());
            int letztesElement = user.getAchievements().size()-1;
-           String ausgabe = user.getUsername() + " hat folgendes Deck gelernt:  " + user.getAchievements().get(letztesElement).getDeckname() + " - Score " + scoreString + System.lineSeparator();
-           aktivi.setText(ausgabe);
-           linearLayout.addView(aktivi);
+           Achievement letztesAchievement = user.getLatestAchievements();
+           if(letztesAchievement != null){
+               String ausgabe = user.getUsername() + " hat folgendes Deck gelernt:  " + letztesAchievement.getDeckname() + " - Score " + scoreString + System.lineSeparator();
+               aktivi.setText(ausgabe);
+               linearLayout.addView(aktivi);
+           }else{
+               Log.d("Error:", "FriendFeedActivity: " + "Keine Achievements vorhanden");
+           }
+
         }
 
         navbar();
