@@ -2,43 +2,20 @@ package com.example.hci;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
 
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ArrayAdapter;
-import android.widget.Filter;
-import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.TextView;
 
-import com.example.hci.model.Deck;
 import com.example.hci.model.User;
 import com.example.hci.repositories.UserRepository;
 import com.example.hci.usecase.CurrentData;
 import com.example.hci.usecase.Jsonmanager;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
 
 
 public class FriendlistActivity extends AppCompatActivity {
@@ -81,20 +58,25 @@ public class FriendlistActivity extends AppCompatActivity {
             public void onClick(View view) {
                 TextView usernameEingabe = findViewById(R.id.UsernameEingeben);
                 String userNameEingabeString = usernameEingabe.getText().toString();
-                if(userRepository.findbyUserName3(userNameEingabeString) == true){
-                    User neuerFreund = userRepository.findbyUserName2(userNameEingabeString);
-                    neu.addFriend(neuerFreund);
+                if(userRepository.checkIfUserExists(userNameEingabeString)){
+                    User neuerFreund = userRepository.findUserByName(userNameEingabeString);
+                    if(neu.addFriend(neuerFreund)){
+                        MeldungHinzugefuegt.setText("User wurde zu deinen Freuden hinzugefügt");
+                        MeldungHinzugefuegt.setVisibility(View.VISIBLE);
 
-                    MeldungHinzugefuegt.setText("User wurde zu deinen Freuden hinzugefügt");
-                    MeldungHinzugefuegt.setVisibility(View.VISIBLE);
-
-                    LinearLayout linearLayout = findViewById(R.id.linearlayout);
-                    linearLayout.removeAllViews();
-                    for(User friends : neu.getFriends()){
-                        TextView einFreund2 = new TextView(FriendlistActivity.this);
-                        einFreund2.setText(friends.getUsername());
-                        linearLayout.addView(einFreund2);
+                        LinearLayout linearLayout = findViewById(R.id.linearlayout);
+                        linearLayout.removeAllViews();
+                        for(User friends : neu.getFriends()){
+                            TextView einFreund2 = new TextView(FriendlistActivity.this);
+                            einFreund2.setText(friends.getUsername());
+                            linearLayout.addView(einFreund2);
+                        }
                     }
+                    else{
+                        MeldungHinzugefuegt.setText("User ist bereits in deiner Freundesliste");
+                        MeldungHinzugefuegt.setVisibility(View.VISIBLE);
+                    }
+
                 }
                 else{
                      MeldungHinzugefuegt.setText("User existiert nicht");

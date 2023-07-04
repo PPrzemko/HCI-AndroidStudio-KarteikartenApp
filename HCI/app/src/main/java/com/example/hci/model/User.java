@@ -96,8 +96,20 @@ public class User{
         achievements.add(achievement);
     }
 
-    public void addFriend(User friend){
+    public boolean addFriend(User friend){
+        // Check if friend is already in Friendlist
+        for (User friendArr : friends) {
+            if(friendArr.getUsername().equals(friend.getUsername())){
+                return false;
+            }
+        }
+        // Cannot add yourself as friend
+        if(friend.getUsername().equals(this.getUsername())){
+            return false;
+        }
+        // Add friend
         friends.add(friend);
+        return true;
     }
 
     public void addOwnDeck(Deck deck){
