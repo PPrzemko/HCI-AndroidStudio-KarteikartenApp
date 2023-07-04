@@ -110,7 +110,6 @@
         android:layout_height="54dp"
         android:layout_marginEnd="32dp"
         android:foreground="@android:drawable/ic_menu_search"
-        android:text="F"
         android:textColorHighlight="#00BCD4"
         android:textColorLink="#00BCD4"
         app:layout_constraintBottom_toTopOf="@+id/Meldung2"
