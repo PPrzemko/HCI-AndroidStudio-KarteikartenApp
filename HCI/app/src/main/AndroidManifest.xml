@@ -34,8 +34,7 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".card"
-            android:exported="true"
-            android:screenOrientation="portrait"/>
+            android:exported="true" />
         <activity
             android:name=".stackpreview"
             android:exported="false"
