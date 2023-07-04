@@ -19,16 +19,6 @@ public class StackPreviewCustomViewHolder extends RecyclerView.ViewHolder {
         back = itemView.findViewById(R.id.cardBackTxt);
 
 
-        /*
-        icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                fruit.doSomething();
-                Toast.makeText(view.getContext(), name.getText() + " clicked!", Toast.LENGTH_SHORT).show();
-            }
-        });*/
-
-
 
 
     }

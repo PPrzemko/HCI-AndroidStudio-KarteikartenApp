@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.TextClock;
 import android.widget.TextView;
 
@@ -41,16 +42,7 @@ public class stackpreview extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerViewStackPreview);
         TextView titelTv = findViewById(R.id.stackPreviewTitle);
         titelTv.setText(currentDeck.getName());
- /*
-        //Test stuff
-        Deck testDeck = new Deck("test");
 
-        testDeck.addFlashCard(new FlashCard("vorne1", "hinten1"));
-        testDeck.addFlashCard(new FlashCard("vorne2", "hinten2"));
-
-        final Deck currentDeck= testDeck;
-        //Test stuff ende
-*/
 
         recyclerView = findViewById(R.id.recyclerViewStackPreview);
         ArrayList<FlashCard> test4 = null;
@@ -78,26 +70,23 @@ public class stackpreview extends AppCompatActivity {
             }
         });
 
-        TextView searchInputTextEdit = findViewById(R.id.editTextFilterInput);
-
-        ImageButton searchButton = findViewById(R.id.searchButton);
-        searchButton.setOnClickListener(new View.OnClickListener() {
+        SearchView searchViews = findViewById(R.id.SearchView2);
+        searchViews.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
-            public void onClick(View v) {
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-                String searchInput = searchInputTextEdit.getText().toString();
-
-                ArrayList<FlashCard> filteredList = currentDeck.searchForCardByQuery(searchInput);
-                if (filteredList.size() != 0) {
-                    currentData.setCurrenedFilteredCards(filteredList);
-                }else{
-                    currentData.setCurrenedFilteredCards(currentDeck.getFlashCards());
-                }
-
-                Intent i = new Intent(getApplicationContext(), stackpreview.class);
-                startActivity(i);
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // inside on query text change method we are
+                // calling a method to filter our recycler view.
+                ArrayList<FlashCard> test = currentDeck.searchForCardByQuery(newText);
+                customViewAdapter.setItemList(test);
+                return false;
             }
         });
+
 
         ImageButton backButton = findViewById(R.id.backbtn2);
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -108,4 +97,7 @@ public class stackpreview extends AppCompatActivity {
             }
         });
     }
+
+
+
 }

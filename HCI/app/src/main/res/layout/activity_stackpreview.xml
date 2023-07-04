@@ -5,38 +5,23 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize"
     android:windowSoftInputMode="adjustPan|adjustResize">
 
     <ImageButton
         android:id="@+id/backbtn2"
         android:layout_width="66dp"
         android:layout_height="46dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="#00FFFFFF"
         android:scaleX="0.8"
         android:scaleY="0.8"
         android:src="@drawable/back"
-        app:layout_constraintBottom_toTopOf="@+id/stackPreviewTitle"
+        app:layout_constraintBottom_toTopOf="@+id/SearchView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.046"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/searchButton"
-        android:layout_width="80dp"
-        android:layout_height="43dp"
-        android:layout_marginBottom="1dp"
-        android:backgroundTint="#00FFFFFF"
-        android:src="@android:drawable/ic_menu_search"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.012"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.114" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/registerButton"
@@ -51,20 +36,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-    <EditText
-        android:id="@+id/editTextFilterInput"
-        android:layout_width="286dp"
-        android:layout_height="63dp"
-        android:ems="10"
-        android:hint="       Suche"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.793"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.101" />
-
     <TextView
         android:id="@+id/stackPreviewTitle"
         android:layout_width="251dp"
@@ -74,12 +45,12 @@
         android:textColor="@color/Titel"
         android:textSize="34sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextFilterInput"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.283"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/SearchView2"
+        app:layout_constraintHorizontal_bias="0.232"
         app:layout_constraintStart_toEndOf="@+id/backbtn2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.177" />
+        app:layout_constraintVertical_bias="0.071" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewStackPreview"
@@ -89,7 +60,17 @@
         app:layout_constraintBottom_toTopOf="@+id/registerButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/SearchView2"
         app:layout_constraintVertical_bias="0.849" />
+
+    <SearchView
+        android:id="@+id/SearchView2"
+        android:layout_width="341dp"
+        android:layout_height="54dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewStackPreview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/stackPreviewTitle"
+        app:layout_constraintVertical_bias="0.531" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
