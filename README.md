@@ -99,9 +99,14 @@ Begründung der Entwurfsentscheidungen:
 ## Meilenstein 5: 
 
 Implementierung: <br>
- [Überblick über alle Screens](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein%20%235/AlleScreensM5.pdf)
- [Dokumentation über die geforderten Features mit Erklärungen](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein%20%235/DokuMeilenstein5.pdf)
- [Screenrecording](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein%20%235/Screen_Recording_20230704_230938_DIE_Karteikartenapp.mp4)
+ - [Überblick über alle Screens](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein%20%235/AlleScreensM5.pdf)
+ - [Dokumentation über die geforderten Features mit Erklärungen](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein%20%235/DokuMeilenstein5.pdf)
+ - [Screenrecording](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein%20%235/Screen_Recording_20230704_230938_DIE_Karteikartenapp.mp4)
+
+## Meilenstein 6:
+
+- [Usability Test mit Vorlage des Testprotokolls](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein%20%236/Usability%20Test.pdf)
+- [Design Review mit Pilottest und Verbesserungsideen](https://code.fbi.h-da.de/hci_ss2023_parent/hci-ss2023/hci-ss2023-Gruppe1-Roggenkamp_Stockbauer_Westermeier_Zerai-Micael/-/blob/main/Meilenstein%20%236/Design%20Review.pdf)
 
 ### Mitwirkende: 
 
